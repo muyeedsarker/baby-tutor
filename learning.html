@@ -3,150 +3,171 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>শেখার জগৎ — Baby Tutor</title>
+<meta name="theme-color" content="#6d4aff">
+<title>Baby Tutor — শিশুদের শেখা ও বিনোদন</title>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="platform.css">
 <script src="platform.js" defer></script>
 <style>
-.bt-learning{max-width:1240px;margin:auto;padding:12px 16px 30px}
-.bt-hero{background:linear-gradient(135deg,#5542df,#17b8c7);color:#fff;border-radius:30px;padding:28px 20px;text-align:center;box-shadow:0 18px 42px #5542df35}
-.bt-hero h1{font-size:clamp(30px,6vw,54px);margin:8px 0}.bt-hero p{max-width:760px;margin:auto;line-height:1.8}
-.tools{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:18px}.tools button,.tool-link{border:0;border-radius:14px;padding:11px 15px;font-weight:900;text-decoration:none;cursor:pointer;background:#fff;color:#5140d2}
-.section{margin:25px 0}.section h2{margin:0 0 12px;font-size:22px}
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.topic{border:0;border-radius:22px;padding:17px;min-height:155px;color:#fff;text-align:center;cursor:pointer;box-shadow:0 10px 25px #0001;transition:.2s;font-family:inherit;position:relative}
-.topic:hover{transform:translateY(-3px)}.topic:active{transform:scale(.98)}.topic .emoji{font-size:38px;display:block;margin-bottom:5px}.topic strong{font-size:16px}.topic small{display:block;margin-top:6px;opacity:.88}.topic:after{content:'OPEN';position:absolute;right:10px;top:10px;font-size:9px;font-weight:900;letter-spacing:.6px;background:#ffffff33;padding:4px 7px;border-radius:20px}
-.c1{background:linear-gradient(145deg,#6048e8,#9d8aff)}.c2{background:linear-gradient(145deg,#ef674c,#ff9e70)}.c3{background:linear-gradient(145deg,#0b9e73,#62d99b)}.c4{background:linear-gradient(145deg,#2879d2,#70bdff)}.c5{background:linear-gradient(145deg,#d9407d,#ff91bb)}.c6{background:linear-gradient(145deg,#e9951c,#ffd45f)}.c7{background:linear-gradient(145deg,#6550c7,#9b87ff)}.c8{background:linear-gradient(145deg,#009da0,#57d9c9)}
-#lessonPanel{display:none;margin:20px 0;background:#fff;border-radius:26px;padding:18px;box-shadow:0 14px 35px #25304a18;border:1px solid #fff}
-#lessonPanel.show{display:block}.panelHead{display:flex;align-items:center;justify-content:space-between;gap:10px}.panelHead h3{margin:0;font-size:22px}.close{border:0;border-radius:12px;padding:8px 12px;background:#f0efff;color:#5542df;font-weight:900;cursor:pointer}
-.panelIntro{line-height:1.75;color:#58657b}.digital-info{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}.info-card{background:linear-gradient(145deg,#f7f8ff,#eef9ff);border:1px solid #e5e9f7;border-radius:18px;padding:14px}.info-card b{display:block;margin-bottom:5px;color:#3d49a4}.example{background:#fff9e8;border-left:4px solid #f0ad28;border-radius:12px;padding:12px;margin:12px 0;line-height:1.7}.items{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-top:14px}
-.item{border:0;border-radius:15px;padding:13px 8px;background:#f5f7ff;color:#293551;font-weight:900;cursor:pointer;min-height:58px}.item:hover{background:#e9e6ff}.item small{display:block;font-weight:700;color:#77839a;margin-top:3px}
-.action-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.action{border:0;border-radius:13px;padding:10px 14px;background:#5542df;color:#fff;font-weight:900;cursor:pointer;text-decoration:none}.action.alt{background:#eafafa;color:#087f83}
-.math-box{max-width:620px;margin:12px auto;text-align:center;padding:18px;border-radius:20px;background:#f7f8ff}.math-q{font-size:30px;font-weight:950;margin:8px}.answers{display:flex;gap:9px;justify-content:center;flex-wrap:wrap}.answers button{min-width:80px;border:0;border-radius:13px;padding:11px;background:#fff;box-shadow:0 5px 14px #0001;font-weight:900;cursor:pointer}
-.result{font-weight:900;margin-top:10px;min-height:24px}.stars-note{font-size:13px;color:#6b7280}
-@media(max-width:850px){.cards{grid-template-columns:repeat(3,1fr)}}@media(max-width:650px){.bt-learning{padding:8px 10px}.cards{grid-template-columns:repeat(2,1fr);gap:9px}.topic{min-height:135px;padding:13px}.topic .emoji{font-size:32px}.items{grid-template-columns:repeat(3,1fr)}.digital-info{grid-template-columns:1fr 1fr}}@media(max-width:420px){.items{grid-template-columns:repeat(2,1fr)}.digital-info{grid-template-columns:1fr}.bt-hero{padding:22px 14px;border-radius:24px}}
+:root{--p:#6848e8;--ink:#26324b;--muted:#6d7890;--card:#fff;--bg:#f6f7ff}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#f4f7ff 0,#fff9fc 55%,#f5fbff 100%);color:var(--ink);font-family:system-ui,'Noto Sans Bengali','Noto Sans',sans-serif}
+.bt{max-width:1240px;margin:auto;padding:10px 14px 42px}
+.hero{position:relative;overflow:hidden;border-radius:34px;padding:28px;min-height:350px;color:#fff;background:linear-gradient(135deg,#5135cf,#7755ef 52%,#ee659e);box-shadow:0 22px 55px #4e35c92e}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;background:#ffffff12}.hero:before{width:320px;height:320px;right:-100px;top:-110px}.hero:after{width:220px;height:220px;left:-90px;bottom:-130px}
+.heroGrid{position:relative;z-index:1;display:grid;grid-template-columns:1.35fr .65fr;gap:15px;align-items:center}.kicker{font-size:12px;font-weight:950;letter-spacing:1px;opacity:.9}.hero h1{font-size:clamp(32px,6vw,58px);line-height:1.05;margin:10px 0}.hero h1 span{color:#ffe46b}.hero p{font-size:16px;line-height:1.8;max-width:680px;margin:0}
+.heroBtns{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.heroBtns a,.heroBtns button{border:0;border-radius:15px;padding:12px 16px;font-weight:950;text-decoration:none;cursor:pointer;font-family:inherit;background:#fff;color:#5038cf}.heroBtns .ghost{background:#ffffff1e;color:#fff;border:1px solid #ffffff42}
+.heroArt{min-height:250px;display:grid;place-items:center;position:relative}.bear{font-size:132px;filter:drop-shadow(0 18px 14px #28155b55);animation:float 3s ease-in-out infinite}.bubble{position:absolute;width:62px;height:62px;border-radius:20px;background:#ffffffdd;display:grid;place-items:center;font-size:29px;box-shadow:0 12px 25px #29156b33;animation:float 3s ease-in-out infinite}.b1{left:7%;top:8%}.b2{right:5%;top:25%;animation-delay:.5s}.b3{left:18%;bottom:4%;animation-delay:1s}@keyframes float{50%{transform:translateY(-10px) rotate(2deg)}}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin:14px 0}.quick a{background:#fff;border-radius:20px;padding:15px;text-decoration:none;color:var(--ink);box-shadow:0 9px 25px #25304a12;border:1px solid #fff;transition:.2s}.quick a:hover{transform:translateY(-3px)}.quick b{font-size:28px;display:block}.quick strong{display:block;margin-top:5px}.quick small{color:var(--muted)}
+.section{margin:26px 0}.sectionHead{display:flex;align-items:end;justify-content:space-between;gap:10px;margin-bottom:12px}.sectionHead h2{margin:0;font-size:23px}.sectionHead p{margin:3px 0 0;color:var(--muted);font-size:13px}.see{border:0;background:#eeeaff;color:#5840d5;border-radius:12px;padding:8px 11px;font-weight:900;cursor:pointer}
+.feature{display:grid;grid-template-columns:1.05fr .95fr;gap:13px}.featureMain,.featureSide{border-radius:26px;overflow:hidden;box-shadow:0 14px 32px #25304a14}.featureMain{padding:23px;color:#fff;background:linear-gradient(135deg,#f08a39,#ef527c)}.featureMain .bigIcon{font-size:54px}.featureMain h3{font-size:27px;margin:5px 0}.featureMain p{line-height:1.7;margin:0 0 13px}.featureMain button,.featureSide a{border:0;border-radius:13px;padding:10px 14px;background:#fff;color:#c23e63;font-weight:950;text-decoration:none;cursor:pointer}
+.miniGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;height:100%}.mini{padding:16px;border-radius:20px;background:#fff;text-decoration:none;color:var(--ink);border:1px solid #edf0fa;box-shadow:0 7px 18px #25304a0b}.mini .mi{font-size:30px}.mini strong{display:block;margin-top:5px}.mini small{color:var(--muted)}
+.topicGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.topic{border:0;border-radius:23px;min-height:155px;padding:17px;text-align:left;color:#fff;cursor:pointer;font-family:inherit;position:relative;overflow:hidden;box-shadow:0 12px 27px #25304a18;transition:.2s}.topic:hover{transform:translateY(-4px)}.topic:after{content:"›";position:absolute;right:14px;bottom:8px;font-size:32px;opacity:.55}.topic .icon{font-size:39px;display:block}.topic strong{display:block;font-size:17px;margin-top:8px}.topic small{display:block;line-height:1.5;margin-top:5px;opacity:.9}
+.c1{background:linear-gradient(145deg,#5f43df,#a18dff)}.c2{background:linear-gradient(145deg,#ef674c,#ff9c6f)}.c3{background:linear-gradient(145deg,#0b9e73,#64d99b)}.c4{background:linear-gradient(145deg,#2777d0,#70bdff)}.c5{background:linear-gradient(145deg,#d83d79,#ff91ba)}.c6{background:linear-gradient(145deg,#df8b15,#ffd363)}.c7{background:linear-gradient(145deg,#654fc5,#a08cff)}.c8{background:linear-gradient(145deg,#009b9d,#5dd8c9)}
+.lessonPanel{display:none;position:fixed;inset:0;background:#17213a8c;z-index:100;align-items:flex-end;justify-content:center;padding:12px}.lessonPanel.show{display:flex}.sheet{width:min(850px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:28px 28px 18px 18px;padding:21px;box-shadow:0 25px 70px #0004;animation:up .25s ease}@keyframes up{from{transform:translateY(50px);opacity:.4}to{transform:none;opacity:1}}
+.sheetHead{display:flex;justify-content:space-between;gap:10px;align-items:center}.sheetHead h3{margin:0;font-size:25px}.close{border:0;width:42px;height:42px;border-radius:13px;background:#f0edff;color:#5740d4;font-size:20px;font-weight:900;cursor:pointer}.digital{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:15px 0}.info{padding:14px;border-radius:17px;background:linear-gradient(145deg,#f7f7ff,#eefaff);border:1px solid #e7eafa}.info b{display:block;margin-bottom:5px;color:#4d43a5}.sheetIntro{color:#68748b;line-height:1.75}.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}.item{border:0;border-radius:15px;background:#f5f6ff;color:#293551;padding:13px 8px;font-weight:900;cursor:pointer;min-height:58px}.item:hover{background:#ebe7ff}.item small{display:block;color:#77839a;margin-top:3px;font-weight:700}.sheetActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.action{border:0;border-radius:13px;padding:10px 14px;background:#6545df;color:#fff;font-weight:950;text-decoration:none;cursor:pointer}.action.alt{background:#e8fbfa;color:#087d80}.math{padding:20px;border-radius:20px;background:#f7f8ff;text-align:center;margin-top:12px}.question{font-size:32px;font-weight:950}.answers{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.answers button{border:0;border-radius:13px;background:#fff;padding:11px 20px;font-weight:950;box-shadow:0 5px 14px #0001;cursor:pointer}.result{min-height:25px;font-weight:950;margin:10px}
+.progressBox{background:#fff;border-radius:24px;padding:18px;box-shadow:0 10px 28px #25304a10}.bar{height:12px;background:#edf0f8;border-radius:20px;overflow:hidden}.fill{height:100%;width:32%;background:linear-gradient(90deg,#6d4aff,#17b8c7);border-radius:20px}.progressRow{display:flex;justify-content:space-between;margin-top:8px;font-size:13px;color:var(--muted)}
+@media(max-width:900px){.heroGrid{grid-template-columns:1fr}.heroArt{min-height:170px}.quick{grid-template-columns:repeat(2,1fr)}.topicGrid{grid-template-columns:repeat(3,1fr)}.feature{grid-template-columns:1fr}}
+@media(max-width:620px){.bt{padding:7px 9px 32px}.hero{border-radius:26px;padding:21px}.hero p{font-size:14px}.heroArt{min-height:145px}.bear{font-size:92px}.quick{gap:8px}.quick a{padding:12px}.topicGrid{grid-template-columns:repeat(2,1fr);gap:9px}.topic{min-height:145px;padding:13px}.topic .icon{font-size:32px}.topic strong{font-size:15px}.digital{grid-template-columns:1fr 1fr}.cards{grid-template-columns:repeat(3,1fr)}.sheet{padding:16px}}
+@media(max-width:410px){.digital{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:31px}}
 </style>
 </head>
 <body>
-<main class="bt-learning">
-<section class="bt-hero">
-<div style="font-size:34px">🧸 🔤 🔢 🎮 🎨 🔊</div>
-<h1>শেখা হোক খেলতে খেলতে!</h1>
-<p>প্রতিটি বাটন এখন শুধু লেখা নয়—ট্যাপ করলে শেখার কাজ খুলবে, শব্দ শোনা যাবে, অনুশীলন করা যাবে বা সংশ্লিষ্ট Baby Tutor পেজে যাওয়া যাবে।</p>
-<div class="tools">
-<button onclick="say('চলো আজ মজা করে শিখি!')">🔊 শুনি</button>
-<button onclick="openAllSections()">✨ সব বিষয়</button>
-<button onclick="window.scrollTo({top:document.getElementById('lessonPanel').offsetTop-80,behavior:'smooth'})">🎯 শেখার প্যানেল</button>
+<main class="bt">
+<section class="hero">
+<div class="heroGrid">
+<div>
+<div class="kicker">🧸 BABY TUTOR • PLAY + LEARN</div>
+<h1>শিখি, খেলি,<br><span>আনন্দ করি!</span></h1>
+<p>বর্ণমালা থেকে সংখ্যা, গল্প, ছড়া, প্রাণী, কুইজ, আঁকা ও মজার অনুশীলন—সবকিছু শিশুর জন্য সাজানো একটি আনন্দময় ডিজিটাল শেখার জগৎ।</p>
+<div class="heroBtns">
+<a href="#bangla">📚 শেখা শুরু</a><a class="ghost" href="kids-learning.html">🤖 Smart Learning</a><button class="ghost" onclick="say('চলো মজা করে শিখি! আজ আমরা নতুন কিছু শিখব।')">🔊 শুনি</button>
+</div>
+</div>
+<div class="heroArt"><div class="bubble b1">🔤</div><div class="bubble b2">🎨</div><div class="bubble b3">⭐</div><div class="bear">🧸</div></div>
 </div>
 </section>
 
-<div id="lessonPanel">
-<div class="panelHead"><h3 id="panelTitle">শেখার প্যানেল</h3><button class="close" onclick="closePanel()">✕ বন্ধ</button></div>
+<section class="quick">
+<a href="#bangla"><b>🔤</b><strong>বর্ণমালা</strong><small>বাংলা • English • Arabic</small></a>
+<a href="#math"><b>🔢</b><strong>সংখ্যা ও অংক</strong><small>গণনা • যোগ • বিয়োগ • নামতা</small></a>
+<a href="#world"><b>🌍</b><strong>জ্ঞানভাণ্ডার</strong><small>ফল • প্রাণী • পাখি • শরীর</small></a>
+<a href="#fun"><b>🎮</b><strong>মজা ও খেলা</strong><small>গল্প • ছড়া • কুইজ • আঁকা</small></a>
+</section>
+
+<section class="section">
+<div class="sectionHead"><div><h2>⭐ আজকের বিশেষ শেখা</h2><p>একটি বেছে নিয়ে এখনই শুরু করো</p></div></div>
+<div class="feature">
+<article class="featureMain"><div class="bigIcon">✍️</div><h3>ডিজিটাল হাতেখড়ি</h3><p>অক্ষর দেখো, উচ্চারণ শোনো এবং তারপর লিখে অনুশীলন করো। শিশুর শেখার প্রথম ধাপকে আনন্দময় করার জন্য তৈরি।</p><button onclick="openTopic('বাংলা স্বরবর্ণ','letters',B)">🔤 অক্ষর শেখা শুরু</button></article>
+<div class="miniGrid">
+<a class="mini" href="quiz.html"><div class="mi">🎯</div><strong>আজকের কুইজ</strong><small>জেনে দেখি কতটা শিখেছি</small></a>
+<a class="mini" href="draw.html"><div class="mi">🎨</div><strong>আঁকি ও লিখি</strong><small>সৃজনশীল অনুশীলন</small></a>
+<a class="mini" href="stories.html"><div class="mi">📖</div><strong>গল্পের সময়</strong><small>গল্পে গল্পে শিক্ষা</small></a>
+<a class="mini" href="rhymes.html"><div class="mi">🎵</div><strong>ছড়া ও কবিতা</strong><small>শুনে ও পড়ে আনন্দ</small></a>
+</div>
+</div>
+</section>
+
+<section class="section" id="bangla">
+<div class="sectionHead"><div><h2>🔤 বর্ণমালা ও ভাষা</h2><p>দেখি • শুনি • বলি • অনুশীলন করি</p></div><button class="see" onclick="openTopic('বাংলা স্বরবর্ণ','letters',B)">সব খুলুন</button></div>
+<div class="topicGrid">
+<article class="topic c1" onclick="openTopic("বাংলা স্বরবর্ণ","c1",letters)"><span class="icon">🔤</span><strong>বাংলা স্বরবর্ণ</strong><small>অ আ ই ঈ উ ঊ …</small></article><article class="topic c2" onclick="openTopic("বাংলা ব্যঞ্জনবর্ণ","c2",letters)"><span class="icon">📝</span><strong>বাংলা ব্যঞ্জনবর্ণ</strong><small>ক খ গ ঘ … হ</small></article><article class="topic c3" onclick="openTopic("English Alphabet","c3",letters)"><span class="icon">🇬🇧</span><strong>English Alphabet</strong><small>A B C … Z</small></article><article class="topic c4" onclick="openTopic("আরবি হরফ","c4",letters)"><span class="icon">🕌</span><strong>আরবি হরফ</strong><small>আরবি বর্ণ ও উচ্চারণ</small></article><article class="topic c5" onclick="openTopic("শব্দ গঠন","c5",list)"><span class="icon">🧩</span><strong>শব্দ গঠন</strong><small>অক্ষর থেকে শব্দ</small></article><article class="topic c6" onclick="openTopic("অক্ষর চেনা","c6",match)"><span class="icon">🔎</span><strong>অক্ষর চেনা</strong><small>দেখে চিনে বলি</small></article><article class="topic c7" onclick="openTopic("অক্ষর লেখা","c7",draw)"><span class="icon">✍️</span><strong>অক্ষর লেখা</strong><small>ডিজিটাল হাতেখড়ি</small></article><article class="topic c8" onclick="openTopic("উচ্চারণ অনুশীলন","c8",letters)"><span class="icon">🔊</span><strong>উচ্চারণ অনুশীলন</strong><small>শুনে শুনে বলি</small></article>
+</div>
+</section>
+
+<section class="section" id="math">
+<div class="sectionHead"><div><h2>🔢 সংখ্যা ও গণিত</h2><p>শিশুর মতো সহজ করে অংক শিখি</p></div></div>
+<div class="topicGrid">
+<article class="topic c1" onclick="openTopic("বাংলা সংখ্যা ১–১০০","numbers",BNNUM)"><span class="icon">🔢</span><strong>বাংলা সংখ্যা ১–১০০</strong><small>দেখি ও শুনি</small></article><article class="topic c2" onclick="openTopic("English Numbers","numbers",ENGNUM)"><span class="icon">🔢</span><strong>English Numbers</strong><small>1–100</small></article><article class="topic c3" onclick="openTopic("যোগ","math",add)"><span class="icon">➕</span><strong>যোগ</strong><small>মজার প্রশ্ন</small></article><article class="topic c4" onclick="openTopic("বিয়োগ","math",sub)"><span class="icon">➖</span><strong>বিয়োগ</strong><small>সহজ অনুশীলন</small></article><article class="topic c5" onclick="openTopic("গুণ ও নামতা","tables",TABLES)"><span class="icon">✖️</span><strong>গুণ ও নামতা</strong><small>নামতা ১–১০০</small></article><article class="topic c6" onclick="openTopic("ভাগ","math",div)"><span class="icon">➗</span><strong>ভাগ</strong><small>সমান অংশ করি</small></article><article class="topic c7" onclick="openTopic("Math Game","math",mix)"><span class="icon">🎯</span><strong>Math Game</strong><small>খেলতে খেলতে অংক</small></article><article class="topic c8" onclick="openTopic("বড়-ছোট সংখ্যা","list",COMPARE)"><span class="icon">📊</span><strong>বড়-ছোট সংখ্যা</strong><small>কোনটি বড়?</small></article>
+</div>
+</section>
+
+<section class="section" id="world">
+<div class="sectionHead"><div><h2>🌍 চারপাশের পৃথিবী</h2><p>যা দেখি, তার নাম জানি</p></div></div>
+<div class="topicGrid">
+<article class="topic c1" onclick="openTopic("ফল ও খাবার","list",FRUITS)"><span class="icon">🍎</span><strong>ফল ও খাবার</strong><small>আম • কলা • আপেল</small></article><article class="topic c2" onclick="openTopic("শাক-সবজি","list",VEG)"><span class="icon">🥕</span><strong>শাক-সবজি</strong><small>আলু • গাজর • লাউ</small></article><article class="topic c3" onclick="openTopic("পাখির নাম","list",BIRDS)"><span class="icon">🐦</span><strong>পাখির নাম</strong><small>দোয়েল • টিয়া • ময়ূর</small></article><article class="topic c4" onclick="openTopic("প্রাণীর নাম","list",ANIMALS)"><span class="icon">🦁</span><strong>প্রাণীর নাম</strong><small>বাঘ • হাতি • ঘোড়া</small></article><article class="topic c5" onclick="openTopic("পশুপাখির ডাক","sounds",SOUNDS)"><span class="icon">🐾</span><strong>পশুপাখির ডাক</strong><small>নাম ও ডাক শুনি</small></article><article class="topic c6" onclick="openTopic("ফুল ও রং","list",COLORS)"><span class="icon">🌸</span><strong>ফুল ও রং</strong><small>ফুল • রং • প্রকৃতি</small></article><article class="topic c7" onclick="openTopic("মানবদেহ","list",BODY)"><span class="icon">🫶</span><strong>মানবদেহ</strong><small>চোখ • কান • হাত • পা</small></article><article class="topic c8" onclick="openTopic("যানবাহন","list",VEHICLES)"><span class="icon">🚗</span><strong>যানবাহন</strong><small>গাড়ি • বাস • ট্রেন • বিমান</small></article>
+</div>
+</section>
+
+<section class="section">
+<div class="sectionHead"><div><h2>📅 সময় ও বাংলাদেশ</h2><p>দিন, মাস, ঋতু ও দেশকে জানি</p></div></div>
+<div class="topicGrid">
+<article class="topic c1" onclick="openTopic("৭ দিনের নাম","list",DAYS)"><span class="icon">📆</span><strong>৭ দিনের নাম</strong><small>বাংলা ও English</small></article><article class="topic c2" onclick="openTopic("১২ মাসের নাম","list",MONTHS)"><span class="icon">📅</span><strong>১২ মাসের নাম</strong><small>বাংলা ও English</small></article><article class="topic c3" onclick="openTopic("৬ ঋতু","list",SEASONS)"><span class="icon">🍂</span><strong>৬ ঋতু</strong><small>বাংলা ও English</small></article><article class="topic c4" onclick="openTopic("বাংলাদেশ পরিচিতি","info",BD)"><span class="icon">🇧🇩</span><strong>বাংলাদেশ পরিচিতি</strong><small>সহজ তথ্য</small></article><article class="topic c5" onclick="openTopic("জাতীয় দিবস","info",NATIONAL)"><span class="icon">🎉</span><strong>জাতীয় দিবস</strong><small>জানি ও মনে রাখি</small></article><article class="topic c6" onclick="openTopic("ভালো আচরণ","info",VALUES)"><span class="icon">💚</span><strong>ভালো আচরণ</strong><small>মূল্যবোধের শিক্ষা</small></article>
+</div>
+</section>
+
+<section class="section" id="fun">
+<div class="sectionHead"><div><h2>🎮 গল্প, ছড়া ও বিনোদন</h2><p>পড়াশোনার মাঝে আনন্দও চাই</p></div></div>
+<div class="topicGrid">
+<article class="topic c4" onclick="location.href='stories.html'"><span class="icon">📖</span><strong>শিক্ষণীয় গল্প</strong><small>গল্পে গল্পে নতুন কিছু শিখি</small></article>
+<article class="topic c5" onclick="location.href='rhymes.html'"><span class="icon">🎵</span><strong>মজার ছড়া</strong><small>পড়ি, শুনি ও উপভোগ করি</small></article>
+<article class="topic c6" onclick="location.href='quiz.html'"><span class="icon">🎯</span><strong>প্রশ্ন ও উত্তর</strong><small>নিজেকে যাচাই করি</small></article>
+<article class="topic c7" onclick="location.href='draw.html'"><span class="icon">🎨</span><strong>আঁকাআকি</strong><small>নিজের কল্পনা দিয়ে আঁকি</small></article>
+<article class="topic c8" onclick="location.href='kids-learning.html'"><span class="icon">🤖</span><strong>Smart Learning</strong><small>ইন্টার‌্যাকটিভ লার্নিং সেন্টার</small></article>
+<article class="topic c1" onclick="openTopic('Stars ও Progress','progress',[])"><span class="icon">🏆</span><strong>Stars ও Progress</strong><small>শেখার অগ্রগতি দেখি</small></article>
+</div>
+</section>
+
+<section class="section">
+<div class="progressBox"><div class="sectionHead"><div><h2>🏆 আমার শেখার অগ্রগতি</h2><p>আজ একটু শিখি, কাল আরও এগিয়ে যাই</p></div><a class="see" href="kids-learning.html" style="text-decoration:none">দেখুন</a></div><div class="bar"><div class="fill" id="progressFill"></div></div><div class="progressRow"><span>Baby Tutor শেখা</span><b id="progressText">32%</b></div></div>
+</section>
+</main>
+
+<div class="lessonPanel" id="panel" onclick="if(event.target===this)closePanel()">
+<div class="sheet">
+<div class="sheetHead"><h3 id="panelTitle">শেখার প্যানেল</h3><button class="close" onclick="closePanel()">✕</button></div>
 <div id="panelBody"></div>
 </div>
-<div id="hub"></div>
-</main>
+</div>
 
 <script>
 const B=[['অ','অজগর'],['আ','আম'],['ই','ইলিশ'],['ঈ','ঈগল'],['উ','উট'],['ঊ','ঊষা'],['ঋ','ঋষি'],['এ','একতারা'],['ঐ','ঐরাবত'],['ও','ওল'],['ঔ','ঔষধ']];
 const C='ক খ গ ঘ ঙ চ ছ জ ঝ ঞ ট ঠ ড ঢ ণ ত থ দ ধ ন প ফ ব ভ ম য র ল শ ষ স হ'.split(' ');
 const ENG='A B C D E F G H I J K L M N O P Q R S T U V W X Y Z'.split(' ');
 const AR='ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي'.split(' ');
+const WORDS=['আম','কলা','বই','ফুল','মাছ','পাখি','ঘর','জল','কলম','খাতা'];
 const BNNUM=['১','২','৩','৪','৫','৬','৭','৮','৯','১০','১১','১২','১৩','১৪','১৫','১৬','১৭','১৮','১৯','২০','২১','২২','২৩','২৪','২৫','২৬','২৭','২৮','২৯','৩০','৩১','৩২','৩৩','৩৪','৩৫','৩৬','৩৭','৩৮','৩৯','৪০','৪১','৪২','৪৩','৪৪','৪৫','৪৬','৪৭','৪৮','৪৯','৫০','৫১','৫২','৫৩','৫৪','৫৫','৫৬','৫৭','৫৮','৫৯','৬০','৬১','৬২','৬৩','৬৪','৬৫','৬৬','৬৭','৬৮','৬৯','৭০','৭১','৭২','৭৩','৭৪','৭৫','৭৬','৭৭','৭৮','৭৯','৮০','৮১','৮২','৮৩','৮৪','৮৫','৮৬','৮৭','৮৮','৮৯','৯০','৯১','৯২','৯৩','৯৪','৯৫','৯৬','৯৭','৯৮','৯৯','১০০'];
-const days=['শনিবার','রবিবার','সোমবার','মঙ্গলবার','বুধবার','বৃহস্পতিবার','শুক্রবার'];
-const months=['বৈশাখ','জ্যৈষ্ঠ','আষাঢ়','শ্রাবণ','ভাদ্র','আশ্বিন','কার্তিক','অগ্রহায়ণ','পৌষ','মাঘ','ফাল্গুন','চৈত্র'];
-const seasons=['গ্রীষ্ম','বর্ষা','শরৎ','হেমন্ত','শীত','বসন্ত'];
-const fruits=['আম','কলা','আপেল','কমলা','পেয়ারা','তরমুজ','আনারস','লিচু'];
-const veg=['আলু','গাজর','টমেটো','লাউ','পটল','বেগুন','শসা','মিষ্টি কুমড়া'];
-const birds=['দোয়েল','কাক','শালিক','টিয়া','কবুতর','চড়ুই','ময়ূর','হাঁস'];
-const animals=['বাঘ','সিংহ','হাতি','ঘোড়া','গরু','ছাগল','কুকুর','বিড়াল'];
-const sounds=[['🐄','গরু','হাম্বা'],['🐕','কুকুর','ঘেউ ঘেউ'],['🐈','বিড়াল','ম্যাঁও'],['🐦','পাখি','কিচিরমিচির'],['🦆','হাঁস','প্যাক প্যাক']];
-const groups=[
-['🔤 ভাষা ও বর্ণমালা',[
-['🔤','বাংলা স্বরবর্ণ','c1','letters',B],['📝','বাংলা ব্যঞ্জনবর্ণ','c2','letters',C],['🇬🇧','ইংরেজি Alphabet','c3','letters',ENG],['🕌','আরবি হরফ','c4','letters',AR],
-['🧩','বাংলা শব্দ গঠন','c5','words',['আম','কলা','বই','ফুল','পাখি','মাছ','ঘর','জল']],['🔎','অক্ষর চেনা','c6','match',C],['✍️','অক্ষর লেখা','c7','draw',[]],['🔊','উচ্চারণ অনুশীলন','c8','pronounce',B]]
-],
-['🔢 সংখ্যা ও গণিত',[
-['🔢','বাংলা সংখ্যা ১–১০০','c1','numbers',BNNUM],['🔢','English Numbers 1–100','c2','numbers',Array.from({length:100},(_,i)=>String(i+1))],
-['✖️','নামতা ১–১০০','c3','tables',[]],['➕','যোগ','c4','math','add'],['➖','বিয়োগ','c5','math','sub'],['✖️','গুণ','c6','math','mul'],['➗','ভাগ','c7','math','div'],['🎯','গণিত গেম','c8','math','mix']]
-],
-['🌍 চারপাশের জ্ঞান',[
-['🍎','ফলের নাম','c1','list',fruits],['🥕','শাক-সবজি','c2','list',veg],['🐦','পাখির নাম','c3','list',birds],['🦁','প্রাণীর নাম','c4','list',animals],['🐾','পশুপাখির ডাক','c5','sounds',sounds],['🌸','ফুলের নাম','c6','list',['গোলাপ','জবা','শাপলা','গাঁদা','সূর্যমুখী','রজনীগন্ধা']],['🎨','রং পরিচিতি','c7','list',['লাল','নীল','সবুজ','হলুদ','কমলা','বেগুনি','কালো','সাদা']],['🔺','আকৃতি পরিচিতি','c8','list',['বৃত্ত','বর্গ','ত্রিভুজ','আয়তক্ষেত্র','ডিম্বাকৃতি']],['🚗','যানবাহন','c1','list',['গাড়ি','বাস','ট্রেন','নৌকা','বিমান','রিকশা']],['👩‍⚕️','পেশার নাম','c2','list',['শিক্ষক','ডাক্তার','কৃষক','পুলিশ','দমকলকর্মী','চালক']],['🫶','মানবদেহ পরিচিতি','c3','list',['চোখ','কান','নাক','মুখ','হাত','পা','মাথা','দাঁত']]]
-],
-['📅 সময় ও বাংলাদেশ',[
-['📆','বাংলা ৭ দিনের নাম','c4','list',days],['📅','বাংলা ১২ মাস','c5','list',months],['🍂','বাংলা ৬ ঋতু','c6','list',seasons],['🇬🇧','English 7 Days','c7','list',['Saturday','Sunday','Monday','Tuesday','Wednesday','Thursday','Friday']],['📆','English 12 Months','c8','list',['January','February','March','April','May','June','July','August','September','October','November','December']],['🌦️','English Seasons','c1','list',['Spring','Summer','Autumn','Winter']],['🇧🇩','বাংলাদেশ পরিচিতি','c2','info',[]],['🎉','জাতীয় দিবস পরিচিতি','c3','info',[]]]
-],
-['🎵 গল্প, ছড়া ও সৃজনশীলতা',[
-['🎵','মজার ছড়া','c4','link','rhymes.html'],['📖','শিক্ষণীয় গল্প','c5','link','stories.html'],['❓','প্রশ্ন ও উত্তর','c6','link','quiz.html'],['🎨','আঁকাআকি','c7','link','draw.html'],['🖍️','ছবি রং করি','c8','draw',[]],['🎮','খেলার মাধ্যমে শেখা','c1','link','quiz.html'],['🏆','Stars ও Progress','c2','progress',[]]]
-],
-['🕌 অতিরিক্ত শিক্ষা',[
-['📖','নৈতিক গল্প','c3','link','stories.html'],['🌙','ইসলামিক সাধারণ শিক্ষা','c4','info',[]],['📴','Offline-ready শেখা','c5','info',[]],['🤖','Smart Learning','c6','link','kids-learning.html']]
-]
-];
+const ENGNUM=Array.from({length:100},(_,i)=>String(i+1));
+const FRUITS=['আম','কলা','আপেল','কমলা','পেয়ারা','তরমুজ','আনারস','লিচু'],VEG=['আলু','গাজর','টমেটো','লাউ','পটল','বেগুন','শসা','মিষ্টি কুমড়া'];
+const BIRDS=['দোয়েল','কাক','শালিক','টিয়া','কবুতর','চড়ুই','ময়ূর','হাঁস'],ANIMALS=['বাঘ','সিংহ','হাতি','ঘোড়া','গরু','ছাগল','কুকুর','বিড়াল'];
+const SOUNDS=[['🐄','গরু','হাম্বা'],['🐕','কুকুর','ঘেউ ঘেউ'],['🐈','বিড়াল','ম্যাঁও'],['🐦','পাখি','কিচিরমিচির'],['🦆','হাঁস','প্যাক প্যাক']];
+const COLORS=['লাল','নীল','সবুজ','হলুদ','কমলা','বেগুনি','কালো','সাদা'],BODY=['চোখ—দেখি','কান—শুনি','নাক—ঘ্রাণ নিই','মুখ—খাই ও বলি','হাত—ধরি','পা—হাঁটি','দাঁত—চিবাই','মাথা—ভাবি'];
+const VEHICLES=['গাড়ি','বাস','ট্রেন','নৌকা','বিমান','রিকশা'],DAYS=['শনিবার','রবিবার','সোমবার','মঙ্গলবার','বুধবার','বৃহস্পতিবার','শুক্রবার'];
+const MONTHS=['বৈশাখ','জ্যৈষ্ঠ','আষাঢ়','শ্রাবণ','ভাদ্র','আশ্বিন','কার্তিক','অগ্রহায়ণ','পৌষ','মাঘ','ফাল্গুন','চৈত্র'],SEASONS=['গ্রীষ্ম','বর্ষা','শরৎ','হেমন্ত','শীত','বসন্ত'];
 
-function say(t){if(!('speechSynthesis'in window)){alert('এই ব্রাউজারে ভয়েস সুবিধা নেই।');return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='bn-BD';u.rate=.82;speechSynthesis.speak(u)}
-function openPanel(title,html){document.getElementById('panelTitle').textContent=title;document.getElementById('panelBody').innerHTML=html;document.getElementById('lessonPanel').classList.add('show');document.getElementById('lessonPanel').scrollIntoView({behavior:'smooth',block:'start'})}
-function closePanel(){document.getElementById('lessonPanel').classList.remove('show');speechSynthesis.cancel()}
-function itemButtons(arr,mode){return '<div class="items">'+arr.map((x,i)=>{let label=Array.isArray(x)?x[1]:x;let sub=Array.isArray(x)?x[0]:'';let val=Array.isArray(x)?x[2]:x;return '<button class="item" onclick="say('+JSON.stringify(String(val))+')">'+label+'<small>'+sub+'</small></button>'}).join('')+'</div>'}
-function math(type){let a=Math.floor(Math.random()*9)+1,b=Math.floor(Math.random()*9)+1,op='+',ans=a+b;if(type==='sub'){if(b>a)[a,b]=[b,a];op='−';ans=a-b}if(type==='mul'){a=Math.floor(Math.random()*10)+1;b=Math.floor(Math.random()*10)+1;op='×';ans=a*b}if(type==='div'){b=Math.floor(Math.random()*9)+1;ans=Math.floor(Math.random()*9)+1;a=b*ans;op='÷'}if(type==='mix'){const r=['add','sub','mul','div'];return math(r[Math.floor(Math.random()*4)])}let opts=new Set([ans]);while(opts.size<3){let d=Math.floor(Math.random()*7)-3;if(d)opts.add(Math.max(0,ans+d))}openPanel('🎯 গণিত অনুশীলন','<div class="math-box"><div class="math-q">'+a+' '+op+' '+b+' = ?</div><div class="answers">'+[...opts].sort(()=>Math.random()-.5).map(v=>'<button onclick="checkMath('+v+','+ans+')">'+v+'</button>').join('')+'</div><div id="mathResult" class="result"></div><div class="action-row"><button class="action" onclick="math('+JSON.stringify(type)+')">➡️ নতুন প্রশ্ন</button></div></div>')}
-function checkMath(v,a){const el=document.getElementById('mathResult');if(v===a){el.textContent='🌟 সঠিক! দারুণ কাজ!';el.style.color='#0b9e73'}else{el.textContent='আবার চেষ্টা করি 😊';el.style.color='#d04b4b'}say(v===a?'সঠিক উত্তর! দারুণ কাজ!':'আবার চেষ্টা করি')}
-const details={
-'বাংলা স্বরবর্ণ':['স্বরবর্ণ কী?','বাংলা ভাষার স্বরবর্ণগুলো আলাদা করে চিনতে ও উচ্চারণ করতে শেখো।','অ, আ, ই, ঈ, উ, ঊ, ঋ, এ, ঐ, ও, ঔ'],
-'বাংলা ব্যঞ্জনবর্ণ':['ব্যঞ্জনবর্ণ কী?','শব্দ গঠনের জন্য ব্যঞ্জনবর্ণ চিনে উচ্চারণ অনুশীলন করি।','ক, খ, গ, ঘ … হ'],
-'ইংরেজি Alphabet':['English Alphabet','A থেকে Z পর্যন্ত অক্ষর চিনে সঠিক উচ্চারণ শুনি।','A, B, C, D … Z'],
-'আরবি হরফ':['আরবি হরফ','আরবি বর্ণগুলো দেখে চিনে উচ্চারণ অনুশীলন করি।','ا، ب، ت، ث … ي'],
-'বাংলা শব্দ গঠন':['শব্দ গঠন','অক্ষর মিলিয়ে সহজ বাংলা শব্দ পড়ার ভিত্তি তৈরি করি।','আ + ম = আম; ব + ই = বই'],
-'English Numbers 1–100':['English Numbers','1 থেকে 100 পর্যন্ত সংখ্যা চিনে ইংরেজি নাম শুনি।','1 = One, 2 = Two, 10 = Ten'],
-'বাংলা সংখ্যা ১–১০০':['বাংলা সংখ্যা','১ থেকে ১০০ পর্যন্ত সংখ্যা চিনে শুনি ও গুনতে অনুশীলন করি।','১, ২, ৩ … ১০০'],
-'নামতা ১–১০০':['নামতা','গুণের ধারণা শক্ত করতে ১ থেকে ১০০ পর্যন্ত নামতার অনুশীলন।','৫ × ৪ = ২০'],
-'যোগ':['যোগ','দুটি বা তার বেশি সংখ্যা একসাথে করলে মোট কত হয় তা শিখি।','৩ + ২ = ৫'],
-'বিয়োগ':['বিয়োগ','একটি সংখ্যা থেকে অন্য সংখ্যা কমালে কত থাকে তা শিখি।','৮ − ৩ = ৫'],
-'গুণ':['গুণ','একই সংখ্যা বারবার যোগ করার সহজ ধারণা থেকে গুণ শেখা।','৪ × ৩ = ১২'],
-'ভাগ':['ভাগ','কোনো সংখ্যাকে সমান অংশে ভাগ করার ধারণা অনুশীলন করি।','১২ ÷ ৩ = ৪'],
-'ফলের নাম':['ফল','পরিচিত ফলের নাম চিনে শব্দ ও উচ্চারণ শেখা।','আম, কলা, আপেল, কমলা'],
-'শাক-সবজি':['শাক-সবজি','রান্না ও খাবারে পরিচিত শাক-সবজির নাম শেখা।','আলু, গাজর, টমেটো, লাউ'],
-'পাখির নাম':['পাখি','চারপাশের পরিচিত পাখির নাম ও শব্দ শেখা।','দোয়েল, কাক, শালিক, টিয়া'],
-'প্রাণীর নাম':['প্রাণী','পরিচিত প্রাণীর নাম দেখে চিনে উচ্চারণ অনুশীলন।','বাঘ, সিংহ, হাতি, ঘোড়া'],
-'পশুপাখির ডাক':['পশুপাখির ডাক','প্রাণী বা পাখির নাম দেখে তাদের প্রচলিত ডাক শুনে মনে রাখি।','গরু—হাম্বা; কুকুর—ঘেউ ঘেউ'],
-'মানবদেহ পরিচিতি':['মানবদেহ','শরীরের সাধারণ অঙ্গগুলোর নাম ও কাজ সম্পর্কে প্রাথমিক ধারণা।','চোখ—দেখি; কান—শুনি; নাক—ঘ্রাণ নিই'],
-'বাংলাদেশ পরিচিতি':['বাংলাদেশ','বাংলাদেশ সম্পর্কে শিশুদের উপযোগী কয়েকটি মৌলিক তথ্য।','রাজধানী: ঢাকা'],
-'জাতীয় দিবস পরিচিতি':['জাতীয় দিবস','দেশের গুরুত্বপূর্ণ দিবসগুলোর অর্থ ও স্মরণ করার ধারণা।','দিবসের নাম ট্যাপ করে শোনা যাবে'],
-'মজার ছড়া':['ছড়া','ছন্দ ও শব্দের মাধ্যমে আনন্দের সাথে ভাষা শেখা।','ছড়া পেজে গিয়ে একাধিক মূল Baby Tutor ছড়া পড়া ও শোনা যাবে।'],
-'শিক্ষণীয় গল্প':['গল্প','গল্পের মাধ্যমে আচরণ, বুদ্ধি ও ভালো অভ্যাস শেখা।','গল্প পেজে গিয়ে গল্প পড়া ও প্রশ্ন অনুশীলন করা যাবে।'],
-'প্রশ্ন ও উত্তর':['প্রশ্ন ও উত্তর','শেখা বিষয়গুলো ছোট কুইজের মাধ্যমে যাচাই করি।','উত্তর বেছে নিয়ে সঙ্গে সঙ্গে ফল দেখা যাবে।'],
-'আঁকাআকি':['আঁকাআকি','আঙুল বা মাউস দিয়ে নিজের মতো করে আঁকার অনুশীলন।','Draw পেজ খুলে ক্যানভাসে আঁকা যাবে।'],
-'ছবি রং করি':['রং করার অনুশীলন','রং ও আঁকার মাধ্যমে সৃজনশীলতা অনুশীলন করি।','নিজের পছন্দের রং ব্যবহার করে আঁকা তৈরি করো।'],
-'খেলার মাধ্যমে শেখা':['Learning Game','ছোট ছোট প্রশ্ন ও কাজের মাধ্যমে শেখাকে খেলায় পরিণত করা।','কুইজে গিয়ে উত্তর দিয়ে অনুশীলন করো।'],
-'Stars ও Progress':['Stars ও Progress','শেখার অগ্রগতি ও Stars ব্রাউজারে সংরক্ষণ করে ধারাবাহিক শেখায় উৎসাহ দেওয়া হয়।','প্রতিটি শেখার কাজের পরে অগ্রগতি দেখা যাবে।'],
-'নৈতিক গল্প':['নৈতিক শিক্ষা','সততা, ভালো আচরণ, সহযোগিতা ও দায়িত্ববোধের মতো মূল্যবোধ শেখা।','ভালো আচরণ করি ও অন্যকে সাহায্য করি।'],
-'ইসলামিক সাধারণ শিক্ষা':['সাধারণ ইসলামিক শিক্ষা','শিশুদের উপযোগী মৌলিক ও শালীন সাধারণ শিক্ষা বিষয়।','সহজ ভাষায় ধারণা শেখা ও মনে রাখা।'],
-'Offline-ready শেখা':['Offline-ready','আগে থেকে সংরক্ষিত পেজ/রিসোর্স থাকলে নেট ছাড়াই কিছু অংশ ব্যবহার করা যেতে পারে।','ইন্টারনেট না থাকলে সব ফিচার সমানভাবে কাজ নাও করতে পারে।'],
-'Smart Learning':['Smart Learning','ইন্টার‌্যাকটিভ লেসন, কুইজ, অডিও ও অগ্রগতির একসাথে শেখার জায়গা।','Smart Learning পেজে গিয়ে আরও অনুশীলন করো।']
-};
-
-function richIntro(title){
-const d=details[title]||[title,'এই বিষয়ের মূল ধারণা, উদাহরণ ও অনুশীলন এক জায়গায় দেখানো হবে।','ট্যাপ করে তথ্য শুনুন এবং অনুশীলন করুন।'];
-return '<div class="digital-info"><div class="info-card"><b>📘 কী শিখবে?</b>'+d[1]+'</div><div class="info-card"><b>🎯 লক্ষ্য</b>চেনা → বোঝা → বলা → অনুশীলন</div><div class="info-card"><b>🔊 শুনে শেখা</b>নিচের বাটনে ট্যাপ করলে শব্দ উচ্চারণ করে শোনানো হবে।</div></div><div class="example"><b>💡 উদাহরণ:</b> '+d[2]+'</div>';
-}
-
-function makePanel(x){
-const title=x[1],type=x[3],data=x[4];
-if(type==='letters'||type==='pronounce')openPanel(title,richIntro(title)+'<p class="panelIntro">একটি অক্ষরে ট্যাপ করো। অক্ষরটি বড় করে দেখার মতো ডিজিটাল কার্ডে থাকবে এবং উচ্চারণ শোনা যাবে।</p>'+itemButtons(data)+'<div class="action-row"><a class="action" href="draw.html">✍️ লিখে অনুশীলন</a><a class="action alt" href="quiz.html">🎯 কুইজ</a></div>');
-else if(type==='numbers')openPanel(title,richIntro(title)+'<p class="panelIntro">প্রতিটি সংখ্যা একটি ডিজিটাল শেখার কার্ড। ট্যাপ করলে উচ্চারণ শুনবে।</p>'+itemButtons(data)+'<div class="action-row"><button class="action" onclick="say("এক থেকে একশ পর্যন্ত সংখ্যা অনুশীলন করি")">🔊 পুরো পরিসর শুনি</button></div>');
-else if(type==='words'||type==='list')openPanel(title,richIntro(title)+'<p class="panelIntro">প্রতিটি শব্দ আলাদা কার্ডে আছে। কার্ডে ট্যাপ করে শব্দটি শুনো।</p>'+itemButtons(data));
-else if(type==='sounds')openPanel(title,richIntro(title)+'<p class="panelIntro">নাম ও ডাক একসাথে দেখে/শুনে মিলিয়ে শেখো।</p>'+itemButtons(data));
-else if(type==='match')openPanel(title,richIntro(title)+'<p class="panelIntro">অক্ষর দেখে উচ্চারণ শুনে মনে রাখো, তারপর কুইজে গিয়ে চিনে উত্তর দাও।</p>'+itemButtons(data.map(v=>[v,'অক্ষর',v]))+'<div class="action-row"><a class="action" href="quiz.html">🎯 অক্ষর কুইজ খেলি</a></div>');
-else if(type==='draw')openPanel(title,richIntro(title)+'<p class="panelIntro">ডিজিটাল ক্যানভাসে আঙুল বা মাউস দিয়ে লিখে/এঁকে অনুশীলন করো।</p><div class="action-row"><a class="action" href="draw.html">🎨 ডিজিটাল আঁকার পাতা খুলুন</a></div>');
-else if(type==='tables')openPanel(title,richIntro(title)+'<p class="panelIntro">প্রথমে কয়েকটি উদাহরণ দেখো। এরপর “আরও নামতা” চাপলে ১–১০০ পর্যন্ত নির্বাচিত নামতা দেখা যাবে।</p>'+itemButtons(Array.from({length:20},(_,i)=>[i+1+' × 2 = '+(i+1)*2,'উদাহরণ',String((i+1)*2)]))+'<div class="action-row"><button class="action" onclick="openTables()">📚 আরও নামতা</button></div>');
+function say(t){if(!('speechSynthesis'in window)){alert('এই ব্রাউজারে ভয়েস সুবিধা নেই।');return}speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='bn-BD';u.rate=.82;speechSynthesis.speak(u)}
+function closePanel(){document.getElementById('panel').classList.remove('show');speechSynthesis.cancel()}
+function openPanel(title,body){document.getElementById('panelTitle').textContent=title;document.getElementById('panelBody').innerHTML=body;document.getElementById('panel').classList.add('show')}
+function digital(title,desc,example){return '<div class="digital"><div class="info"><b>📘 কী শিখবে?</b>'+desc+'</div><div class="info"><b>🎯 শেখার ধাপ</b>দেখি → শুনি → বলি → অনুশীলন</div><div class="info"><b>⭐ লক্ষ্য</b>প্রতিদিন অল্প করে নতুন কিছু শেখা</div></div><div class="sheetIntro">💡 <b>উদাহরণ:</b> '+example+'</div>'}
+function items(arr){return '<div class="cards">'+arr.map(x=>{let label=Array.isArray(x)?x[1]:x,voice=Array.isArray(x)?x[2]:x,sub=Array.isArray(x)?x[0]:'';return '<button class="item" onclick="say('+JSON.stringify(String(voice))+')">'+label+'<small>'+sub+'</small></button>'}).join('')+'</div>'}
+function openTopic(title,type,data){
+if(type==='letters')openPanel(title,digital(title,'অক্ষর চিনে সঠিক উচ্চারণ শেখা।','অ — অজগর, আ — আম')+'<p class="sheetIntro">একটি অক্ষরে ট্যাপ করো। অক্ষরটির উচ্চারণ শুনবে।</p>'+items(data)+'<div class="sheetActions"><a class="action" href="draw.html">✍️ লিখে অনুশীলন</a><a class="action alt" href="quiz.html">🎯 কুইজ</a></div>');
+else if(type==='list')openPanel(title,digital(title,'পরিচিত বিষয়গুলোর নাম দেখে ও শুনে শেখা।','আম একটি ফল। বাঘ একটি প্রাণী।')+items(data));
+else if(type==='sounds')openPanel(title,digital(title,'প্রাণীর নাম ও তাদের প্রচলিত ডাক শুনে শেখা।','গরু — হাম্বা, কুকুর — ঘেউ ঘেউ')+items(data));
+else if(type==='numbers')openPanel(title,digital(title,'সংখ্যা দেখে সঠিক নাম ও উচ্চারণ শেখা।','১ = এক, ২ = দুই, ১০ = দশ')+items(data));
+else if(type==='draw')openPanel(title,digital(title,'অক্ষর বা নিজের কল্পনা ডিজিটাল ক্যানভাসে আঁকা।','আঙুল দিয়ে ক্যানভাসে লিখে দেখো।')+'<div class="sheetActions"><a class="action" href="draw.html">🎨 Drawing খুলুন</a></div>');
+else if(type==='tables')openTables();
 else if(type==='math')math(data);
-else if(type==='link')openPanel(title,richIntro(title)+'<div class="action-row"><a class="action" href="'+data+'">🚀 বিস্তারিত পেজ খুলুন</a></div>');
-else if(type==='progress')openPanel(title,richIntro(title)+'<div class="action-row"><a class="action" href="kids-learning.html">🤖 Smart Learning খুলুন</a></div>');
-else openPanel(title,richIntro(title)+'<div class="items"><button class="item" onclick="say(\'বাংলাদেশের রাজধানী ঢাকা।\')">🇧🇩 বাংলাদেশ<small>রাজধানী: ঢাকা</small></button><button class="item" onclick="say(\'ভালো আচরণ করি, সত্য কথা বলি, অন্যকে সাহায্য করি।\')">💚 ভালো আচরণ<small>সততা ও সহযোগিতা</small></button><button class="item" onclick="say(\'এই বিষয়টি সহজ ভাষায় ধাপে ধাপে শেখা যায়।\')">📚 শিখি<small>ডিজিটাল কার্ড</small></button></div>');
+else if(type==='info')openInfo(title,data);
+else if(type==='match')openPanel(title,digital(title,'অক্ষর দেখে চিনে নেওয়া ও উচ্চারণ অনুশীলন।','ম — ময়ূর, ক — কলম')+items(data.map(x=>[x,'অক্ষর',x]))+'<div class="sheetActions"><a class="action" href="quiz.html">🎯 কুইজে অনুশীলন</a></div>');
+else if(type==='progress')openPanel(title,digital(title,'শেখার অগ্রগতি ও Stars-এর ধারণা।','আজ ৩টি বিষয় শিখলে নিজের অগ্রগতি আরও বাড়বে।')+'<div class="sheetActions"><a class="action" href="kids-learning.html">🏆 Progress Center</a></div>');
 }
-function openTables(){const arr=[];for(let n=1;n<=100;n++)for(let m=1;m<=10;m++)arr.push(n+' × '+m+' = '+n*m);openPanel('📚 ১–১০০ নামতা','<p class="panelIntro">একটি উদাহরণে ট্যাপ করলে উচ্চারণ শোনা যাবে।</p>'+itemButtons(arr.slice(0,100)))}
-function render(){document.getElementById('hub').innerHTML=groups.map(g=>'<section class="section"><h2>'+g[0]+'</h2><div class="cards">'+g[1].map((x,i)=>'<button class="topic '+x[2]+'" onclick="makePanel(groups['+groups.indexOf(g)+'][1]['+i+'])"><span class="emoji">'+x[0]+'</span><strong>'+x[1]+'</strong><small>ট্যাপ করে খুলুন →</small></button>').join('')+'</div></section>').join('')}
-function openAllSections(){const first=document.querySelector('.section');if(first)first.scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.topic').forEach((b,i)=>{b.style.outline='3px solid #ffffff66';setTimeout(()=>b.style.outline='',900+(i%8)*120)})}
-render();
+function math(type){
+let a=Math.floor(Math.random()*9)+1,b=Math.floor(Math.random()*9)+1,op='+',ans=a+b;
+if(type==='sub'){if(b>a)[a,b]=[b,a];op='−';ans=a-b}
+if(type==='div'){b=Math.floor(Math.random()*8)+2;ans=Math.floor(Math.random()*8)+1;a=b*ans;op='÷'}
+if(type==='mul'){a=Math.floor(Math.random()*9)+1;b=Math.floor(Math.random()*9)+1;op='×';ans=a*b}
+if(type==='mix'){return math(['add','sub','mul','div'][Math.floor(Math.random()*4)])}
+let opts=new Set([ans]);while(opts.size<3){opts.add(Math.max(0,ans+Math.floor(Math.random()*7)-3))}
+openPanel('🎯 '+(type==='add'?'যোগ':type==='sub'?'বিয়োগ':type==='mul'?'গুণ':'ভাগ'),digital('','নিজে উত্তর বেছে নিয়ে অংক অনুশীলন।','সঠিক উত্তর বেছে নিলে সঙ্গে সঙ্গে ফল দেখাবে।')+'<div class="math"><div class="question">'+a+' '+op+' '+b+' = ?</div><div class="answers">'+[...opts].sort(()=>Math.random()-.5).map(v=>'<button onclick="checkMath('+v+','+ans+')">'+v+'</button>').join('')+'</div><div class="result" id="result"></div><button class="action" onclick="math('+JSON.stringify(type)+')">➡️ নতুন প্রশ্ন</button></div>')
+}
+function checkMath(v,a){let e=document.getElementById('result');if(v===a){e.textContent='🌟 সঠিক! দারুণ কাজ!';e.style.color='#0b9e73';say('সঠিক উত্তর! দারুণ কাজ!')}else{e.textContent='😊 আবার চেষ্টা করি';e.style.color='#d04b4b';say('আবার চেষ্টা করি')}}
+function openTables(){let arr=[];for(let n=1;n<=100;n++)arr.push([n+' × 2 = '+n*2,'নামতা '+n,String(n+' গুণ ২ সমান '+n*2)]);openPanel('✖️ নামতা ১–১০০',digital('','১ থেকে ১০০ পর্যন্ত নামতার অনুশীলন।','৫ × ২ = ১০')+items(arr)+'<div class="sheetActions"><a class="action" href="kids-learning.html">🤖 আরও অনুশীলন</a></div>')}
+function openInfo(title,key){
+let text=key==='BD'?'বাংলাদেশ দক্ষিণ এশিয়ার একটি দেশ। রাজধানী ঢাকা। দেশের জাতীয় পতাকা সবুজের মাঝে লাল বৃত্ত।':key==='NATIONAL'?'বাংলাদেশের গুরুত্বপূর্ণ জাতীয় দিবসগুলো সম্পর্কে বয়স উপযোগী তথ্য ও শ্রদ্ধার ধারণা শেখানো হবে।':'ভালো আচরণ মানে সত্য কথা বলা, অন্যকে সম্মান করা, সাহায্য করা এবং নিজের কাজের দায়িত্ব নেওয়া।';
+openPanel(title,digital(title,text,'একটি ভালো কাজ: কাউকে সাহায্য করা।')+'<div class="sheetActions"><button class="action" onclick="say('+JSON.stringify(text)+')">🔊 শুনি</button></div>')
+}
+document.getElementById('progressFill').style.width=(localStorage.getItem('babyTutorProgress')||32)+'%';
+document.getElementById('progressText').textContent=(localStorage.getItem('babyTutorProgress')||32)+'%';
 </script>
 </body>
 </html>
