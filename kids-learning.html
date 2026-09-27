@@ -39,7 +39,24 @@ const B="অ আ ই ঈ উ ঊ ঋ এ ঐ ও ঔ ক খ গ ঘ ঙ চ ছ
 const A="ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي".split(" ");
 const E="ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const bnNums=["০","১","২","৩","৪","৫","৬","৭","৮","৯","১০","১১","১২","১৩","১৪","১৫","১৬","১৭","১৮","১৯","২০","২১","২২","২৩","২৪","২৫","২৬","২৭","২৮","২৯","৩০","৩১","৩২","৩৩","৩৪","৩৫","৩৬","৩৭","৩৮","৩৯","৪০","৪১","৪২","৪৩","৪৪","৪৫","৪৬","৪৭","৪৮","৪৯","৫০","৫১","৫২","৫৩","৫৪","৫৫","৫৬","৫৭","৫৮","৫৯","৬০","৬১","৬২","৬৩","৬৪","৬৫","৬৬","৬৭","৬৮","৬৯","৭০","৭১","৭২","৭৩","৭৪","৭৫","৭৬","৭৭","৭৮","৭৯","৮০","৮১","৮২","৮৩","৮৪","৮৫","৮৬","৮৭","৮৮","৮৯","৯০","৯১","৯২","৯৩","৯৪","৯৫","৯৬","৯৭","৯৮","৯৯","১০০"];
-function speak(t,lang="bn-BD"){if("speechSynthesis"in window){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang=lang;u.rate=.82;speechSynthesis.speak(u)}}
+let voiceCache=[];
+function loadVoices(){voiceCache=speechSynthesis.getVoices()||[]}
+if("speechSynthesis"in window){loadVoices();speechSynthesis.onvoiceschanged=loadVoices}
+function pickVoice(lang){
+ const exact=voiceCache.filter(v=>v.lang&&v.lang.toLowerCase()===lang.toLowerCase());
+ const base=voiceCache.filter(v=>v.lang&&v.lang.toLowerCase().startsWith(lang.split("-")[0].toLowerCase()));
+ return exact.find(v=>!v.localService)||exact.find(v=>v.default)||exact[0]||base.find(v=>!v.localService)||base.find(v=>v.default)||base[0]||null;
+}
+function speak(t,lang="bn-BD"){
+ if(!("speechSynthesis"in window))return;
+ speechSynthesis.cancel();
+ const u=new SpeechSynthesisUtterance(t);
+ u.lang=lang;
+ const v=pickVoice(lang); if(v)u.voice=v;
+ u.rate=lang.startsWith("bn")?.78:lang.startsWith("ar")?.76:.82;
+ u.pitch=1.02; u.volume=1;
+ speechSynthesis.speak(u);
+}
 function openPanel(type){let p=document.getElementById("panel");let h="";
 if(type==="bangla")h='<button class="close" onclick="closePanel()">✕</button><h2>🔤 বাংলা বর্ণমালা</h2><p>অক্ষরে চাপ দাও, তারপর উচ্চারণ শুনো।</p><div class="letters">'+B.map(x=>'<button class="letter" onclick="speak(\''+x+'\')">'+x+'</button>').join("")+'</div><br><button class="sound" onclick="speak(\''+B.join(" ")+'\')">🔊 পুরো বর্ণমালা শুনি</button>';
 if(type==="english")h='<button class="close" onclick="closePanel()">✕</button><h2>🔠 English A–Z</h2><div class="letters">'+E.map(x=>'<button class="letter" onclick="speak(\''+x+'\',\'en-US\')">'+x+'</button>').join("")+'</div><br><button class="sound" onclick="speak(\'A B C D E F G H I J K L M N O P Q R S T U V W X Y Z\',\'en-US\')">🔊 Listen A–Z</button><div class="notice">A → Apple 🍎 &nbsp; B → Ball ⚽ &nbsp; C → Cat 🐱 &nbsp; D → Dog 🐶</div>';
