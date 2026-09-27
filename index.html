@@ -1,34 +1,59 @@
-<!doctype html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Baby Tutor</title><style>
-body{margin:0;font-family:system-ui,'Noto Sans Bengali',sans-serif;background:linear-gradient(180deg,#fff8e8,#eef8ff);color:#24313a}
-.wrap{max-width:1000px;margin:auto;padding:24px 18px}.hero{text-align:center;padding:28px 0}.hero h1{font-size:clamp(38px,8vw,64px);margin:12px 0}.hero p{color:#667}
-.grid,.tiles,.lesson-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.card{min-height:150px;border-radius:25px;padding:20px;color:white;text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 15px 30px #0002;transition:.2s;box-sizing:border-box}
-.card:hover{transform:translateY(-5px);box-shadow:0 20px 35px #0003}.icon{font-size:42px}.card h2{margin:0;font-size:21px}
-.c1{background:linear-gradient(145deg,#7155e8,#a783ff)}.c2{background:linear-gradient(145deg,#ef6b50,#ff9b6d)}.c3{background:linear-gradient(145deg,#10a876,#59d592)}.c4{background:linear-gradient(145deg,#287bd8,#65baff)}
-.c5{background:linear-gradient(145deg,#e24d8b,#ff86b5)}.c6{background:linear-gradient(145deg,#f09a24,#ffd05a)}.c7{background:linear-gradient(145deg,#6750c9,#9b85ff)}.c8{background:linear-gradient(145deg,#00a4a6,#55d8c8)}.c9{background:linear-gradient(145deg,#e05b3f,#ff9474)}.c10{background:linear-gradient(145deg,#3b78c9,#72b6ff)}
-.banner{margin:25px 0;padding:25px;border-radius:25px;background:linear-gradient(135deg,#fff0c4,#ffe5ef)}
-.section-title{text-align:center;margin:28px 0 16px}.tiles{grid-template-columns:repeat(3,1fr)}
-.lesson-grid{margin-top:18px}.lesson{min-height:180px;border-radius:25px;padding:22px;color:white;box-shadow:0 12px 28px #0002}.lesson h2{margin-top:0}.lesson p{font-size:18px;line-height:1.8}
-.l1{background:linear-gradient(145deg,#7155e8,#a783ff)}.l2{background:linear-gradient(145deg,#ef6b50,#ff9b6d)}.l3{background:linear-gradient(145deg,#10a876,#59d592)}.l4{background:linear-gradient(145deg,#287bd8,#65baff)}
-@media(max-width:700px){.grid,.lesson-grid{grid-template-columns:repeat(2,1fr)}.tiles{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:430px){.tiles{grid-template-columns:1fr}.card{min-height:130px;padding:16px}.lesson{min-height:150px;padding:17px}}
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>🧸 Baby Tutor — খেলতে খেলতে শেখা</title><style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,'Noto Sans Bengali','Noto Sans',sans-serif;color:#24324a;background:linear-gradient(180deg,#eaf8ff 0%,#fff8e8 48%,#f5edff 100%);overflow-x:hidden}
+body:before,body:after{content:"";position:fixed;border-radius:50%;filter:blur(2px);opacity:.45;z-index:-1}body:before{width:190px;height:190px;background:#ffd86b;top:80px;left:-80px}body:after{width:230px;height:230px;background:#b8a2ff;right:-100px;bottom:60px}
+.wrap{max-width:1080px;margin:auto;padding:18px}.topbar{display:flex;justify-content:space-between;align-items:center;background:#ffffffd9;border:2px solid #fff;border-radius:24px;padding:10px 16px;box-shadow:0 10px 28px #52647a18;position:sticky;top:10px;z-index:20;backdrop-filter:blur(10px)}
+.logo{font-weight:900;font-size:20px;color:#5b43c6}.home{border:0;border-radius:18px;padding:10px 15px;background:#5b43c6;color:#fff;font-weight:800;text-decoration:none}
+.hero{text-align:center;padding:35px 10px 28px}.cloud{display:inline-block;background:#fff;padding:9px 18px;border-radius:30px;box-shadow:0 8px 20px #52647a16;font-weight:800}.hero h1{font-size:clamp(42px,9vw,78px);margin:16px 0 8px;background:linear-gradient(90deg,#6a4be7,#f05b8c,#159f9b);-webkit-background-clip:text;color:transparent}.hero p{font-size:18px;color:#66758b;margin:0 auto 20px;max-width:650px}.stars{font-size:28px;letter-spacing:10px}
+.section-title{text-align:center;font-size:28px;margin:30px 0 16px}.grid,.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{min-height:155px;border-radius:28px;padding:20px;color:white;text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 16px 30px #0002;border:3px solid #ffffff55;transition:.2s;position:relative;overflow:hidden}
+.card:after{content:"✦";position:absolute;right:15px;top:9px;font-size:22px;opacity:.55}.card:hover{transform:translateY(-6px) scale(1.015);box-shadow:0 22px 35px #0003}.card:active{transform:scale(.98)}.icon{font-size:46px}.card h2{margin:0;font-size:21px}.hint{font-size:13px;opacity:.9}
+.c1{background:linear-gradient(145deg,#6d4de7,#aa88ff)}.c2{background:linear-gradient(145deg,#ef684e,#ff9b6b)}.c3{background:linear-gradient(145deg,#0ca474,#59d593)}.c4{background:linear-gradient(145deg,#2779d4,#68bcff)}.c5{background:linear-gradient(145deg,#df4785,#ff88b6)}.c6{background:linear-gradient(145deg,#ee941d,#ffd35b)}.c7{background:linear-gradient(145deg,#6550c9,#a08aff)}.c8{background:linear-gradient(145deg,#00a2a4,#55d9c8)}.c9{background:linear-gradient(145deg,#dc573c,#ff9878)}.c10{background:linear-gradient(145deg,#3677c8,#72b8ff)}
+.banner{margin:26px 0;padding:24px;border-radius:28px;background:linear-gradient(135deg,#fff0ba,#ffe1ed);border:3px solid #fff;box-shadow:0 12px 25px #0001}.banner h2{margin:0 0 6px}.banner p{margin:0;color:#657187}
+.lesson-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.lesson{min-height:190px;border-radius:28px;padding:24px;color:white;box-shadow:0 15px 30px #0002;border:3px solid #ffffff55}.lesson h2{margin:0 0 14px}.lesson p{font-size:22px;line-height:2.1;margin:0;word-spacing:10px}.lesson small{opacity:.9}
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.tool{background:#fff;border:3px solid #fff;border-radius:24px;padding:20px;text-decoration:none;color:#26364d;box-shadow:0 10px 25px #0001;transition:.2s}.tool:hover{transform:translateY(-4px)}.tool strong{font-size:20px}.tool span{display:block;color:#758297;margin-top:6px}
+.footer{text-align:center;margin:35px 0 10px;padding:25px;border-radius:25px;background:#ffffffaa}.footer b{color:#5b43c6}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.lesson-grid{grid-template-columns:1fr}.tools{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:440px){.wrap{padding:12px}.topbar{position:relative;top:0}.hero{padding-top:28px}.grid{gap:11px}.card{min-height:135px;padding:16px;border-radius:23px}.icon{font-size:38px}.card h2{font-size:18px}.tiles{grid-template-columns:1fr 1fr;gap:11px}.lesson{padding:18px}.lesson p{font-size:19px}.tools{grid-template-columns:1fr}.section-title{font-size:24px}}
 </style></head><body><main class="wrap">
-<section class="hero"><div>🌈 খেলতে খেলতে শেখা</div><h1>🧸 Baby Tutor</h1><p>শিশুদের জন্য সুন্দর, সহজ ও আনন্দময় ডিজিটাল পাঠশালা</p></section>
+<nav class="topbar"><div class="logo">🧸 Baby Tutor</div><a class="home" href="#">🏠 হোম</a></nav>
+<section class="hero"><div class="cloud">🌈 খেলতে খেলতে শেখা • ⭐ প্রতিদিন নতুন কিছু</div><h1>🧸 Baby Tutor</h1><p>শিশুদের জন্য রঙিন, আনন্দময় ও সহজ ডিজিটাল পাঠশালা। চাপুন, দেখুন, শিখুন আর মজা করুন!</p><div class="stars">⭐ 🌟 ⭐ 🌟 ⭐</div></section>
+
+<h2 class="section-title">🎮 আজ কী শিখবে?</h2>
 <section class="grid">
-<a class="card c1" href="#arabic"><div class="icon">🕌</div><h2>আরবি হরফ</h2></a>
-<a class="card c2" href="#vowels"><div class="icon">🔤</div><h2>স্বরবর্ণ</h2></a>
-<a class="card c3" href="#consonants"><div class="icon">📝</div><h2>ব্যঞ্জনবর্ণ</h2></a>
-<a class="card c4" href="#numbers"><div class="icon">🔢</div><h2>সংখ্যা</h2></a>
+<a class="card c1" href="#arabic"><div class="icon">🕌</div><h2>আরবি হরফ</h2><div class="hint">ا ب ت ث • শিখি</div></a>
+<a class="card c2" href="#vowels"><div class="icon">🔤</div><h2>স্বরবর্ণ</h2><div class="hint">অ আ ই ঈ • শিখি</div></a>
+<a class="card c3" href="#consonants"><div class="icon">📝</div><h2>ব্যঞ্জনবর্ণ</h2><div class="hint">ক খ গ ঘ • শিখি</div></a>
+<a class="card c4" href="#numbers"><div class="icon">🔢</div><h2>সংখ্যা</h2><div class="hint">১ ২ ৩ ৪ • গুনি</div></a>
 </section>
-<section class="banner"><h2>✨ স্বরবর্ণ দিয়ে শব্দ গঠন</h2><p>অক্ষর মিলিয়ে নতুন শব্দ শেখার মজার অনুশীলন।</p></section>
-<h2 class="section-title">🎯 আরও মজার শেখা</h2><section class="tiles">
-<a class="card c5" href="#quiz"><div class="icon">🧠</div><h2>কুইজ</h2></a><a class="card c6" href="#words"><div class="icon">💬</div><h2>শব্দ শেখা</h2></a><a class="card c7" href="#stories"><div class="icon">📖</div><h2>গল্প</h2></a><a class="card c8" href="#rhymes"><div class="icon">🎵</div><h2>ছড়া</h2></a><a class="card c9" href="#voice"><div class="icon">🔊</div><h2>ভয়েস</h2></a><a class="card c10" href="#draw"><div class="icon">🎨</div><h2>আঁকা ও রং</h2></a>
+
+<section class="banner"><h2>✨ ছোট্ট শেখার চ্যালেঞ্জ</h2><p>আজ ৫টি অক্ষর, ৫টি শব্দ আর ৫টি সংখ্যা চিনে ফেলি! 🎯</p></section>
+
+<h2 class="section-title">🎨 আরও মজার শেখা</h2>
+<section class="tiles">
+<a class="card c5" href="#quiz"><div class="icon">🧠</div><h2>কুইজ</h2><div class="hint">মজার প্রশ্নের উত্তর দাও</div></a>
+<a class="card c6" href="#words"><div class="icon">💬</div><h2>শব্দ শেখা</h2><div class="hint">ছবির সাথে শব্দ শিখি</div></a>
+<a class="card c7" href="#stories"><div class="icon">📖</div><h2>গল্প</h2><div class="hint">ছোট্ট গল্প পড়ি</div></a>
+<a class="card c8" href="#rhymes"><div class="icon">🎵</div><h2>ছড়া</h2><div class="hint">ছন্দে ছন্দে শিখি</div></a>
+<a class="card c9" href="#voice"><div class="icon">🔊</div><h2>ভয়েস</h2><div class="hint">শুনে শুনে অনুশীলন</div></a>
+<a class="card c10" href="#draw"><div class="icon">🎨</div><h2>আঁকা ও রং</h2><div class="hint">রঙে রঙে মজা করি</div></a>
 </section>
-<h2 class="section-title">📚 শেখার অংশ</h2>
+
+<h2 class="section-title">📚 শেখার জগৎ</h2>
 <section class="lesson-grid">
-<div class="lesson l1" id="arabic"><h2>🕌 আরবি হরফ</h2><p>ا　ب　ت　ث</p></div>
-<div class="lesson l2" id="vowels"><h2>🔤 স্বরবর্ণ</h2><p>অ　আ　ই　ঈ　উ　ঊ　ঋ　এ　ঐ　ও　ঔ</p></div>
-<div class="lesson l3" id="consonants"><h2>📝 ব্যঞ্জনবর্ণ</h2><p>ক　খ　গ　ঘ　ঙ</p></div>
-<div class="lesson l4" id="numbers"><h2>🔢 সংখ্যা</h2><p>১　২　৩　৪　৫　৬　৭　৮　৯　১০</p></div>
+<div class="lesson c1" id="arabic"><h2>🕌 আরবি হরফ</h2><p>ا　ب　ت　ث</p><small>আস্তে আস্তে হরফ চিনে নিই ⭐</small></div>
+<div class="lesson c2" id="vowels"><h2>🔤 স্বরবর্ণ</h2><p>অ　আ　ই　ঈ　উ　ঊ　ঋ　এ　ঐ　ও　ঔ</p><small>স্বরবর্ণ দিয়ে শব্দ বানাই 🌈</small></div>
+<div class="lesson c3" id="consonants"><h2>📝 ব্যঞ্জনবর্ণ</h2><p>ক　খ　গ　ঘ　ঙ　চ　ছ　জ</p><small>অক্ষর দেখে চিনে ফেলি 🎯</small></div>
+<div class="lesson c4" id="numbers"><h2>🔢 সংখ্যা</h2><p>১　২　৩　৪　৫　৬　৭　৮　৯　১০</p><small>গুনতে গুনতে সংখ্যা শিখি 🚀</small></div>
 </section>
+
+<h2 class="section-title">🪄 Baby Tutor-এর মজার কোণা</h2>
+<section class="tools">
+<a class="tool" id="quiz" href="#quiz"><strong>🧠 কুইজ খেলি</strong><span>প্রশ্ন দেখি আর উত্তর ভাবি</span></a>
+<a class="tool" id="words" href="#words"><strong>💬 শব্দের ঝুলি</strong><span>নতুন নতুন শব্দ শিখি</span></a>
+<a class="tool" id="stories" href="#stories"><strong>📖 গল্পের দেশ</strong><span>ছোট্ট গল্পের আনন্দ</span></a>
+<a class="tool" id="rhymes" href="#rhymes"><strong>🎵 ছড়ার আসর</strong><span>ছন্দে ছন্দে শেখা</span></a>
+<a class="tool" id="voice" href="#voice"><strong>🔊 শুনে শেখা</strong><span>শব্দ শুনে অনুশীলন</span></a>
+<a class="tool" id="draw" href="#draw"><strong>🎨 রঙের দুনিয়া</strong><span>সৃজনশীলতার মজা</span></a>
+</section>
+<footer class="footer">🌟 প্রতিদিন একটু একটু করে শেখা • <b>Baby Tutor</b> 🧸<br><small>শিশুদের শেখা হোক আনন্দের ও রঙিন</small></footer>
 </main></body></html>
