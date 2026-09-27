@@ -15,16 +15,16 @@
 .section{margin:25px 0}.section h2{margin:0 0 12px;font-size:22px}
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .topic{border:0;border-radius:22px;padding:17px;min-height:155px;color:#fff;text-align:center;cursor:pointer;box-shadow:0 10px 25px #0001;transition:.2s;font-family:inherit;position:relative}
-.topic:hover{transform:translateY(-3px)}.topic:active{transform:scale(.98)}.topic .emoji{font-size:38px;display:block;margin-bottom:5px}.topic strong{font-size:16px}.topic small{display:block;margin-top:6px;opacity:.88}
+.topic:hover{transform:translateY(-3px)}.topic:active{transform:scale(.98)}.topic .emoji{font-size:38px;display:block;margin-bottom:5px}.topic strong{font-size:16px}.topic small{display:block;margin-top:6px;opacity:.88}.topic:after{content:'OPEN';position:absolute;right:10px;top:10px;font-size:9px;font-weight:900;letter-spacing:.6px;background:#ffffff33;padding:4px 7px;border-radius:20px}
 .c1{background:linear-gradient(145deg,#6048e8,#9d8aff)}.c2{background:linear-gradient(145deg,#ef674c,#ff9e70)}.c3{background:linear-gradient(145deg,#0b9e73,#62d99b)}.c4{background:linear-gradient(145deg,#2879d2,#70bdff)}.c5{background:linear-gradient(145deg,#d9407d,#ff91bb)}.c6{background:linear-gradient(145deg,#e9951c,#ffd45f)}.c7{background:linear-gradient(145deg,#6550c7,#9b87ff)}.c8{background:linear-gradient(145deg,#009da0,#57d9c9)}
 #lessonPanel{display:none;margin:20px 0;background:#fff;border-radius:26px;padding:18px;box-shadow:0 14px 35px #25304a18;border:1px solid #fff}
 #lessonPanel.show{display:block}.panelHead{display:flex;align-items:center;justify-content:space-between;gap:10px}.panelHead h3{margin:0;font-size:22px}.close{border:0;border-radius:12px;padding:8px 12px;background:#f0efff;color:#5542df;font-weight:900;cursor:pointer}
-.panelIntro{line-height:1.75;color:#58657b}.items{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-top:14px}
+.panelIntro{line-height:1.75;color:#58657b}.digital-info{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}.info-card{background:linear-gradient(145deg,#f7f8ff,#eef9ff);border:1px solid #e5e9f7;border-radius:18px;padding:14px}.info-card b{display:block;margin-bottom:5px;color:#3d49a4}.example{background:#fff9e8;border-left:4px solid #f0ad28;border-radius:12px;padding:12px;margin:12px 0;line-height:1.7}.items{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-top:14px}
 .item{border:0;border-radius:15px;padding:13px 8px;background:#f5f7ff;color:#293551;font-weight:900;cursor:pointer;min-height:58px}.item:hover{background:#e9e6ff}.item small{display:block;font-weight:700;color:#77839a;margin-top:3px}
 .action-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.action{border:0;border-radius:13px;padding:10px 14px;background:#5542df;color:#fff;font-weight:900;cursor:pointer;text-decoration:none}.action.alt{background:#eafafa;color:#087f83}
 .math-box{max-width:620px;margin:12px auto;text-align:center;padding:18px;border-radius:20px;background:#f7f8ff}.math-q{font-size:30px;font-weight:950;margin:8px}.answers{display:flex;gap:9px;justify-content:center;flex-wrap:wrap}.answers button{min-width:80px;border:0;border-radius:13px;padding:11px;background:#fff;box-shadow:0 5px 14px #0001;font-weight:900;cursor:pointer}
 .result{font-weight:900;margin-top:10px;min-height:24px}.stars-note{font-size:13px;color:#6b7280}
-@media(max-width:850px){.cards{grid-template-columns:repeat(3,1fr)}}@media(max-width:650px){.bt-learning{padding:8px 10px}.cards{grid-template-columns:repeat(2,1fr);gap:9px}.topic{min-height:135px;padding:13px}.topic .emoji{font-size:32px}.items{grid-template-columns:repeat(3,1fr)}}@media(max-width:420px){.items{grid-template-columns:repeat(2,1fr)}.bt-hero{padding:22px 14px;border-radius:24px}}
+@media(max-width:850px){.cards{grid-template-columns:repeat(3,1fr)}}@media(max-width:650px){.bt-learning{padding:8px 10px}.cards{grid-template-columns:repeat(2,1fr);gap:9px}.topic{min-height:135px;padding:13px}.topic .emoji{font-size:32px}.items{grid-template-columns:repeat(3,1fr)}.digital-info{grid-template-columns:1fr 1fr}}@media(max-width:420px){.items{grid-template-columns:repeat(2,1fr)}.digital-info{grid-template-columns:1fr}.bt-hero{padding:22px 14px;border-radius:24px}}
 </style>
 </head>
 <body>
@@ -90,10 +90,62 @@ function closePanel(){document.getElementById('lessonPanel').classList.remove('s
 function itemButtons(arr,mode){return '<div class="items">'+arr.map((x,i)=>{let label=Array.isArray(x)?x[1]:x;let sub=Array.isArray(x)?x[0]:'';let val=Array.isArray(x)?x[2]:x;return '<button class="item" onclick="say('+JSON.stringify(String(val))+')">'+label+'<small>'+sub+'</small></button>'}).join('')+'</div>'}
 function math(type){let a=Math.floor(Math.random()*9)+1,b=Math.floor(Math.random()*9)+1,op='+',ans=a+b;if(type==='sub'){if(b>a)[a,b]=[b,a];op='−';ans=a-b}if(type==='mul'){a=Math.floor(Math.random()*10)+1;b=Math.floor(Math.random()*10)+1;op='×';ans=a*b}if(type==='div'){b=Math.floor(Math.random()*9)+1;ans=Math.floor(Math.random()*9)+1;a=b*ans;op='÷'}if(type==='mix'){const r=['add','sub','mul','div'];return math(r[Math.floor(Math.random()*4)])}let opts=new Set([ans]);while(opts.size<3){let d=Math.floor(Math.random()*7)-3;if(d)opts.add(Math.max(0,ans+d))}openPanel('🎯 গণিত অনুশীলন','<div class="math-box"><div class="math-q">'+a+' '+op+' '+b+' = ?</div><div class="answers">'+[...opts].sort(()=>Math.random()-.5).map(v=>'<button onclick="checkMath('+v+','+ans+')">'+v+'</button>').join('')+'</div><div id="mathResult" class="result"></div><div class="action-row"><button class="action" onclick="math('+JSON.stringify(type)+')">➡️ নতুন প্রশ্ন</button></div></div>')}
 function checkMath(v,a){const el=document.getElementById('mathResult');if(v===a){el.textContent='🌟 সঠিক! দারুণ কাজ!';el.style.color='#0b9e73'}else{el.textContent='আবার চেষ্টা করি 😊';el.style.color='#d04b4b'}say(v===a?'সঠিক উত্তর! দারুণ কাজ!':'আবার চেষ্টা করি')}
-function makePanel(x){const title=x[1],type=x[3],data=x[4];if(type==='letters'||type==='pronounce')openPanel(title,'<p class="panelIntro">একটি অক্ষরে ট্যাপ করলে তার উচ্চারণ শুনবে।</p>'+itemButtons(data)+ '<div class="action-row"><a class="action" href="draw.html">✍️ লিখে অনুশীলন</a></div>');else if(type==='numbers')openPanel(title,'<p class="panelIntro">যে সংখ্যায় ট্যাপ করবে, সেটি উচ্চারণ করে শোনানো হবে।</p>'+itemButtons(data));else if(type==='words'||type==='list')openPanel(title,'<p class="panelIntro">ছোটদের পরিচিত শব্দগুলো ট্যাপ করে শুনি ও মনে রাখি।</p>'+itemButtons(data));else if(type==='sounds')openPanel(title,'<p class="panelIntro">প্রাণীর নাম ও ডাক একসাথে শুনি।</p>'+itemButtons(data));else if(type==='match')openPanel(title,'<p class="panelIntro">একটি অক্ষর শুনে মনে রাখো, তারপর পরের অনুশীলনে ব্যবহার করো।</p>'+itemButtons(data.map(v=>[v,'অক্ষর',v]))+'<div class="action-row"><a class="action" href="quiz.html">🎯 কুইজ খেলি</a></div>');else if(type==='draw')openPanel(title,'<p class="panelIntro">স্ক্রিনে আঙুল দিয়ে আঁকার অনুশীলন করো।</p><div class="action-row"><a class="action" href="draw.html">🎨 আঁকার পাতা খুলুন</a></div>');else if(type==='tables'){let arr=[];for(let i=1;i<=100;i++)arr.push(i+' × 2 = '+i*2);openPanel(title,'<p class="panelIntro">নিচের নামতার উদাহরণে ট্যাপ করলে উচ্চারণ শোনা যাবে।</p>'+itemButtons(arr.slice(0,20))+'<div class="action-row"><button class="action" onclick="openTables()">📚 আরও নামতা</button></div>')}else if(type==='math')math(data);else if(type==='link')location.href=data;else if(type==='progress')openPanel(title,'<p class="panelIntro">Baby Tutor-এ শেখার অগ্রগতি ও Stars ব্রাউজারের local storage-এ রাখা হয়।</p><div class="action-row"><a class="action" href="kids-learning.html">🤖 Smart Learning খুলুন</a></div>');else openPanel(title,'<p class="panelIntro">শিশুদের উপযোগী সহজ তথ্য ও অনুশীলন এখানে রাখা হয়েছে।</p><div class="items"><button class="item" onclick="say(\'বাংলাদেশের রাজধানী ঢাকা।\')">🇧🇩 বাংলাদেশ<small>রাজধানী: ঢাকা</small></button><button class="item" onclick="say(\'ভালো আচরণ করি, সত্য কথা বলি, অন্যকে সাহায্য করি।\')">💚 ভালো আচরণ<small>সততা ও সহযোগিতা</small></button><button class="item" onclick="say(\'এই বিষয়টি Baby Tutor-এর নিজস্ব সাধারণ শিক্ষামূলক কনটেন্ট।\')">📚 শিখি<small>সহজ ভাষায়</small></button></div>')}
+const details={
+'বাংলা স্বরবর্ণ':['স্বরবর্ণ কী?','বাংলা ভাষার স্বরবর্ণগুলো আলাদা করে চিনতে ও উচ্চারণ করতে শেখো।','অ, আ, ই, ঈ, উ, ঊ, ঋ, এ, ঐ, ও, ঔ'],
+'বাংলা ব্যঞ্জনবর্ণ':['ব্যঞ্জনবর্ণ কী?','শব্দ গঠনের জন্য ব্যঞ্জনবর্ণ চিনে উচ্চারণ অনুশীলন করি।','ক, খ, গ, ঘ … হ'],
+'ইংরেজি Alphabet':['English Alphabet','A থেকে Z পর্যন্ত অক্ষর চিনে সঠিক উচ্চারণ শুনি।','A, B, C, D … Z'],
+'আরবি হরফ':['আরবি হরফ','আরবি বর্ণগুলো দেখে চিনে উচ্চারণ অনুশীলন করি।','ا، ب، ت، ث … ي'],
+'বাংলা শব্দ গঠন':['শব্দ গঠন','অক্ষর মিলিয়ে সহজ বাংলা শব্দ পড়ার ভিত্তি তৈরি করি।','আ + ম = আম; ব + ই = বই'],
+'English Numbers 1–100':['English Numbers','1 থেকে 100 পর্যন্ত সংখ্যা চিনে ইংরেজি নাম শুনি।','1 = One, 2 = Two, 10 = Ten'],
+'বাংলা সংখ্যা ১–১০০':['বাংলা সংখ্যা','১ থেকে ১০০ পর্যন্ত সংখ্যা চিনে শুনি ও গুনতে অনুশীলন করি।','১, ২, ৩ … ১০০'],
+'নামতা ১–১০০':['নামতা','গুণের ধারণা শক্ত করতে ১ থেকে ১০০ পর্যন্ত নামতার অনুশীলন।','৫ × ৪ = ২০'],
+'যোগ':['যোগ','দুটি বা তার বেশি সংখ্যা একসাথে করলে মোট কত হয় তা শিখি।','৩ + ২ = ৫'],
+'বিয়োগ':['বিয়োগ','একটি সংখ্যা থেকে অন্য সংখ্যা কমালে কত থাকে তা শিখি।','৮ − ৩ = ৫'],
+'গুণ':['গুণ','একই সংখ্যা বারবার যোগ করার সহজ ধারণা থেকে গুণ শেখা।','৪ × ৩ = ১২'],
+'ভাগ':['ভাগ','কোনো সংখ্যাকে সমান অংশে ভাগ করার ধারণা অনুশীলন করি।','১২ ÷ ৩ = ৪'],
+'ফলের নাম':['ফল','পরিচিত ফলের নাম চিনে শব্দ ও উচ্চারণ শেখা।','আম, কলা, আপেল, কমলা'],
+'শাক-সবজি':['শাক-সবজি','রান্না ও খাবারে পরিচিত শাক-সবজির নাম শেখা।','আলু, গাজর, টমেটো, লাউ'],
+'পাখির নাম':['পাখি','চারপাশের পরিচিত পাখির নাম ও শব্দ শেখা।','দোয়েল, কাক, শালিক, টিয়া'],
+'প্রাণীর নাম':['প্রাণী','পরিচিত প্রাণীর নাম দেখে চিনে উচ্চারণ অনুশীলন।','বাঘ, সিংহ, হাতি, ঘোড়া'],
+'পশুপাখির ডাক':['পশুপাখির ডাক','প্রাণী বা পাখির নাম দেখে তাদের প্রচলিত ডাক শুনে মনে রাখি।','গরু—হাম্বা; কুকুর—ঘেউ ঘেউ'],
+'মানবদেহ পরিচিতি':['মানবদেহ','শরীরের সাধারণ অঙ্গগুলোর নাম ও কাজ সম্পর্কে প্রাথমিক ধারণা।','চোখ—দেখি; কান—শুনি; নাক—ঘ্রাণ নিই'],
+'বাংলাদেশ পরিচিতি':['বাংলাদেশ','বাংলাদেশ সম্পর্কে শিশুদের উপযোগী কয়েকটি মৌলিক তথ্য।','রাজধানী: ঢাকা'],
+'জাতীয় দিবস পরিচিতি':['জাতীয় দিবস','দেশের গুরুত্বপূর্ণ দিবসগুলোর অর্থ ও স্মরণ করার ধারণা।','দিবসের নাম ট্যাপ করে শোনা যাবে'],
+'মজার ছড়া':['ছড়া','ছন্দ ও শব্দের মাধ্যমে আনন্দের সাথে ভাষা শেখা।','ছড়া পেজে গিয়ে একাধিক মূল Baby Tutor ছড়া পড়া ও শোনা যাবে।'],
+'শিক্ষণীয় গল্প':['গল্প','গল্পের মাধ্যমে আচরণ, বুদ্ধি ও ভালো অভ্যাস শেখা।','গল্প পেজে গিয়ে গল্প পড়া ও প্রশ্ন অনুশীলন করা যাবে।'],
+'প্রশ্ন ও উত্তর':['প্রশ্ন ও উত্তর','শেখা বিষয়গুলো ছোট কুইজের মাধ্যমে যাচাই করি।','উত্তর বেছে নিয়ে সঙ্গে সঙ্গে ফল দেখা যাবে।'],
+'আঁকাআকি':['আঁকাআকি','আঙুল বা মাউস দিয়ে নিজের মতো করে আঁকার অনুশীলন।','Draw পেজ খুলে ক্যানভাসে আঁকা যাবে।'],
+'ছবি রং করি':['রং করার অনুশীলন','রং ও আঁকার মাধ্যমে সৃজনশীলতা অনুশীলন করি।','নিজের পছন্দের রং ব্যবহার করে আঁকা তৈরি করো।'],
+'খেলার মাধ্যমে শেখা':['Learning Game','ছোট ছোট প্রশ্ন ও কাজের মাধ্যমে শেখাকে খেলায় পরিণত করা।','কুইজে গিয়ে উত্তর দিয়ে অনুশীলন করো।'],
+'Stars ও Progress':['Stars ও Progress','শেখার অগ্রগতি ও Stars ব্রাউজারে সংরক্ষণ করে ধারাবাহিক শেখায় উৎসাহ দেওয়া হয়।','প্রতিটি শেখার কাজের পরে অগ্রগতি দেখা যাবে।'],
+'নৈতিক গল্প':['নৈতিক শিক্ষা','সততা, ভালো আচরণ, সহযোগিতা ও দায়িত্ববোধের মতো মূল্যবোধ শেখা।','ভালো আচরণ করি ও অন্যকে সাহায্য করি।'],
+'ইসলামিক সাধারণ শিক্ষা':['সাধারণ ইসলামিক শিক্ষা','শিশুদের উপযোগী মৌলিক ও শালীন সাধারণ শিক্ষা বিষয়।','সহজ ভাষায় ধারণা শেখা ও মনে রাখা।'],
+'Offline-ready শেখা':['Offline-ready','আগে থেকে সংরক্ষিত পেজ/রিসোর্স থাকলে নেট ছাড়াই কিছু অংশ ব্যবহার করা যেতে পারে।','ইন্টারনেট না থাকলে সব ফিচার সমানভাবে কাজ নাও করতে পারে।'],
+'Smart Learning':['Smart Learning','ইন্টার‌্যাকটিভ লেসন, কুইজ, অডিও ও অগ্রগতির একসাথে শেখার জায়গা।','Smart Learning পেজে গিয়ে আরও অনুশীলন করো।']
+};
+
+function richIntro(title){
+const d=details[title]||[title,'এই বিষয়ের মূল ধারণা, উদাহরণ ও অনুশীলন এক জায়গায় দেখানো হবে।','ট্যাপ করে তথ্য শুনুন এবং অনুশীলন করুন।'];
+return '<div class="digital-info"><div class="info-card"><b>📘 কী শিখবে?</b>'+d[1]+'</div><div class="info-card"><b>🎯 লক্ষ্য</b>চেনা → বোঝা → বলা → অনুশীলন</div><div class="info-card"><b>🔊 শুনে শেখা</b>নিচের বাটনে ট্যাপ করলে শব্দ উচ্চারণ করে শোনানো হবে।</div></div><div class="example"><b>💡 উদাহরণ:</b> '+d[2]+'</div>';
+}
+
+function makePanel(x){
+const title=x[1],type=x[3],data=x[4];
+if(type==='letters'||type==='pronounce')openPanel(title,richIntro(title)+'<p class="panelIntro">একটি অক্ষরে ট্যাপ করো। অক্ষরটি বড় করে দেখার মতো ডিজিটাল কার্ডে থাকবে এবং উচ্চারণ শোনা যাবে।</p>'+itemButtons(data)+'<div class="action-row"><a class="action" href="draw.html">✍️ লিখে অনুশীলন</a><a class="action alt" href="quiz.html">🎯 কুইজ</a></div>');
+else if(type==='numbers')openPanel(title,richIntro(title)+'<p class="panelIntro">প্রতিটি সংখ্যা একটি ডিজিটাল শেখার কার্ড। ট্যাপ করলে উচ্চারণ শুনবে।</p>'+itemButtons(data)+'<div class="action-row"><button class="action" onclick="say("এক থেকে একশ পর্যন্ত সংখ্যা অনুশীলন করি")">🔊 পুরো পরিসর শুনি</button></div>');
+else if(type==='words'||type==='list')openPanel(title,richIntro(title)+'<p class="panelIntro">প্রতিটি শব্দ আলাদা কার্ডে আছে। কার্ডে ট্যাপ করে শব্দটি শুনো।</p>'+itemButtons(data));
+else if(type==='sounds')openPanel(title,richIntro(title)+'<p class="panelIntro">নাম ও ডাক একসাথে দেখে/শুনে মিলিয়ে শেখো।</p>'+itemButtons(data));
+else if(type==='match')openPanel(title,richIntro(title)+'<p class="panelIntro">অক্ষর দেখে উচ্চারণ শুনে মনে রাখো, তারপর কুইজে গিয়ে চিনে উত্তর দাও।</p>'+itemButtons(data.map(v=>[v,'অক্ষর',v]))+'<div class="action-row"><a class="action" href="quiz.html">🎯 অক্ষর কুইজ খেলি</a></div>');
+else if(type==='draw')openPanel(title,richIntro(title)+'<p class="panelIntro">ডিজিটাল ক্যানভাসে আঙুল বা মাউস দিয়ে লিখে/এঁকে অনুশীলন করো।</p><div class="action-row"><a class="action" href="draw.html">🎨 ডিজিটাল আঁকার পাতা খুলুন</a></div>');
+else if(type==='tables')openPanel(title,richIntro(title)+'<p class="panelIntro">প্রথমে কয়েকটি উদাহরণ দেখো। এরপর “আরও নামতা” চাপলে ১–১০০ পর্যন্ত নির্বাচিত নামতা দেখা যাবে।</p>'+itemButtons(Array.from({length:20},(_,i)=>[i+1+' × 2 = '+(i+1)*2,'উদাহরণ',String((i+1)*2)]))+'<div class="action-row"><button class="action" onclick="openTables()">📚 আরও নামতা</button></div>');
+else if(type==='math')math(data);
+else if(type==='link')openPanel(title,richIntro(title)+'<div class="action-row"><a class="action" href="'+data+'">🚀 বিস্তারিত পেজ খুলুন</a></div>');
+else if(type==='progress')openPanel(title,richIntro(title)+'<div class="action-row"><a class="action" href="kids-learning.html">🤖 Smart Learning খুলুন</a></div>');
+else openPanel(title,richIntro(title)+'<div class="items"><button class="item" onclick="say(\'বাংলাদেশের রাজধানী ঢাকা।\')">🇧🇩 বাংলাদেশ<small>রাজধানী: ঢাকা</small></button><button class="item" onclick="say(\'ভালো আচরণ করি, সত্য কথা বলি, অন্যকে সাহায্য করি।\')">💚 ভালো আচরণ<small>সততা ও সহযোগিতা</small></button><button class="item" onclick="say(\'এই বিষয়টি সহজ ভাষায় ধাপে ধাপে শেখা যায়।\')">📚 শিখি<small>ডিজিটাল কার্ড</small></button></div>');
+}
 function openTables(){const arr=[];for(let n=1;n<=100;n++)for(let m=1;m<=10;m++)arr.push(n+' × '+m+' = '+n*m);openPanel('📚 ১–১০০ নামতা','<p class="panelIntro">একটি উদাহরণে ট্যাপ করলে উচ্চারণ শোনা যাবে।</p>'+itemButtons(arr.slice(0,100)))}
 function render(){document.getElementById('hub').innerHTML=groups.map(g=>'<section class="section"><h2>'+g[0]+'</h2><div class="cards">'+g[1].map((x,i)=>'<button class="topic '+x[2]+'" onclick="makePanel(groups['+groups.indexOf(g)+'][1]['+i+'])"><span class="emoji">'+x[0]+'</span><strong>'+x[1]+'</strong><small>ট্যাপ করে খুলুন →</small></button>').join('')+'</div></section>').join('')}
-function openAllSections(){document.querySelectorAll('.section').forEach(s=>s.scrollIntoView({behavior:'smooth',block:'start'}))}
+function openAllSections(){const first=document.querySelector('.section');if(first)first.scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.topic').forEach((b,i)=>{b.style.outline='3px solid #ffffff66';setTimeout(()=>b.style.outline='',900+(i%8)*120)})}
 render();
 </script>
 </body>
