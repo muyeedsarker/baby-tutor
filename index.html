@@ -1,15 +1,17 @@
 <!doctype html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Baby Tutor</title><style>
 body{margin:0;font-family:system-ui,'Noto Sans Bengali',sans-serif;background:linear-gradient(180deg,#fff8e8,#eef8ff);color:#24313a}
 .wrap{max-width:1000px;margin:auto;padding:24px 18px}.hero{text-align:center;padding:28px 0}.hero h1{font-size:clamp(38px,8vw,64px);margin:12px 0}.hero p{color:#667}
-.grid,.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.grid,.tiles,.lesson-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .card{min-height:150px;border-radius:25px;padding:20px;color:white;text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 15px 30px #0002;transition:.2s;box-sizing:border-box}
 .card:hover{transform:translateY(-5px);box-shadow:0 20px 35px #0003}.icon{font-size:42px}.card h2{margin:0;font-size:21px}
 .c1{background:linear-gradient(145deg,#7155e8,#a783ff)}.c2{background:linear-gradient(145deg,#ef6b50,#ff9b6d)}.c3{background:linear-gradient(145deg,#10a876,#59d592)}.c4{background:linear-gradient(145deg,#287bd8,#65baff)}
 .c5{background:linear-gradient(145deg,#e24d8b,#ff86b5)}.c6{background:linear-gradient(145deg,#f09a24,#ffd05a)}.c7{background:linear-gradient(145deg,#6750c9,#9b85ff)}.c8{background:linear-gradient(145deg,#00a4a6,#55d8c8)}.c9{background:linear-gradient(145deg,#e05b3f,#ff9474)}.c10{background:linear-gradient(145deg,#3b78c9,#72b6ff)}
 .banner{margin:25px 0;padding:25px;border-radius:25px;background:linear-gradient(135deg,#fff0c4,#ffe5ef)}
 .section-title{text-align:center;margin:28px 0 16px}.tiles{grid-template-columns:repeat(3,1fr)}
-@media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}.tiles{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:430px){.tiles{grid-template-columns:1fr}.card{min-height:130px;padding:16px}}
+.lesson-grid{margin-top:18px}.lesson{min-height:180px;border-radius:25px;padding:22px;color:white;box-shadow:0 12px 28px #0002}.lesson h2{margin-top:0}.lesson p{font-size:18px;line-height:1.8}
+.l1{background:linear-gradient(145deg,#7155e8,#a783ff)}.l2{background:linear-gradient(145deg,#ef6b50,#ff9b6d)}.l3{background:linear-gradient(145deg,#10a876,#59d592)}.l4{background:linear-gradient(145deg,#287bd8,#65baff)}
+@media(max-width:700px){.grid,.lesson-grid{grid-template-columns:repeat(2,1fr)}.tiles{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:430px){.tiles{grid-template-columns:1fr}.card{min-height:130px;padding:16px}.lesson{min-height:150px;padding:17px}}
 </style></head><body><main class="wrap">
 <section class="hero"><div>🌈 খেলতে খেলতে শেখা</div><h1>🧸 Baby Tutor</h1><p>শিশুদের জন্য সুন্দর, সহজ ও আনন্দময় ডিজিটাল পাঠশালা</p></section>
 <section class="grid">
@@ -19,14 +21,14 @@ body{margin:0;font-family:system-ui,'Noto Sans Bengali',sans-serif;background:li
 <a class="card c4" href="#numbers"><div class="icon">🔢</div><h2>সংখ্যা</h2></a>
 </section>
 <section class="banner"><h2>✨ স্বরবর্ণ দিয়ে শব্দ গঠন</h2><p>অক্ষর মিলিয়ে নতুন শব্দ শেখার মজার অনুশীলন।</p></section>
-<h2 class="section-title">🎯 আরও মজার শেখা</h2>
-<section class="tiles">
-<a class="card c5" href="#quiz"><div class="icon">🧠</div><h2>কুইজ</h2></a>
-<a class="card c6" href="#words"><div class="icon">💬</div><h2>শব্দ শেখা</h2></a>
-<a class="card c7" href="#stories"><div class="icon">📖</div><h2>গল্প</h2></a>
-<a class="card c8" href="#rhymes"><div class="icon">🎵</div><h2>ছড়া</h2></a>
-<a class="card c9" href="#voice"><div class="icon">🔊</div><h2>ভয়েস</h2></a>
-<a class="card c10" href="#draw"><div class="icon">🎨</div><h2>আঁকা ও রং</h2></a>
+<h2 class="section-title">🎯 আরও মজার শেখা</h2><section class="tiles">
+<a class="card c5" href="#quiz"><div class="icon">🧠</div><h2>কুইজ</h2></a><a class="card c6" href="#words"><div class="icon">💬</div><h2>শব্দ শেখা</h2></a><a class="card c7" href="#stories"><div class="icon">📖</div><h2>গল্প</h2></a><a class="card c8" href="#rhymes"><div class="icon">🎵</div><h2>ছড়া</h2></a><a class="card c9" href="#voice"><div class="icon">🔊</div><h2>ভয়েস</h2></a><a class="card c10" href="#draw"><div class="icon">🎨</div><h2>আঁকা ও রং</h2></a>
 </section>
-<div id="arabic"><h2>🕌 আরবি হরফ</h2><p>ا ب ت ث</p></div><div id="vowels"><h2>🔤 স্বরবর্ণ</h2><p>অ আ ই ঈ উ ঊ ঋ এ ঐ ও ঔ</p></div><div id="consonants"><h2>📝 ব্যঞ্জনবর্ণ</h2><p>ক খ গ ঘ ঙ</p></div><div id="numbers"><h2>🔢 সংখ্যা</h2><p>১ ২ ৩ ৪ ৫ ৬ ৭ ৮ ৯ ১০</p></div>
+<h2 class="section-title">📚 শেখার অংশ</h2>
+<section class="lesson-grid">
+<div class="lesson l1" id="arabic"><h2>🕌 আরবি হরফ</h2><p>ا　ب　ت　ث</p></div>
+<div class="lesson l2" id="vowels"><h2>🔤 স্বরবর্ণ</h2><p>অ　আ　ই　ঈ　উ　ঊ　ঋ　এ　ঐ　ও　ঔ</p></div>
+<div class="lesson l3" id="consonants"><h2>📝 ব্যঞ্জনবর্ণ</h2><p>ক　খ　গ　ঘ　ঙ</p></div>
+<div class="lesson l4" id="numbers"><h2>🔢 সংখ্যা</h2><p>১　২　৩　৪　৫　৬　৭　৮　৯　১০</p></div>
+</section>
 </main></body></html>
