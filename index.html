@@ -1,59 +1,112 @@
-<!doctype html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>🧸 Baby Tutor — খেলতে খেলতে শেখা</title><style>
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,'Noto Sans Bengali','Noto Sans',sans-serif;color:#24324a;background:linear-gradient(180deg,#eaf8ff 0%,#fff8e8 48%,#f5edff 100%);overflow-x:hidden}
-body:before,body:after{content:"";position:fixed;border-radius:50%;filter:blur(2px);opacity:.45;z-index:-1}body:before{width:190px;height:190px;background:#ffd86b;top:80px;left:-80px}body:after{width:230px;height:230px;background:#b8a2ff;right:-100px;bottom:60px}
-.wrap{max-width:1080px;margin:auto;padding:18px}.topbar{display:flex;justify-content:space-between;align-items:center;background:#ffffffd9;border:2px solid #fff;border-radius:24px;padding:10px 16px;box-shadow:0 10px 28px #52647a18;position:sticky;top:10px;z-index:20;backdrop-filter:blur(10px)}
-.logo{font-weight:900;font-size:20px;color:#5b43c6}.home{border:0;border-radius:18px;padding:10px 15px;background:#5b43c6;color:#fff;font-weight:800;text-decoration:none}
-.hero{text-align:center;padding:35px 10px 28px}.cloud{display:inline-block;background:#fff;padding:9px 18px;border-radius:30px;box-shadow:0 8px 20px #52647a16;font-weight:800}.hero h1{font-size:clamp(42px,9vw,78px);margin:16px 0 8px;background:linear-gradient(90deg,#6a4be7,#f05b8c,#159f9b);-webkit-background-clip:text;color:transparent}.hero p{font-size:18px;color:#66758b;margin:0 auto 20px;max-width:650px}.stars{font-size:28px;letter-spacing:10px}
-.section-title{text-align:center;font-size:28px;margin:30px 0 16px}.grid,.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.card{min-height:155px;border-radius:28px;padding:20px;color:white;text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 16px 30px #0002;border:3px solid #ffffff55;transition:.2s;position:relative;overflow:hidden}
-.card:after{content:"✦";position:absolute;right:15px;top:9px;font-size:22px;opacity:.55}.card:hover{transform:translateY(-6px) scale(1.015);box-shadow:0 22px 35px #0003}.card:active{transform:scale(.98)}.icon{font-size:46px}.card h2{margin:0;font-size:21px}.hint{font-size:13px;opacity:.9}
-.c1{background:linear-gradient(145deg,#6d4de7,#aa88ff)}.c2{background:linear-gradient(145deg,#ef684e,#ff9b6b)}.c3{background:linear-gradient(145deg,#0ca474,#59d593)}.c4{background:linear-gradient(145deg,#2779d4,#68bcff)}.c5{background:linear-gradient(145deg,#df4785,#ff88b6)}.c6{background:linear-gradient(145deg,#ee941d,#ffd35b)}.c7{background:linear-gradient(145deg,#6550c9,#a08aff)}.c8{background:linear-gradient(145deg,#00a2a4,#55d9c8)}.c9{background:linear-gradient(145deg,#dc573c,#ff9878)}.c10{background:linear-gradient(145deg,#3677c8,#72b8ff)}
-.banner{margin:26px 0;padding:24px;border-radius:28px;background:linear-gradient(135deg,#fff0ba,#ffe1ed);border:3px solid #fff;box-shadow:0 12px 25px #0001}.banner h2{margin:0 0 6px}.banner p{margin:0;color:#657187}
-.lesson-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.lesson{min-height:190px;border-radius:28px;padding:24px;color:white;box-shadow:0 15px 30px #0002;border:3px solid #ffffff55}.lesson h2{margin:0 0 14px}.lesson p{font-size:22px;line-height:2.1;margin:0;word-spacing:10px}.lesson small{opacity:.9}
-.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.tool{background:#fff;border:3px solid #fff;border-radius:24px;padding:20px;text-decoration:none;color:#26364d;box-shadow:0 10px 25px #0001;transition:.2s}.tool:hover{transform:translateY(-4px)}.tool strong{font-size:20px}.tool span{display:block;color:#758297;margin-top:6px}
-.footer{text-align:center;margin:35px 0 10px;padding:25px;border-radius:25px;background:#ffffffaa}.footer b{color:#5b43c6}
-@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.lesson-grid{grid-template-columns:1fr}.tools{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:440px){.wrap{padding:12px}.topbar{position:relative;top:0}.hero{padding-top:28px}.grid{gap:11px}.card{min-height:135px;padding:16px;border-radius:23px}.icon{font-size:38px}.card h2{font-size:18px}.tiles{grid-template-columns:1fr 1fr;gap:11px}.lesson{padding:18px}.lesson p{font-size:19px}.tools{grid-template-columns:1fr}.section-title{font-size:24px}}
-</style></head><body><main class="wrap">
-<nav class="topbar"><div class="logo">🧸 Baby Tutor</div><a class="home" href="#">🏠 হোম</a></nav>
-<section class="hero"><div class="cloud">🌈 খেলতে খেলতে শেখা • ⭐ প্রতিদিন নতুন কিছু</div><h1>🧸 Baby Tutor</h1><p>শিশুদের জন্য রঙিন, আনন্দময় ও সহজ ডিজিটাল পাঠশালা। চাপুন, দেখুন, শিখুন আর মজা করুন!</p><div class="stars">⭐ 🌟 ⭐ 🌟 ⭐</div></section>
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#b62d2d">
+<title>🧸 Baby Tutor — শিশুদের ডিজিটাল পাঠশালা</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,'Noto Sans Bengali','Noto Sans',sans-serif;color:#263247;background:linear-gradient(180deg,#fff9f1,#eef8ff 45%,#fff4f7);overflow-x:hidden}
+a{text-decoration:none;color:inherit}.wrap{max-width:1100px;margin:auto;padding:14px}
+.top{position:sticky;top:8px;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;background:#ffffffed;border:2px solid #fff;border-radius:22px;box-shadow:0 8px 25px #29364a18;backdrop-filter:blur(10px)}
+.brand{font-weight:900;color:#b62d2d;font-size:20px}.nav{display:flex;gap:7px;overflow:auto}.nav a{white-space:nowrap;background:#fff2f2;border-radius:15px;padding:9px 12px;font-weight:800;font-size:14px}
+.hero{margin:14px 0;background:linear-gradient(135deg,#b72f32,#df5b4c 55%,#f6a55b);border-radius:30px;color:#fff;padding:30px 22px;text-align:center;position:relative;overflow:hidden;box-shadow:0 16px 35px #8e292933}
+.hero:before{content:"☁️   ☁️       ☁️";position:absolute;top:10px;left:5%;font-size:25px;opacity:.75}.hero:after{content:"🌳   🐦     🌳";position:absolute;bottom:4px;left:8%;font-size:32px;opacity:.8}
+.hero>*{position:relative;z-index:1}.hero h1{font-size:clamp(38px,8vw,70px);margin:12px 0 5px}.hero p{font-size:18px;max-width:700px;margin:0 auto 18px}.pill{display:inline-block;background:#ffffff26;border:2px solid #ffffff55;padding:8px 16px;border-radius:30px;font-weight:800}
+.section-title{text-align:center;font-size:29px;margin:30px 0 16px}.sub{text-align:center;color:#6d7788;margin-top:-8px;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.card{min-height:150px;border-radius:26px;padding:18px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;border:3px solid #ffffff55;box-shadow:0 14px 28px #0002;transition:.2s}.card:hover{transform:translateY(-5px);box-shadow:0 20px 34px #0003}.card:after{content:"✦";position:absolute;right:13px;top:8px;font-size:20px;opacity:.6}.icon{font-size:43px}.card h3{margin:0;font-size:20px}.small{font-size:13px;opacity:.92}
+.c1{background:linear-gradient(145deg,#6545df,#aa8cff)}.c2{background:linear-gradient(145deg,#ef674c,#ff9e70)}.c3{background:linear-gradient(145deg,#0b9e73,#62d99b)}.c4{background:linear-gradient(145deg,#2879d2,#70bdff)}
+.c5{background:linear-gradient(145deg,#dc4381,#ff91bb)}.c6{background:linear-gradient(145deg,#e9951c,#ffd45f)}.c7{background:linear-gradient(145deg,#6550c7,#9b87ff)}.c8{background:linear-gradient(145deg,#009da0,#57d9c9)}
+.c9{background:linear-gradient(145deg,#d7543c,#ff997b)}.c10{background:linear-gradient(145deg,#3976c4,#74baff)}.c11{background:linear-gradient(145deg,#8a5a32,#d99b61)}.c12{background:linear-gradient(145deg,#347f9e,#73cbe8)}
+.banner{margin:22px 0;padding:22px;border-radius:26px;background:linear-gradient(135deg,#fff0bf,#ffe1ec);border:3px solid #fff;box-shadow:0 10px 24px #0001}.banner h2{margin:0 0 5px}.banner p{margin:0;color:#68758a}
+.poem-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.poem-card{background:#fff;border-radius:20px;overflow:hidden;border:1px solid #e8e8e8;box-shadow:0 10px 25px #0002;transition:.2s}.poem-card:hover{transform:translateY(-4px)}
+.scene{height:190px;position:relative;overflow:hidden;background:linear-gradient(#8bd5f0,#eaf9ff)}.scene .sun{position:absolute;width:58px;height:58px;border-radius:50%;background:#ffd84d;right:24px;top:18px;box-shadow:0 0 0 8px #ffd84d33}.scene .hill{position:absolute;bottom:-42px;width:75%;height:120px;border-radius:50% 50% 0 0;background:#74b968;left:-10%}.scene .hill2{position:absolute;bottom:-55px;width:75%;height:120px;border-radius:50% 50% 0 0;background:#4d9c5a;right:-15%}.scene .tree{position:absolute;bottom:18px;left:12%;font-size:70px}.scene .bird{position:absolute;top:42px;left:26%;font-size:22px}.scene .extra{position:absolute;right:16%;bottom:15px;font-size:62px}.s2{background:linear-gradient(#8fd9ff,#f4ffdb)}.s2 .tree{left:auto;right:8%}.s2 .extra{left:12%;right:auto}.s3{background:linear-gradient(#ffe3a1,#fff8df)}.s3 .sun{right:auto;left:24px;top:18px}.s3 .tree{left:9%}.s3 .extra{right:13%}.s4{background:linear-gradient(#c8ecff,#fff)}.s4 .tree{right:7%;left:auto}.s4 .extra{left:13%;right:auto}.s5{background:linear-gradient(#172b55,#4d77a7)}.s5 .sun{background:#f8f1bd;box-shadow:0 0 0 9px #fff2a522}.s5 .tree{bottom:10px}.s6{background:linear-gradient(#ffdca0,#eaf7ff)}.s6 .extra{font-size:75px;right:10%}.s7{background:linear-gradient(#ffefc4,#fff)}.s7 .extra{font-size:75px;right:9%}.s8{background:linear-gradient(#8dd9ff,#fff)}.s8 .extra{font-size:78px;left:9%;right:auto}.s9{background:linear-gradient(#bcecff,#fff8c8)}.s9 .extra{font-size:80px;right:8%}.s10{background:linear-gradient(#ffd1e6,#e8f6ff)}.s10 .extra{font-size:72px;left:10%;right:auto}.s11{background:linear-gradient(#d8f2ff,#fef2c6)}.s11 .extra{font-size:76px;right:10%}.s12{background:linear-gradient(#8fd7ff,#fff)}.s12 .extra{font-size:75px;left:10%;right:auto}
+.poem-info{padding:14px 15px}.poem-info h3{margin:0 0 5px;font-size:22px;color:#7c5500}.poem-info p{margin:0;color:#667285;line-height:1.6}.actions{display:flex;gap:8px;margin-top:12px}.btn{border:0;border-radius:14px;padding:9px 12px;font-weight:800;cursor:pointer;background:#f5e9d0;color:#694900}.btn.read{background:#b62d2d;color:#fff}
+.lesson-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.lesson{border-radius:25px;color:#fff;padding:22px;min-height:175px;box-shadow:0 12px 25px #0002}.lesson h3{margin:0 0 12px}.lesson p{font-size:21px;line-height:1.9;margin:0}.activity{background:#fff;border-radius:25px;padding:22px;box-shadow:0 10px 25px #0001;text-align:center}.activity .big{font-size:50px}.quiz-btn{border:0;border-radius:16px;padding:12px 18px;background:#b62d2d;color:#fff;font-weight:900;cursor:pointer}
+.footer{text-align:center;padding:28px;margin-top:30px;background:#fff;border-radius:25px;color:#68758a}.footer b{color:#b62d2d}
+.modal{display:none;position:fixed;inset:0;background:#0008;z-index:100;align-items:center;justify-content:center;padding:16px}.modal.open{display:flex}.modalbox{background:#fff;border-radius:25px;max-width:620px;width:100%;max-height:85vh;overflow:auto;padding:24px;box-shadow:0 25px 60px #0005}.close{float:right;border:0;background:#f3e6e6;border-radius:12px;padding:8px 12px;font-size:20px}.modalbox h2{color:#9b6500}.poemtext{font-size:20px;line-height:2.05;white-space:pre-line}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.poem-grid,.lesson-grid{grid-template-columns:1fr}.nav{display:none}}
+@media(max-width:440px){.wrap{padding:10px}.hero{padding:28px 14px}.card{min-height:135px;padding:15px}.icon{font-size:37px}.card h3{font-size:18px}.scene{height:165px}.poemtext{font-size:18px}.section-title{font-size:25px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top"><div class="brand">🧸 Baby Tutor</div><nav class="nav"><a href="#learn">📚 শেখা</a><a href="#poems">🎵 কবিতা</a><a href="#activities">🎮 খেলা</a></nav></header>
 
-<h2 class="section-title">🎮 আজ কী শিখবে?</h2>
+<section class="hero">
+<div class="pill">🌈 খেলতে খেলতে শেখা • ⭐ শিশুদের ডিজিটাল পাঠশালা</div>
+<h1>🧸 Baby Tutor</h1>
+<p>রঙিন দৃশ্য, ছোট ছোট কবিতা, মজার অনুশীলন আর আনন্দের মাধ্যমে শেখার সুন্দর জগৎ।</p>
+<div>🌳 🐦 🌼 🦋 🌈 🌼 🐦 🌳</div>
+</section>
+
+<h2 class="section-title" id="learn">🎮 শেখার প্রধান বাটন</h2>
+<p class="sub">যেটি ভালো লাগে সেটিতে চাপ দাও 👆</p>
 <section class="grid">
-<a class="card c1" href="#arabic"><div class="icon">🕌</div><h2>আরবি হরফ</h2><div class="hint">ا ب ت ث • শিখি</div></a>
-<a class="card c2" href="#vowels"><div class="icon">🔤</div><h2>স্বরবর্ণ</h2><div class="hint">অ আ ই ঈ • শিখি</div></a>
-<a class="card c3" href="#consonants"><div class="icon">📝</div><h2>ব্যঞ্জনবর্ণ</h2><div class="hint">ক খ গ ঘ • শিখি</div></a>
-<a class="card c4" href="#numbers"><div class="icon">🔢</div><h2>সংখ্যা</h2><div class="hint">১ ২ ৩ ৪ • গুনি</div></a>
+<a class="card c1" href="#arabic"><div class="icon">🕌</div><h3>আরবি হরফ</h3><div class="small">ا ب ت ث • হরফ চিনে নিই</div></a>
+<a class="card c2" href="#vowels"><div class="icon">🔤</div><h3>স্বরবর্ণ</h3><div class="small">অ আ ই ঈ • স্বর শিখি</div></a>
+<a class="card c3" href="#consonants"><div class="icon">📝</div><h3>ব্যঞ্জনবর্ণ</h3><div class="small">ক খ গ ঘ • অক্ষর শিখি</div></a>
+<a class="card c4" href="#numbers"><div class="icon">🔢</div><h3>সংখ্যা</h3><div class="small">১ ২ ৩ ৪ • গুনতে শিখি</div></a>
 </section>
 
-<section class="banner"><h2>✨ ছোট্ট শেখার চ্যালেঞ্জ</h2><p>আজ ৫টি অক্ষর, ৫টি শব্দ আর ৫টি সংখ্যা চিনে ফেলি! 🎯</p></section>
+<div class="banner"><h2>✨ আজকের ছোট্ট চ্যালেঞ্জ</h2><p>৫টি অক্ষর চিনো • ৫টি শব্দ বলো • ৫টি সংখ্যা গুনো • তারপর একটি কবিতা পড়ো! 🎯</p></div>
 
-<h2 class="section-title">🎨 আরও মজার শেখা</h2>
-<section class="tiles">
-<a class="card c5" href="#quiz"><div class="icon">🧠</div><h2>কুইজ</h2><div class="hint">মজার প্রশ্নের উত্তর দাও</div></a>
-<a class="card c6" href="#words"><div class="icon">💬</div><h2>শব্দ শেখা</h2><div class="hint">ছবির সাথে শব্দ শিখি</div></a>
-<a class="card c7" href="#stories"><div class="icon">📖</div><h2>গল্প</h2><div class="hint">ছোট্ট গল্প পড়ি</div></a>
-<a class="card c8" href="#rhymes"><div class="icon">🎵</div><h2>ছড়া</h2><div class="hint">ছন্দে ছন্দে শিখি</div></a>
-<a class="card c9" href="#voice"><div class="icon">🔊</div><h2>ভয়েস</h2><div class="hint">শুনে শুনে অনুশীলন</div></a>
-<a class="card c10" href="#draw"><div class="icon">🎨</div><h2>আঁকা ও রং</h2><div class="hint">রঙে রঙে মজা করি</div></a>
+<h2 class="section-title" id="poems">🎵 মজার কবিতা ও ছড়া</h2>
+<p class="sub">শিশুদের জন্য সহজ ও নতুন করে লেখা ছোট কবিতা — ছবি দেখে পড়ি, চাইলে শুনেও নিই। 🔊</p>
+<section class="poem-grid">
+
+<article class="poem-card"><div class="scene s1"><div class="sun"></div><div class="bird">🐦</div><div class="tree">🌳</div><div class="extra">🦆</div><div class="hill"></div><div class="hill2"></div></div><div class="poem-info"><h3>😊 হাসি</h3><p>হাসি দিলে সকাল হাসে,<br>ফুলও দোলে বাতাসে।</p><div class="actions"><button class="btn read" onclick="openPoem('হাসি','হাসি দিলে সকাল হাসে,\nফুলও দোলে বাতাসে।\nবন্ধু এলে হাতটি ধরি,\nখুশির কথা সবাই করি।')">📖 পড়ি</button><button class="btn" onclick="speak('হাসি দিলে সকাল হাসে, ফুলও দোলে বাতাসে। বন্ধু এলে হাতটি ধরি, খুশির কথা সবাই করি।')">🔊 শুনি</button></div></div></article>
+
+<article class="poem-card"><div class="scene s2"><div class="sun"></div><div class="tree">🌴</div><div class="extra">🌾</div><div class="bird">🐦</div></div><div class="poem-info"><h3>🌿 আমাদের দেশ</h3><p>সবুজ মাঠে রোদের হাসি,<br>নদীর জলে ঢেউ।</p><div class="actions"><button class="btn read" onclick="openPoem('আমাদের দেশ','সবুজ মাঠে রোদের হাসি,\nনদীর জলে ঢেউ।\nফুলের গন্ধ, পাখির গান,\nভরে আমার মন।')">📖 পড়ি</button><button class="btn" onclick="speak('সবুজ মাঠে রোদের হাসি, নদীর জলে ঢেউ। ফুলের গন্ধ, পাখির গান, ভরে আমার মন।')">🔊 শুনি</button></div></div></article>
+
+<article class="poem-card"><div class="scene s3"><div class="sun"></div><div class="tree">🌼</div><div class="extra">🌷</div></div><div class="poem-info"><h3>🌸 ফুলের বাগান</h3><p>লাল ফুল, নীল ফুল,<br>বাগান জুড়ে দুল।</p><div class="actions"><button class="btn read" onclick="openPoem('ফুলের বাগান','লাল ফুল, নীল ফুল,\nবাগান জুড়ে দুল।\nমৌমাছি আসে গুনগুন করে,\nপ্রজাপতি যায় উড়ে।')">📖 পড়ি</button><button class="btn" onclick="speak('লাল ফুল, নীল ফুল, বাগান জুড়ে দুল। মৌমাছি আসে গুনগুন করে, প্রজাপতি যায় উড়ে।')">🔊 শুনি</button></div></div></article>
+
+<article class="poem-card"><div class="scene s4"><div class="sun"></div><div class="tree">🍊</div><div class="extra">🧒</div></div><div class="poem-info"><h3>🍊 লিচু-বাগান</h3><p>গাছে গাছে লিচু হাসে,<br>পাকা ফলটি দোলে।</p><div class="actions"><button class="btn read" onclick="openPoem('লিচু-বাগান','গাছে গাছে লিচু হাসে,\nপাকা ফলটি দোলে।\nমিষ্টি গন্ধ ভেসে আসে,\nগ্রীষ্মেরই কোলে।')">📖 পড়ি</button><button class="btn" onclick="speak('গাছে গাছে লিচু হাসে, পাকা ফলটি দোলে। মিষ্টি গন্ধ ভেসে আসে, গ্রীষ্মেরই কোলে।')">🔊 শুনি</button></div></div></article>
+
+<article class="poem-card"><div class="scene s5"><div class="sun"></div><div class="tree">🌙</div><div class="extra">🦉</div></div><div class="poem-info"><h3>🌙 চাঁদ মামা</h3><p>চাঁদ উঠেছে আকাশ জুড়ে,<br>তারার মেলা পাশে।</p><div class="actions"><button class="btn read" onclick="openPoem('চাঁদ মামা','চাঁদ উঠেছে আকাশ জুড়ে,\nতারার মেলা পাশে।\nনরম আলো জানলা ভরে,\nঘুম আসে ভালোবেসে।')">📖 পড়ি</button><button class="btn" onclick="speak('চাঁদ উঠেছে আকাশ জুড়ে, তারার মেলা পাশে। নরম আলো জানলা ভরে, ঘুম আসে ভালোবেসে।')">🔊 শুনি</button></div></div></article>
+
+<article class="poem-card"><div class="scene s6"><div class="sun"></div><div class="tree">🌳</div><div class="extra">🧒</div></div><div class="poem-info"><h3>🦁 ভয় পেয়ো না</h3><p>ভয় এলে একটু থামো,<br>বন্ধুর হাতটি ধরো।</p><div class="actions"><button class="btn read" onclick="openPoem('ভয় পেয়ো না','ভয় এলে একটু থামো,\nবন্ধুর হাতটি ধরো।\nসাহস নিয়ে সামনে চলো,\nআলো খুঁজে ফেরো।')">📖 পড়ি</button><button class="btn" onclick="speak('ভয় এলে একটু থামো, বন্ধুর হাতটি ধরো। সাহস নিয়ে সামনে চলো, আলো খুঁজে ফেরো।')">🔊 শুনি</button></div></div></article>
+
+<article class="poem-card"><div class="scene s7"><div class="sun"></div><div class="tree">🌧️</div><div class="extra">☂️</div></div><div class="poem-info"><h3>🌧️ বৃষ্টি</h3><p>টাপুর টুপুর বৃষ্টি পড়ে,<br>মেঘ ডাকে দূরে।</p><div class="actions"><button class="btn read" onclick="openPoem('বৃষ্টি','টাপুর টুপুর বৃষ্টি পড়ে,\nমেঘ ডাকে দূরে।\nছোট্ট ছাতা মাথায় দিয়ে,\nহাঁটি ধীরে ধীরে।')">📖 পড়ি</button><button class="btn" onclick="speak('টাপুর টুপুর বৃষ্টি পড়ে, মেঘ ডাকে দূরে। ছোট্ট ছাতা মাথায় দিয়ে, হাঁটি ধীরে ধীরে।')">🔊 শুনি</button></div></div></article>
+
+<article class="poem-card"><div class="scene s8"><div class="sun"></div><div class="tree">🌳</div><div class="extra">🦋</div></div><div class="poem-info"><h3>🦋 প্রজাপতি</h3><p>রঙিন ডানা মেলে,<br>ফুলের বনে খেলে।</p><div class="actions"><button class="btn read" onclick="openPoem('প্রজাপতি','রঙিন ডানা মেলে,\nফুলের বনে খেলে।\nনীল আকাশে উড়ে যায়,\nফিরে আসে মেলে।')">📖 পড়ি</button><button class="btn" onclick="speak('রঙিন ডানা মেলে, ফুলের বনে খেলে। নীল আকাশে উড়ে যায়, ফিরে আসে মেলে।')">🔊 শুনি</button></div></div></article>
+
+<article class="poem-card"><div class="scene s9"><div class="sun"></div><div class="tree">🌳</div><div class="extra">🐦</div></div><div class="poem-info"><h3>🐦 পাখির গান</h3><p>ভোরের আলো ফুটল যখন,<br>পাখি গাইল গান।</p><div class="actions"><button class="btn read" onclick="openPoem('পাখির গান','ভোরের আলো ফুটল যখন,\nপাখি গাইল গান।\nডালে ডালে দুলল পাতা,\nজাগল সবার প্রাণ।')">📖 পড়ি</button><button class="btn" onclick="speak('ভোরের আলো ফুটল যখন, পাখি গাইল গান। ডালে ডালে দুলল পাতা, জাগল সবার প্রাণ।')">🔊 শুনি</button></div></div></article>
+
+<article class="poem-card"><div class="scene s10"><div class="sun"></div><div class="tree">🌈</div><div class="extra">🌼</div></div><div class="poem-info"><h3>🌈 রংধনু</h3><p>বৃষ্টির পরে আকাশ জুড়ে,<br>সাত রঙের মেলা।</p><div class="actions"><button class="btn read" onclick="openPoem('রংধনু','বৃষ্টির পরে আকাশ জুড়ে,\nসাত রঙের মেলা।\nহাসি মুখে দেখি সবাই,\nকি যে সুন্দর খেলা!')">📖 পড়ি</button><button class="btn" onclick="speak('বৃষ্টির পরে আকাশ জুড়ে, সাত রঙের মেলা। হাসি মুখে দেখি সবাই, কি যে সুন্দর খেলা!')">🔊 শুনি</button></div></div></article>
+
+<article class="poem-card"><div class="scene s11"><div class="sun"></div><div class="tree">🌳</div><div class="extra">🧒</div></div><div class="poem-info"><h3>🌳 গাছ বন্ধু</h3><p>গাছ দেয় ছায়া, ফুল আর ফল,<br>সবুজ রাখে ঘর।</p><div class="actions"><button class="btn read" onclick="openPoem('গাছ বন্ধু','গাছ দেয় ছায়া, ফুল আর ফল,\nসবুজ রাখে ঘর।\nগাছকে ভালোবাসি সবাই,\nগাছই সবার বন্ধু।')">📖 পড়ি</button><button class="btn" onclick="speak('গাছ দেয় ছায়া, ফুল আর ফল, সবুজ রাখে ঘর। গাছকে ভালোবাসি সবাই, গাছই সবার বন্ধু।')">🔊 শুনি</button></div></div></article>
+
+<article class="poem-card"><div class="scene s12"><div class="sun"></div><div class="tree">☀️</div><div class="extra">🎒</div></div><div class="poem-info"><h3>🌞 সকাল</h3><p>সকাল হলো, সূর্য হাসে,<br>পাখি ডাকে গাছে।</p><div class="actions"><button class="btn read" onclick="openPoem('সকাল','সকাল হলো, সূর্য হাসে,\nপাখি ডাকে গাছে।\nমুখ ধুয়ে বইটি নিয়ে,\nশিখি ভালোবেসে।')">📖 পড়ি</button><button class="btn" onclick="speak('সকাল হলো, সূর্য হাসে, পাখি ডাকে গাছে। মুখ ধুয়ে বইটি নিয়ে, শিখি ভালোবেসে।')">🔊 শুনি</button></div></div></article>
 </section>
 
-<h2 class="section-title">📚 শেখার জগৎ</h2>
+<h2 class="section-title">📚 অক্ষর ও সংখ্যা</h2>
 <section class="lesson-grid">
-<div class="lesson c1" id="arabic"><h2>🕌 আরবি হরফ</h2><p>ا　ب　ت　ث</p><small>আস্তে আস্তে হরফ চিনে নিই ⭐</small></div>
-<div class="lesson c2" id="vowels"><h2>🔤 স্বরবর্ণ</h2><p>অ　আ　ই　ঈ　উ　ঊ　ঋ　এ　ঐ　ও　ঔ</p><small>স্বরবর্ণ দিয়ে শব্দ বানাই 🌈</small></div>
-<div class="lesson c3" id="consonants"><h2>📝 ব্যঞ্জনবর্ণ</h2><p>ক　খ　গ　ঘ　ঙ　চ　ছ　জ</p><small>অক্ষর দেখে চিনে ফেলি 🎯</small></div>
-<div class="lesson c4" id="numbers"><h2>🔢 সংখ্যা</h2><p>১　২　৩　৪　৫　৬　৭　৮　৯　১০</p><small>গুনতে গুনতে সংখ্যা শিখি 🚀</small></div>
+<div class="lesson c1" id="arabic"><h3>🕌 আরবি হরফ</h3><p>ا　ب　ت　ث　ج　ح　خ</p></div>
+<div class="lesson c2" id="vowels"><h3>🔤 স্বরবর্ণ</h3><p>অ　আ　ই　ঈ　উ　ঊ　ঋ　এ　ঐ　ও　ঔ</p></div>
+<div class="lesson c3" id="consonants"><h3>📝 ব্যঞ্জনবর্ণ</h3><p>ক　খ　গ　ঘ　ঙ　চ　ছ　জ　ঝ　ঞ</p></div>
+<div class="lesson c4" id="numbers"><h3>🔢 সংখ্যা</h3><p>১　২　৩　৪　৫　৬　৭　৮　৯　১০</p></div>
 </section>
 
-<h2 class="section-title">🪄 Baby Tutor-এর মজার কোণা</h2>
-<section class="tools">
-<a class="tool" id="quiz" href="#quiz"><strong>🧠 কুইজ খেলি</strong><span>প্রশ্ন দেখি আর উত্তর ভাবি</span></a>
-<a class="tool" id="words" href="#words"><strong>💬 শব্দের ঝুলি</strong><span>নতুন নতুন শব্দ শিখি</span></a>
-<a class="tool" id="stories" href="#stories"><strong>📖 গল্পের দেশ</strong><span>ছোট্ট গল্পের আনন্দ</span></a>
-<a class="tool" id="rhymes" href="#rhymes"><strong>🎵 ছড়ার আসর</strong><span>ছন্দে ছন্দে শেখা</span></a>
-<a class="tool" id="voice" href="#voice"><strong>🔊 শুনে শেখা</strong><span>শব্দ শুনে অনুশীলন</span></a>
-<a class="tool" id="draw" href="#draw"><strong>🎨 রঙের দুনিয়া</strong><span>সৃজনশীলতার মজা</span></a>
+<h2 class="section-title" id="activities">🎮 মজার খেলার কোণা</h2>
+<section class="grid">
+<a class="card c5" href="#quiz"><div class="icon">🧠</div><h3>কুইজ</h3><div class="small">দেখি কতটা শিখেছি!</div></a>
+<a class="card c6" href="#words"><div class="icon">💬</div><h3>শব্দ শেখা</h3><div class="small">নতুন শব্দের ঝুলি</div></a>
+<a class="card c7" href="#stories"><div class="icon">📖</div><h3>গল্প</h3><div class="small">গল্পের দেশে যাই</div></a>
+<a class="card c8" href="#rhymes"><div class="icon">🎵</div><h3>ছড়া</h3><div class="small">ছন্দে ছন্দে শিখি</div></a>
 </section>
-<footer class="footer">🌟 প্রতিদিন একটু একটু করে শেখা • <b>Baby Tutor</b> 🧸<br><small>শিশুদের শেখা হোক আনন্দের ও রঙিন</small></footer>
-</main></body></html>
+<div class="activity" id="quiz" style="margin-top:16px"><div class="big">🧠❓</div><h3>ছোট্ট কুইজ</h3><p id="q">স্বরবর্ণের প্রথম অক্ষর কোনটি?</p><button class="quiz-btn" onclick="answer()">উত্তর দেখি</button><p id="a" style="font-weight:900"></p></div>
+
+<footer class="footer">🌟 শেখা হোক আনন্দের • 🌈 প্রতিদিন নতুন কিছু • 🧸 <b>Baby Tutor</b><br><small>এই কবিতাগুলো শিশুদের জন্য নতুন করে তৈরি করা হয়েছে।</small></footer>
+</main>
+
+<div class="modal" id="modal"><div class="modalbox"><button class="close" onclick="closePoem()">✕</button><h2 id="mt"></h2><div class="poemtext" id="mp"></div><button class="btn read" onclick="speak(document.getElementById('mp').innerText)">🔊 কবিতা শুনি</button></div></div>
+
+<script>
+function openPoem(t,p){document.getElementById('mt').innerText='🎵 '+t;document.getElementById('mp').innerText=p;document.getElementById('modal').classList.add('open')}
+function closePoem(){document.getElementById('modal').classList.remove('open')}
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closePoem()})
+function speak(t){if('speechSynthesis' in window){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='bn-BD';u.rate=.82;speechSynthesis.speak(u)}}
+function answer(){document.getElementById('a').innerText='✅ উত্তর: অ'}
+</script>
+</body></html>
