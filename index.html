@@ -31,7 +31,7 @@ a{text-decoration:none;color:inherit}.wrap{max-width:1100px;margin:auto;padding:
 </head>
 <body>
 <main class="wrap">
-<header class="top"><div class="brand">🧸 Baby Tutor</div><nav class="nav"><a href="#learn">📚 শেখা</a><a href="#poems">🎵 কবিতা</a><a href="#activities">🎮 খেলা</a></nav></header>
+<header class="top"><div class="brand">🧸 Baby Tutor</div><nav class="nav"><a href="#learn">📚 শেখা</a><a href="#poems">🎵 কবিতা</a><a href="#activities">🎮 খেলা</a><a href="voice.html">🔊 ভয়েস</a><a href="draw.html">🎨 আঁকা</a></nav></header>
 
 <section class="hero">
 <div class="pill">🌈 খেলতে খেলতে শেখা • ⭐ শিশুদের ডিজিটাল পাঠশালা</div>
@@ -93,11 +93,11 @@ a{text-decoration:none;color:inherit}.wrap{max-width:1100px;margin:auto;padding:
 <a class="card c5" href="quiz.html"><div class="icon">🧠</div><h3>কুইজ</h3><div class="small">দেখি কতটা শিখেছি!</div></a>
 <a class="card c6" href="words.html"><div class="icon">💬</div><h3>শব্দ শেখা</h3><div class="small">নতুন শব্দের ঝুলি</div></a>
 <a class="card c7" href="stories.html"><div class="icon">📖</div><h3>গল্প</h3><div class="small">গল্পের দেশে যাই</div></a>
-<a class="card c8" href="rhymes.html"><div class="icon">🎵</div><h3>ছড়া</h3><div class="small">ছন্দে ছন্দে শিখি</div></a>
+<a class="card c8" href="rhymes.html"><div class="icon">🎵</div><h3>ছড়া</h3><div class="small">ছন্দে ছন্দে শিখি</div></a><a class="card c9" href="voice.html"><div class="icon">🔊</div><h3>ভয়েস</h3><div class="small">শুনে শুনে শিখি</div></a><a class="card c10" href="draw.html"><div class="icon">🎨</div><h3>আঁকা ও রং</h3><div class="small">নিজের ছবি আঁকি</div></a>
 </section>
 <div class="activity" id="quiz" style="margin-top:16px"><div class="big">🧠❓</div><h3>ছোট্ট কুইজ</h3><p id="q">স্বরবর্ণের প্রথম অক্ষর কোনটি?</p><button class="quiz-btn" onclick="answer()">উত্তর দেখি</button><p id="a" style="font-weight:900"></p></div>
 
-<footer class="footer">🌟 শেখা হোক আনন্দের • 🌈 প্রতিদিন নতুন কিছু • 🧸 <b>Baby Tutor</b><br><small>এই কবিতাগুলো শিশুদের জন্য নতুন করে তৈরি করা হয়েছে।</small></footer>
+<footer class="footer"><h3>🧸 Baby Tutor</h3><p>🌟 শেখা হোক আনন্দের • 🌈 প্রতিদিন নতুন কিছু</p><p><a href="arabic.html">🕌 আরবি</a>　<a href="vowels.html">🔤 স্বরবর্ণ</a>　<a href="consonants.html">📝 ব্যঞ্জন</a>　<a href="numbers.html">🔢 সংখ্যা</a></p><p><a href="quiz.html">🧠 কুইজ</a>　<a href="words.html">💬 শব্দ</a>　<a href="stories.html">📖 গল্প</a>　<a href="rhymes.html">🎵 ছড়া</a>　<a href="voice.html">🔊 ভয়েস</a>　<a href="draw.html">🎨 আঁকা</a></p><small>শিশুদের জন্য তৈরি আনন্দময় ডিজিটাল শেখার জগৎ।</small></footer>
 </main>
 
 <div class="modal" id="modal"><div class="modalbox"><button class="close" onclick="closePoem()">✕</button><h2 id="mt"></h2><div class="poemtext" id="mp"></div><button class="btn read" onclick="speak(document.getElementById('mp').innerText)">🔊 কবিতা শুনি</button></div></div>
