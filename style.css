@@ -1,0 +1,13 @@
+:root{--red:#c63b3f;--gold:#f0a928;--ink:#263247;--paper:#fffdf8;--shadow:0 10px 0 rgba(72,54,35,.08),0 16px 30px rgba(36,50,70,.12)}
+*{box-sizing:border-box}body{background:radial-gradient(circle at 8% 8%,#ffe5ec 0 7%,transparent 18%),radial-gradient(circle at 92% 20%,#dff7ff 0 8%,transparent 20%),linear-gradient(180deg,#f9fcff,#fff8ed)!important;color:var(--ink)!important}
+body:before{content:"⭐  ✨  ☁️  🦋  🌈  ☁️  ✨  ⭐";display:block;position:fixed;top:5px;left:0;width:100%;text-align:center;opacity:.35;font-size:18px;pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:1}.top{border:2px solid #fff!important;box-shadow:0 8px 25px rgba(0,0,0,.12)!important}.brand{letter-spacing:.2px}.back,.btn,.quiz-btn{border:0!important;box-shadow:0 5px 0 rgba(106,36,36,.2),0 8px 16px rgba(0,0,0,.12)!important;transition:transform .15s,box-shadow .15s,filter .15s}.back:hover,.btn:hover,.quiz-btn:hover{transform:translateY(-2px);filter:brightness(1.05)}.back:active,.btn:active,.quiz-btn:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(106,36,36,.2)!important}
+.nav a{border:2px solid #fff!important;box-shadow:0 4px 12px rgba(0,0,0,.08)!important}.hero{border:3px solid #fff!important;position:relative}.hero:after{content:"🌳  🌼  🐦  🌼  🌳";display:block;font-size:25px;margin-top:12px;opacity:.85}
+.card,.lesson,.activity,.poem-card,.footer{border:2px solid rgba(255,255,255,.9)!important;box-shadow:var(--shadow)!important}.card{cursor:pointer}.card:before{content:"✦";position:absolute;right:12px;top:7px;color:#fff;opacity:.55;font-size:18px}.big{filter:drop-shadow(0 3px 2px rgba(0,0,0,.1))}
+.grid .card:nth-child(4n+1){background:linear-gradient(145deg,#6751e7,#9d8cff)!important;color:#fff}.grid .card:nth-child(4n+2){background:linear-gradient(145deg,#ee654d,#ff9c72)!important;color:#fff}.grid .card:nth-child(4n+3){background:linear-gradient(145deg,#119b76,#5fd79b)!important;color:#fff}.grid .card:nth-child(4n){background:linear-gradient(145deg,#2879d2,#72bdff)!important;color:#fff}
+.grid .card h3{color:#fff!important}.grid .card p,.grid .card .small{color:rgba(255,255,255,.95)!important}.grid .card .soft{background:#fff3d5!important;color:#704b00!important}
+.lesson h2,.activity h2,.lesson h3,.activity h3{color:#9a6500}.letters{background:linear-gradient(90deg,#6d51e8,#d64c91,#0b9e73);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+input{box-shadow:inset 0 2px 8px rgba(0,0,0,.07),0 3px 0 rgba(0,0,0,.04)!important}
+canvas{box-shadow:inset 0 0 0 4px #fff,0 8px 20px rgba(0,0,0,.1)!important}
+.dot{transition:transform .15s}.dot:hover{transform:scale(1.12)}footer a{font-weight:800;color:var(--red)}
+@media(max-width:700px){.top{top:4px}.hero{padding-top:24px}.grid{gap:12px}}
