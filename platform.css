@@ -1,21 +1,23 @@
-/* Baby Tutor Digital Platform Shell */
-.bt-shell{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(91,74,232,.10);box-shadow:0 8px 28px rgba(31,41,75,.08)}
-.bt-head{max-width:1240px;margin:auto;min-height:64px;padding:8px 16px;display:flex;align-items:center;gap:14px}
+/* Baby Tutor — Shared Digital Platform Design System */
+.bt-shell{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.9);backdrop-filter:blur(18px);border-bottom:1px solid rgba(91,74,232,.12);box-shadow:0 8px 28px rgba(31,41,75,.08)}
+.bt-head{max-width:1240px;margin:auto;min-height:66px;padding:8px 16px;display:flex;align-items:center;gap:14px}
 .bt-logo{font-weight:950;color:#5b4ae8;font-size:20px;text-decoration:none;white-space:nowrap}
 .bt-nav{display:flex;gap:6px;align-items:center;overflow:auto;scrollbar-width:none;flex:1}
 .bt-nav::-webkit-scrollbar{display:none}
-.bt-nav a{padding:9px 11px;border-radius:12px;text-decoration:none;color:#52607a;font-weight:800;font-size:13px;white-space:nowrap}
+.bt-nav a{padding:9px 11px;border-radius:12px;text-decoration:none;color:#52607a;font-weight:800;font-size:13px;white-space:nowrap;transition:.2s}
 .bt-nav a:hover,.bt-nav a.bt-active{background:#eeeaff;color:#5b4ae8}
-.bt-progress{min-width:150px}
+.bt-progress{min-width:170px}
 .bt-progress small{display:flex;justify-content:space-between;font-weight:800;color:#667085;margin-bottom:5px}
 .bt-track{height:7px;background:#ececf7;border-radius:99px;overflow:hidden}
 .bt-fill{height:100%;width:0;background:linear-gradient(90deg,#5b4ae8,#19b7c9,#21b573);border-radius:99px;transition:width .4s}
-.bt-dash{position:fixed;right:14px;bottom:86px;z-index:999;background:rgba(255,255,255,.94);border:1px solid rgba(91,74,232,.12);box-shadow:0 14px 35px rgba(31,41,75,.14);border-radius:18px;padding:10px 13px;display:flex;gap:12px;align-items:center;font-size:12px;font-weight:850}
+.bt-dash{position:fixed;right:14px;bottom:86px;z-index:999;background:rgba(255,255,255,.96);border:1px solid rgba(91,74,232,.12);box-shadow:0 14px 35px rgba(31,41,75,.14);border-radius:18px;padding:10px 13px;display:flex;gap:12px;align-items:center;font-size:12px;font-weight:850}
 .bt-dash span{color:#5b4ae8}
 .bt-bottom{display:none}
 @media(max-width:760px){
- .bt-head{min-height:58px;padding:7px 10px}.bt-logo{font-size:17px}.bt-nav{display:none}.bt-progress{min-width:120px;margin-left:auto}
- .bt-bottom{position:fixed;display:flex;left:8px;right:8px;bottom:8px;height:64px;z-index:1001;background:rgba(255,255,255,.95);backdrop-filter:blur(18px);border:1px solid rgba(91,74,232,.12);box-shadow:0 14px 35px rgba(31,41,75,.18);border-radius:20px;justify-content:space-around;align-items:center}
- .bt-bottom a{color:#667085;text-decoration:none;text-align:center;font-size:10px;font-weight:850;min-width:48px}.bt-bottom a b{display:block;font-size:20px;line-height:23px}.bt-bottom a.bt-active{color:#5b4ae8}
- .bt-dash{display:none}body{padding-bottom:82px!important}
+ .bt-head{min-height:58px;padding:7px 10px;gap:8px}.bt-logo{font-size:17px}.bt-nav{display:none}.bt-progress{min-width:125px;margin-left:auto}
+ .bt-dash{left:10px;right:10px;bottom:82px;justify-content:center;font-size:11px;padding:8px 10px}
+ .bt-bottom{position:fixed;display:flex;left:8px;right:8px;bottom:8px;height:64px;z-index:1001;background:rgba(255,255,255,.96);backdrop-filter:blur(18px);border:1px solid rgba(91,74,232,.12);box-shadow:0 14px 35px rgba(31,41,75,.18);border-radius:20px;align-items:center;justify-content:flex-start;overflow-x:auto;overflow-y:hidden;scrollbar-width:none}
+ .bt-bottom::-webkit-scrollbar{display:none}
+ .bt-bottom a{flex:0 0 58px;color:#667085;text-decoration:none;text-align:center;font-size:9px;font-weight:850}.bt-bottom a b{display:block;font-size:19px;line-height:22px}.bt-bottom a.bt-active{color:#5b4ae8}
+ body{padding-bottom:82px!important}
 }
