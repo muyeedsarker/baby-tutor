@@ -1,0 +1,10 @@
+{
+  "name":"Baby Tutor — Smart Kids Learning",
+  "short_name":"Baby Tutor",
+  "start_url":"./kids-learning.html",
+  "display":"standalone",
+  "background_color":"#f5f7ff",
+  "theme_color":"#6d4aff",
+  "description":"শিশুদের জন্য ইন্টার‌্যাকটিভ ও মৌলিক শিক্ষা প্ল্যাটফর্ম",
+  "icons":[]
+}
