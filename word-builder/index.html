@@ -31,9 +31,26 @@ body{margin:0;font-family:system-ui,"Noto Sans Bengali","Noto Sans",sans-serif;c
 .wb-success{display:none;margin-top:12px;text-align:center;padding:13px;border-radius:18px;background:linear-gradient(145deg,#e7fff2,#f5fffb);border:1px solid #a7e6c7;color:#087a4a;font-weight:1000}.wb-success.show{display:block;animation:pop .35s ease}.wb-credit{font-size:10px;color:#7c8496;text-align:center;margin-top:8px}
 @media(max-width:850px){.wb-stage{grid-template-columns:1fr}.wb-side{order:-1}.wb-words{grid-template-columns:repeat(5,1fr)}.wb-help{display:none}}
 @media(max-width:560px){.wb{padding:7px 9px 30px}.wb-top{top:5px}.wb-brand{font-size:17px}.wb-main{padding:11px;border-radius:24px}.wb-image{height:220px}.wb-current{min-height:125px}.wb-current .letter{font-size:92px}.wb-tile,.wb-slot{min-width:52px;height:52px;font-size:25px}.wb-words{grid-template-columns:repeat(2,1fr)}}
+
+.wb-tray{position:sticky;bottom:8px;z-index:20;box-shadow:0 12px 28px #25304a18}
+.wb-tile{min-width:68px;height:68px;font-size:34px}
+.wb-letter-screen{position:fixed;inset:0;z-index:100;background:radial-gradient(circle at 50% 38%,#fff 0,#f5f2ff 42%,#e9e5ff 100%);display:none;place-items:center;text-align:center;padding:30px}
+.wb-letter-screen.show{display:grid;animation:screenIn .22s ease}
+.wb-screen-letter{font-size:clamp(150px,38vw,420px);line-height:.9;font-weight:1000;color:var(--wb-purple);text-shadow:0 16px 0 #ddd6ff}
+.wb-screen-label{position:absolute;top:24px;left:0;right:0;color:#68748b;font-weight:950;font-size:18px}
+.wb-screen-close{position:absolute;top:20px;right:20px;width:54px;height:54px;border:0;border-radius:50%;background:#fff;color:#5b4ae8;font-size:30px;font-weight:1000;box-shadow:0 8px 22px #25304a22;cursor:pointer}
+.wb-screen-word{position:absolute;bottom:28px;left:0;right:0;color:#68748b;font-weight:850;font-size:15px}
+@keyframes screenIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+@media(max-width:560px){.wb-tray{bottom:5px}.wb-tile{min-width:58px;height:58px;font-size:29px}.wb-screen-close{top:14px;right:14px}}
 </style>
 </head>
 <body>
+<div class="wb-letter-screen" id="letterScreen" aria-live="polite">
+  <div class="wb-screen-label">আপনি যে অক্ষরে চাপ দিয়েছেন</div>
+  <button class="wb-screen-close" onclick="closeLetterScreen()" aria-label="বন্ধ করুন">×</button>
+  <div class="wb-screen-letter" id="screenLetter">আ</div>
+  <div class="wb-screen-word">🔊 অক্ষরটি বড় করে দেখানো ও উচ্চারণ করা হচ্ছে</div>
+</div>
 <main class="wb">
 <header class="wb-top"><div class="wb-brand">🧸 Baby Tutor</div><a class="wb-back" href="learning.html">← শেখার পাতা</a></header>
 <section class="wb-title"><h1>শব্দ গঠন</h1><p>ছবি দেখো → একটি একটি অক্ষর বেছে নাও → অক্ষরটি শুনো → শব্দ সম্পূর্ণ করো</p></section>
@@ -80,9 +97,11 @@ function render(){const w=WORDS[index];step=0;document.getElementById('wordImage
 function renderSlots(){const w=WORDS[index];document.getElementById('slots').innerHTML=w.parts.map((p,i)=>'<div class="wb-slot '+(i<step?'done ':'')+(i===step?'active':'')+'">'+(i<step?p:'•')+'</div>').join('')}
 function renderTiles(){const w=WORDS[index];const extra=[...w.parts].sort(()=>Math.random()-.5);document.getElementById('tiles').innerHTML=extra.map((p,i)=>'<button class="wb-tile" data-part="'+p.replace(/"/g,'&quot;')+'" onclick="pickTile(this)">'+p+'</button>').join('')}
 function updateProgress(){const w=WORDS[index];document.getElementById('stepText').textContent=num(step)+' / '+num(w.parts.length);document.getElementById('fill').style.width=(step/w.parts.length*100)+'%';document.getElementById('progressText').textContent=step===0?'শুরু':step===w.parts.length?'সম্পূর্ণ':'চলছে'}
-function pickTile(btn){if(btn.classList.contains('used'))return;const w=WORDS[index],want=w.parts[step],got=btn.dataset.part;if(got!==want){btn.classList.remove('wrong');void btn.offsetWidth;btn.classList.add('wrong');return}btn.classList.add('used');step++;document.getElementById('currentLetter').textContent=got;const box=document.getElementById('currentBox');box.classList.remove('pulse');void box.offsetWidth;box.classList.add('pulse');say(got);renderSlots();updateProgress();if(step===w.parts.length){setTimeout(()=>{document.getElementById('currentLetter').textContent=w.word;document.getElementById('success').classList.add('show');document.getElementById('fill').style.width='100%';say(w.word)},420)}}
+function pickTile(btn){if(btn.classList.contains('used'))return;const w=WORDS[index],want=w.parts[step],got=btn.dataset.part;if(got!==want){btn.classList.remove('wrong');void btn.offsetWidth;btn.classList.add('wrong');return}btn.classList.add('used');step++;document.getElementById('currentLetter').textContent=got;showLetterScreen(got);const box=document.getElementById('currentBox');box.classList.remove('pulse');void box.offsetWidth;box.classList.add('pulse');say(got);renderSlots();updateProgress();if(step===w.parts.length){setTimeout(()=>{document.getElementById('currentLetter').textContent=w.word;document.getElementById('success').classList.add('show');document.getElementById('fill').style.width='100%';say(w.word)},420)}}
 function chooseWord(i){index=i;render()}
 function nextWord(){index=(index+1)%WORDS.length;render()}
+function showLetterScreen(letter){document.getElementById('screenLetter').textContent=letter;document.getElementById('letterScreen').classList.add('show');say(letter);clearTimeout(window.__letterTimer);window.__letterTimer=setTimeout(closeLetterScreen,1100)}
+function closeLetterScreen(){document.getElementById('letterScreen').classList.remove('show')}
 function hearWord(){say(WORDS[index].word)}
 render();
 </script>
