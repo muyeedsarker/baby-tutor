@@ -91,3 +91,34 @@
   .back,.btn,.quiz-btn,.action,.stop,.listen,.see,.close,.heroBtns a,.heroBtns button,
   .featureMain button,.featureSide a,.answers button,.item{border-radius:15px!important}
 }
+
+/* Homepage: cheerful real-baby learning hero */
+.bt-home .bt-home-visual{
+  max-width:1280px;margin:22px auto 18px;padding:28px 30px;min-height:360px;
+  border-radius:34px;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  background:linear-gradient(135deg,#fff7dc 0%,#eafcff 48%,#f8edff 100%);
+  border:2px solid rgba(255,255,255,.95);
+  box-shadow:0 24px 60px rgba(53,44,120,.16),inset 0 2px 0 rgba(255,255,255,.9);
+}
+.bt-home .bt-home-copy{position:relative;z-index:3;max-width:510px}
+.bt-home-brand{font-size:28px;font-weight:1000;color:#624de8;letter-spacing:-.5px}
+.bt-home-brand span{background:linear-gradient(90deg,#624de8,#19b7c9,#21b573);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bt-home-copy h1{font-size:clamp(30px,5vw,54px);line-height:1.08;margin:18px 0 8px;color:#20294a}
+.bt-home-copy p{font-size:21px;font-weight:900;color:#e85b9a;margin:0 0 18px}
+.bt-home-stars{display:inline-flex;align-items:center;gap:10px;padding:11px 16px;border-radius:18px;background:#fff;box-shadow:0 9px 22px rgba(40,35,90,.12);font-weight:1000;color:#624de8}
+.bt-home-stars span{font-size:11px;color:#68738c;font-weight:800}
+.bt-home-babies{position:relative;width:min(52%,590px);height:310px;min-width:390px}
+.bt-baby{position:absolute;border:7px solid #fff;border-radius:30px;overflow:hidden;background:#fff;box-shadow:0 18px 35px rgba(35,35,80,.2)}
+.bt-baby img{display:block;width:100%;height:100%;object-fit:cover}
+.bt-baby.b1{width:310px;height:260px;right:120px;top:18px;transform:rotate(-4deg)}
+.bt-baby.b2{width:210px;height:210px;right:0;bottom:4px;transform:rotate(6deg)}
+.bt-book{position:absolute;left:12px;bottom:22px;width:82px;height:82px;border-radius:25px;display:grid;place-items:center;background:linear-gradient(145deg,#ffd76b,#ff9d4d);font-size:42px;box-shadow:inset 0 3px 0 rgba(255,255,255,.55),0 10px 0 rgba(180,93,20,.2),0 18px 30px rgba(180,93,20,.18);transform:rotate(-8deg)}
+@media(max-width:760px){
+ .bt-home .bt-home-visual{margin:12px 10px;padding:20px 16px;min-height:500px;display:block;border-radius:26px}
+ .bt-home-brand{font-size:23px}.bt-home-copy h1{font-size:34px}.bt-home-copy p{font-size:17px}
+ .bt-home-babies{width:100%;height:275px;min-width:0;margin-top:18px}
+ .bt-baby.b1{width:245px;height:205px;right:48px;top:10px}
+ .bt-baby.b2{width:155px;height:155px;right:0;bottom:0}
+ .bt-book{left:0;bottom:10px;width:68px;height:68px;font-size:34px}
+}
