@@ -1,0 +1,74 @@
+/* Baby Tutor — Compact first-page 2-column button layout */
+@media (min-width: 701px){
+  body.bt-home .grid,
+  body.bt-home .quick-grid,
+  body.bt-home .hxg{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:12px!important;
+  }
+}
+body.bt-home .grid .card,
+body.bt-home .quick-grid button,
+body.bt-home .hxg button,
+body.bt-home .pbtn,
+body.bt-home .hxk{
+  min-height:0!important;
+  height:auto!important;
+  padding:14px 12px!important;
+  margin:0!important;
+}
+body.bt-home .grid .card{
+  border-radius:18px!important;
+}
+body.bt-home .pbtn{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:8px!important;
+}
+body.bt-home .pbtn .pe{
+  font-size:28px!important;
+  line-height:1!important;
+}
+body.bt-home .pbtn strong{
+  font-size:15px!important;
+  line-height:1.2!important;
+}
+body.bt-home .pbtn small{
+  font-size:10px!important;
+  line-height:1.15!important;
+}
+body.bt-home .pbtn .pn{
+  padding:3px 6px!important;
+  font-size:10px!important;
+  line-height:1!important;
+}
+body.bt-home .hxk{
+  min-height:92px!important;
+  padding:12px!important;
+}
+body.bt-home .fld{
+  padding:12px!important;
+}
+body.bt-home .bt-home-visual{
+  margin-bottom:14px!important;
+}
+@media(max-width:700px){
+  body.bt-home .grid,
+  body.bt-home .quick-grid,
+  body.bt-home .hxg{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:9px!important;
+  }
+  body.bt-home .grid .card,
+  body.bt-home .quick-grid button,
+  body.bt-home .hxg button,
+  body.bt-home .pbtn,
+  body.bt-home .hxk{
+    padding:10px 7px!important;
+    border-radius:15px!important;
+  }
+  body.bt-home .pbtn .pe{font-size:23px!important}
+  body.bt-home .pbtn strong{font-size:12px!important}
+  body.bt-home .pbtn small{font-size:9px!important}
+}
