@@ -1,0 +1,5 @@
+{
+  "name": "Baby Tutor Master Import",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "postCreateCommand": "bash -lc 'echo "Baby Tutor Codespace ready. Upload baby-tutor-MASTER-LOCKED.zip into the Explorer, then run: unzip -q baby-tutor-MASTER-LOCKED.zip -d /tmp/btmaster && cp -a /tmp/btmaster/bt_master/. . && git add -A && git commit -m \"Import Baby Tutor Master Locked Version\" && git push origin main' "
+}
