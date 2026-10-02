@@ -97,3 +97,6 @@ body:after{content:"";position:fixed;width:180px;height:180px;border-radius:50%;
 .bt-home .quick,.bt-home .quick-grid,.bt-home .home-buttons,.bt-home .button-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
 .bt-home .quick{display:grid!important;gap:14px!important}
 @media(max-width:520px){.bt-home .quick,.bt-home .quick-grid,.bt-home .home-buttons,.bt-home .button-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}}
+
+/* Homepage: force exactly 2 learning buttons per row at every screen width */
+#m .quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
