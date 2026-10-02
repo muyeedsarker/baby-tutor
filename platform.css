@@ -1,3 +1,4 @@
+@import url('premium-buttons.css');
 /* Baby Tutor — Premium Kids Learning Design System */
 :root{--bt-purple:#5b4ae8;--bt-cyan:#19b7c9;--bt-green:#21b573;--bt-ink:#25304a;--bt-soft:#f5f7ff}
 html{scroll-behavior:smooth}
