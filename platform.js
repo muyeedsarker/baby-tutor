@@ -7,7 +7,7 @@ function loadCss(id,href){if(document.getElementById(id))return;const link=docum
 function focusCss(){loadCss('bt-focus-navigation-css','focus-navigation.css')}
 function pageTitle(){
  const h=document.querySelector('h1,h2,.sectionHead h2,.hero h1,.brand');
- return (h&&h.textContent||'Baby Tutor').replace(/\\s+/g,' ').trim().slice(0,42);
+ return (h&&h.textContent||'Baby Tutor').replace(/\s+/g,' ').trim().slice(0,42);
 }
 function ensureFocusBar(title){
  let bar=document.getElementById('btFocusBar');
@@ -80,7 +80,7 @@ function bindFocusNavigation(){
   if(!el||el.closest('#btFocusBar'))return;
   const href=el.getAttribute('href')||'';
   const onclick=el.getAttribute('onclick')||'';
-  const label=(el.textContent||'').replace(/\\s+/g,' ').trim().slice(0,42);
+  const label=(el.textContent||'').replace(/\s+/g,' ').trim().slice(0,42);
   if(href&&href.charAt(0)==='#'){
    e.preventDefault();
    history.pushState(null,'',href);
