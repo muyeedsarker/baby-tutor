@@ -1,4 +1,4 @@
-const CACHE="baby-tutor-v2";
+const CACHE="baby-tutor-v3-20261002";
 const ASSETS=["./","./index.html","./kids-learning.html","./rhymes.html","./draw.html","./style.css","./manifest.json"];
 self.addEventListener("install",e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener("activate",e=>e.waitUntil(self.clients.claim()));
