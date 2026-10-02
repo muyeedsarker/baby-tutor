@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#5b4ae8">
+<title>শব্দ গঠন — Baby Tutor</title>
+<link rel="stylesheet" href="style.css">
+<style>
+:root{--wb-purple:#5b4ae8;--wb-cyan:#19b7c9;--wb-green:#21b573;--wb-pink:#e85b9a;--wb-ink:#17213a}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,"Noto Sans Bengali","Noto Sans",sans-serif;color:var(--wb-ink);background:linear-gradient(180deg,#eef8ff 0,#fff8ef 100%);min-height:100vh}
+.wb{max-width:1180px;margin:auto;padding:12px 14px 40px}
+.wb-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;background:#ffffffd9;border:1px solid #fff;border-radius:22px;box-shadow:0 12px 30px #25304a16;backdrop-filter:blur(15px);position:sticky;top:7px;z-index:30}
+.wb-brand{font-weight:1000;color:var(--wb-purple);font-size:20px}.wb-back{padding:10px 14px;border-radius:14px;background:linear-gradient(145deg,#8e80ff,#5b4ae8);color:#fff;text-decoration:none;font-weight:950;box-shadow:0 6px 0 #3929a5}
+.wb-title{text-align:center;margin:17px 0 10px}.wb-title h1{margin:0;font-size:clamp(30px,6vw,50px);background:linear-gradient(90deg,#5b4ae8,#e85b9a,#19b7c9);-webkit-background-clip:text;background-clip:text;color:transparent}.wb-title p{margin:5px 0;color:#667085;font-weight:750}
+.wb-stage{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;align-items:stretch}
+.wb-main{background:#fff;border-radius:30px;padding:18px;border:2px solid #fff;box-shadow:0 20px 55px #25304a18;position:relative;overflow:hidden}
+.wb-main:before{content:"✦  ✧  ✦";position:absolute;right:20px;top:12px;color:#e9e5ff;font-size:22px}
+.wb-image{height:270px;border-radius:24px;background:linear-gradient(145deg,#f7f8ff,#eefbff);display:grid;place-items:center;overflow:hidden;border:1px solid #edf0fb}
+.wb-image img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 14px 20px #26345a20)}
+.wb-word{text-align:center;margin-top:12px}.wb-word small{display:block;color:#77839a;font-weight:850}.wb-word h2{margin:2px 0;font-size:34px;color:#293657}
+.wb-current{margin:14px auto 10px;width:min(310px,80%);min-height:150px;border-radius:28px;background:linear-gradient(145deg,#f8f6ff,#fff7fb);border:3px solid #fff;box-shadow:inset 0 0 0 1px #e7e4fb,0 14px 30px #4535a31a;display:grid;place-items:center;text-align:center;position:relative}
+.wb-current .letter{font-size:clamp(78px,14vw,125px);font-weight:1000;line-height:1;color:var(--wb-purple);text-shadow:0 7px 0 #e4defe}
+.wb-current .hint{position:absolute;bottom:8px;left:0;right:0;font-size:12px;color:#7b8498;font-weight:800}
+.wb-current.pulse{animation:pop .35s ease}@keyframes pop{0%{transform:scale(.9);opacity:.5}70%{transform:scale(1.04)}100%{transform:scale(1);opacity:1}}
+.wb-slots{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:13px 0}.wb-slot{min-width:58px;height:58px;padding:0 12px;border-radius:16px;background:#f1f3fa;border:2px dashed #cfd5e7;color:#9aa3b5;font-size:28px;font-weight:950;display:grid;place-items:center}.wb-slot.done{background:linear-gradient(145deg,#dff9ee,#f3fff9);border-style:solid;border-color:#7ad9af;color:#087a4a;box-shadow:0 6px 12px #21b5731f}.wb-slot.active{border-color:#8b7dff;background:#eeeaff;color:#5b4ae8}
+.wb-progress{display:flex;align-items:center;gap:9px;color:#667085;font-size:12px;font-weight:900}.wb-track{flex:1;height:9px;background:#edf0f7;border-radius:99px;overflow:hidden}.wb-fill{height:100%;width:0;background:linear-gradient(90deg,#5b4ae8,#19b7c9,#21b573);border-radius:99px;transition:.35s}
+.wb-tray{margin-top:12px;padding:12px;border-radius:22px;background:linear-gradient(180deg,#f9faff,#eefbff);border:1px solid #e5eaf7}.wb-tray-title{text-align:center;color:#68748b;font-size:13px;font-weight:900;margin-bottom:8px}.wb-tiles{display:flex;gap:9px;justify-content:center;flex-wrap:wrap}.wb-tile{min-width:58px;height:58px;border:0;border-radius:17px;background:linear-gradient(145deg,#ffffff,#eeeaff);color:#322a8f;font-size:29px;font-weight:1000;cursor:pointer;box-shadow:inset 0 2px 0 #fff,0 6px 0 #c7c0f4,0 10px 18px #5140b51c;transition:.15s}.wb-tile:hover{transform:translateY(-3px)}.wb-tile:active{transform:translateY(3px);box-shadow:0 3px 0 #c7c0f4}.wb-tile.used{opacity:.3;cursor:default;transform:none}.wb-tile.wrong{animation:shake .3s}@keyframes shake{25%{transform:translateX(-7px)}50%{transform:translateX(7px)}75%{transform:translateX(-5px)}}
+.wb-side{background:#ffffffd9;border:1px solid #fff;border-radius:26px;padding:15px;box-shadow:0 15px 40px #25304a12;height:max-content}.wb-side h3{margin:0 0 10px;color:#4d3dcc}.wb-words{display:grid;grid-template-columns:1fr 1fr;gap:8px}.wb-word-btn{border:0;border-radius:15px;padding:11px 8px;background:#f3f4fb;color:#293657;font-weight:950;cursor:pointer}.wb-word-btn.active{background:linear-gradient(145deg,#6e5bea,#4b39c7);color:#fff;box-shadow:0 5px 0 #37289d}.wb-word-btn small{display:block;opacity:.7;margin-top:2px}.wb-help{margin-top:13px;padding:13px;border-radius:17px;background:#fff8df;color:#725a14;font-size:13px;line-height:1.6;font-weight:750}.wb-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:13px}.wb-action{border:0;border-radius:15px;padding:11px 14px;font-weight:950;cursor:pointer;background:linear-gradient(145deg,#8e80ff,#5b4ae8);color:#fff;box-shadow:0 6px 0 #3929a5}.wb-action.alt{background:linear-gradient(145deg,#78e7b0,#21b573);box-shadow:0 6px 0 #087a4a}
+.wb-success{display:none;margin-top:12px;text-align:center;padding:13px;border-radius:18px;background:linear-gradient(145deg,#e7fff2,#f5fffb);border:1px solid #a7e6c7;color:#087a4a;font-weight:1000}.wb-success.show{display:block;animation:pop .35s ease}.wb-credit{font-size:10px;color:#7c8496;text-align:center;margin-top:8px}
+@media(max-width:850px){.wb-stage{grid-template-columns:1fr}.wb-side{order:-1}.wb-words{grid-template-columns:repeat(5,1fr)}.wb-help{display:none}}
+@media(max-width:560px){.wb{padding:7px 9px 30px}.wb-top{top:5px}.wb-brand{font-size:17px}.wb-main{padding:11px;border-radius:24px}.wb-image{height:220px}.wb-current{min-height:125px}.wb-current .letter{font-size:92px}.wb-tile,.wb-slot{min-width:52px;height:52px;font-size:25px}.wb-words{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wb">
+<header class="wb-top"><div class="wb-brand">🧸 Baby Tutor</div><a class="wb-back" href="learning.html">← শেখার পাতা</a></header>
+<section class="wb-title"><h1>শব্দ গঠন</h1><p>ছবি দেখো → একটি একটি অক্ষর বেছে নাও → অক্ষরটি শুনো → শব্দ সম্পূর্ণ করো</p></section>
+
+<section class="wb-stage">
+<div class="wb-main">
+  <div class="wb-image"><img id="wordImage" alt="" loading="eager"></div>
+  <div class="wb-word"><small>আজকের শব্দ</small><h2 id="wordText">আম</h2></div>
+  <div class="wb-current" id="currentBox"><div class="letter" id="currentLetter">অ</div><div class="hint">অক্ষরে চাপ দিলে বড় হয়ে উচ্চারিত হবে</div></div>
+  <div class="wb-slots" id="slots"></div>
+  <div class="wb-progress"><span id="stepText">১ / ২</span><div class="wb-track"><div class="wb-fill" id="fill"></div></div><span id="progressText">শুরু</span></div>
+  <div class="wb-tray"><div class="wb-tray-title">সঠিক ক্রমে অক্ষরে চাপ দাও</div><div class="wb-tiles" id="tiles"></div></div>
+  <div class="wb-success" id="success">🎉 দারুণ! <span id="successWord">আম</span> শব্দটি সম্পূর্ণ হয়েছে। 🔊</div>
+  <div class="wb-actions"><button class="wb-action" onclick="hearWord()">🔊 পুরো শব্দ</button><button class="wb-action alt" onclick="nextWord()">➡️ পরের শব্দ</button></div>
+</div>
+
+<aside class="wb-side">
+  <h3>📚 শব্দ বেছে নাও</h3>
+  <div class="wb-words" id="wordList"></div>
+  <div class="wb-help">💡 আগে ছবিটি দেখো। তারপর নিচের অক্ষরগুলো থেকে <b>পরের অক্ষরটি</b> বেছে নাও। ভুল অক্ষর হলে শুধু আবার চেষ্টা করবে—কোনো নম্বর কাটা হবে না।</div>
+  <div class="wb-credit">ছবিগুলো Wikimedia Commons-এর পুনর্ব্যবহারযোগ্য উৎস থেকে নেওয়া হয়েছে।</div>
+</aside>
+</section>
+</main>
+<script>
+const WORDS=[
+ {word:'আম',parts:['আ','ম'],meaning:'আম',img:'https://commons.wikimedia.org/wiki/Special:FilePath/Fresh%20mango%20fruits.jpg?width=900'},
+ {word:'কলা',parts:['ক','লা'],meaning:'কলা',img:'https://commons.wikimedia.org/wiki/Special:FilePath/Banana.png?width=900'},
+ {word:'বই',parts:['ব','ই'],meaning:'বই',img:'https://commons.wikimedia.org/wiki/Special:FilePath/Book%20book.jpg?width=900'},
+ {word:'ফুল',parts:['ফু','ল'],meaning:'ফুল',img:'https://commons.wikimedia.org/wiki/Special:FilePath/Image%20flower.jpg?width=900'},
+ {word:'মাছ',parts:['মা','ছ'],meaning:'মাছ',img:'https://commons.wikimedia.org/wiki/Special:FilePath/The%20Fish.jpg?width=900'},
+ {word:'পাখি',parts:['পা','খি'],meaning:'পাখি',img:'https://commons.wikimedia.org/wiki/Special:FilePath/The%20Bird.jpg?width=900'},
+ {word:'ঘর',parts:['ঘ','র'],meaning:'ঘর',img:'https://commons.wikimedia.org/wiki/Special:FilePath/A%20house%20in%20Dhaka.jpg?width=900'},
+ {word:'জল',parts:['জ','ল'],meaning:'জল',img:'https://commons.wikimedia.org/wiki/Special:FilePath/Glass-of-water.jpg?width=900'},
+ {word:'কলম',parts:['ক','ল','ম'],meaning:'কলম',img:'https://commons.wikimedia.org/wiki/Special:FilePath/Pen.jpg?width=900'},
+ {word:'খাতা',parts:['খা','তা'],meaning:'খাতা',img:'https://commons.wikimedia.org/wiki/Special:FilePath/Notebook.jpg?width=900'}
+];
+let index=0,step=0;
+const bn=['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+const num=n=>String(n).split('').map(x=>bn[x]||x).join('');
+function say(t){if(!('speechSynthesis'in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='bn-BD';u.rate=.78;speechSynthesis.speak(u)}
+function renderWordButtons(){document.getElementById('wordList').innerHTML=WORDS.map((w,i)=>'<button class="wb-word-btn '+(i===index?'active':'')+'" onclick="chooseWord('+i+')">'+w.word+'<small>'+w.parts.length+' ধাপ</small></button>').join('')}
+function render(){const w=WORDS[index];step=0;document.getElementById('wordImage').src=w.img;document.getElementById('wordImage').alt=w.meaning+' — শব্দ গঠন';document.getElementById('wordText').textContent=w.word;document.getElementById('successWord').textContent=w.word;document.getElementById('success').classList.remove('show');document.getElementById('currentLetter').textContent=w.parts[0];document.getElementById('currentBox').classList.remove('pulse');void document.getElementById('currentBox').offsetWidth;document.getElementById('currentBox').classList.add('pulse');renderSlots();renderTiles();updateProgress();renderWordButtons();say(w.parts[0])}
+function renderSlots(){const w=WORDS[index];document.getElementById('slots').innerHTML=w.parts.map((p,i)=>'<div class="wb-slot '+(i<step?'done ':'')+(i===step?'active':'')+'">'+(i<step?p:'•')+'</div>').join('')}
+function renderTiles(){const w=WORDS[index];const extra=[...w.parts].sort(()=>Math.random()-.5);document.getElementById('tiles').innerHTML=extra.map((p,i)=>'<button class="wb-tile" data-part="'+p.replace(/"/g,'&quot;')+'" onclick="pickTile(this)">'+p+'</button>').join('')}
+function updateProgress(){const w=WORDS[index];document.getElementById('stepText').textContent=num(step)+' / '+num(w.parts.length);document.getElementById('fill').style.width=(step/w.parts.length*100)+'%';document.getElementById('progressText').textContent=step===0?'শুরু':step===w.parts.length?'সম্পূর্ণ':'চলছে'}
+function pickTile(btn){if(btn.classList.contains('used'))return;const w=WORDS[index],want=w.parts[step],got=btn.dataset.part;if(got!==want){btn.classList.remove('wrong');void btn.offsetWidth;btn.classList.add('wrong');say(want);return}btn.classList.add('used');step++;document.getElementById('currentLetter').textContent=got;const box=document.getElementById('currentBox');box.classList.remove('pulse');void box.offsetWidth;box.classList.add('pulse');say(got);renderSlots();updateProgress();if(step===w.parts.length){setTimeout(()=>{document.getElementById('currentLetter').textContent=w.word;document.getElementById('success').classList.add('show');document.getElementById('fill').style.width='100%';say(w.word)},420)}}
+function chooseWord(i){index=i;render()}
+function nextWord(){index=(index+1)%WORDS.length;render()}
+function hearWord(){say(WORDS[index].word)}
+render();
+</script>
+</body>
+</html>
