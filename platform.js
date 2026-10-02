@@ -3,8 +3,105 @@ const pages=[['index.html','🏠','হোম'],['learning.html','📚','লা�
 const file=(location.pathname.split('/').pop()||'index.html').toLowerCase();
 const progressKey='babyTutorProgress',starsKey='btStars';
 function loadCss(id,href){if(document.getElementById(id))return;const link=document.createElement('link');link.id=id;link.rel='stylesheet';link.href=href;(document.head||document.documentElement).appendChild(link)}
+
+function focusCss(){loadCss('bt-focus-navigation-css','focus-navigation.css')}
+function pageTitle(){
+ const h=document.querySelector('h1,h2,.sectionHead h2,.hero h1,.brand');
+ return (h&&h.textContent||'Baby Tutor').replace(/\\s+/g,' ').trim().slice(0,42);
+}
+function ensureFocusBar(title){
+ let bar=document.getElementById('btFocusBar');
+ if(!bar){
+  bar=document.createElement('div');bar.id='btFocusBar';bar.className='bt-focus-bar';
+  bar.innerHTML='<div class="bt-focus-bar-inner"><button class="bt-focus-back" id="btFocusBack" aria-label="এক ধাপ পিছনে">←</button><strong class="bt-focus-title" id="btFocusTitle"></strong><span class="bt-focus-sub">এক ধাপ করে শেখা</span></div>';
+  document.body.insertBefore(bar,document.body.firstChild);
+  document.getElementById('btFocusBack').addEventListener('click',focusBack);
+ }
+ document.getElementById('btFocusTitle').textContent=title||pageTitle();
+ return bar;
+}
+function clearFocus(){
+ document.body.classList.remove('bt-focus-active');
+ document.querySelectorAll('.bt-focus-control-hide,.bt-focus-section-hide').forEach(el=>el.classList.remove('bt-focus-control-hide','bt-focus-section-hide'));
+ document.querySelectorAll('.bt-focus-target').forEach(el=>el.classList.remove('bt-focus-target'));
+ const bar=document.getElementById('btFocusBar');if(bar)bar.remove();
+ sessionStorage.removeItem('btFocusTitle');
+}
+function hideOtherButtons(target){
+ document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{
+  if(el.id==='btFocusBack'||el.closest('#btFocusBar')||target.contains(el)||el===target)return;
+  el.classList.add('bt-focus-control-hide');
+ });
+}
+function focusTarget(target,title,sectionMode){
+ if(!target)return;
+ clearFocus();
+ document.body.classList.add('bt-focus-active');
+ ensureFocusBar(title||pageTitle());
+ target.classList.add('bt-focus-target');
+ if(sectionMode){
+  const section=target.closest('section,article,.section,.lesson,.topicGrid,.path,.quick')||target;
+  const root=section.parentElement;
+  if(root){
+   [...root.children].forEach(ch=>{
+    if(ch!==section&&!ch.contains(section))ch.classList.add('bt-focus-section-hide');
+   });
+  }
+  hideOtherButtons(section);
+ }else hideOtherButtons(target);
+ sessionStorage.setItem('btFocusTitle',title||pageTitle());
+ target.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function focusAnchor(hash){
+ if(!hash||hash==='#')return;
+ const id=decodeURIComponent(hash.slice(1));
+ const target=document.getElementById(id);
+ if(target)setTimeout(()=>focusTarget(target,(target.querySelector('h1,h2,h3')||target).textContent, true),40);
+}
+function focusModal(){
+ const target=document.querySelector('.lessonPanel.show,.panel.show,[role="dialog"].show');
+ if(target)setTimeout(()=>focusTarget(target,(target.querySelector('h2,h3')||target).textContent,false),20);
+}
+function focusBack(){
+ const previous=sessionStorage.getItem('btFocusParent')||'';
+ clearFocus();
+ if(previous&&previous!==location.href){
+  location.href=previous;
+ }else if(file!=='index.html'&&document.referrer&&document.referrer.indexOf(location.origin)===0){
+  history.back();
+ }else{
+  location.href='index.html';
+ }
+}
+function bindFocusNavigation(){
+ document.addEventListener('click',function(e){
+  const el=e.target.closest('a,button,.topic,.tile,.fld,.pbtn,.hxk');
+  if(!el||el.closest('#btFocusBar'))return;
+  const href=el.getAttribute('href')||'';
+  const onclick=el.getAttribute('onclick')||'';
+  const label=(el.textContent||'').replace(/\\s+/g,' ').trim().slice(0,42);
+  if(href&&href.charAt(0)==='#'){
+   e.preventDefault();
+   history.pushState(null,'',href);
+   focusAnchor(href);
+   return;
+  }
+  if(/openTopic\\s*\\(|openPanel\\s*\\(/.test(onclick)){
+   sessionStorage.setItem('btFocusParent',location.href);
+   setTimeout(focusModal,40);
+   return;
+  }
+  if(el.classList.contains('topic')||el.classList.contains('tile')||el.classList.contains('fld')||el.classList.contains('pbtn')||el.classList.contains('hxk')){
+   if(href&&href.indexOf('#')===0)return;
+   sessionStorage.setItem('btFocusParent',location.href);
+   sessionStorage.setItem('btFocusTitle',label||pageTitle());
+  }
+ },true);
+ window.addEventListener('popstate',()=>clearFocus());
+}
+
 loadCss('bt-premium-buttons-css','premium-buttons.css');
-loadCss('bt-more-topics-css','more-topics.css');
+loadCss('bt-more-topics-css','more-topics.css');focusCss();
 let progress=Math.min(100,Math.max(0,Number(localStorage.getItem(progressKey)||0))),stars=Math.max(0,Number(localStorage.getItem(starsKey)||0));
 function render(){const fill=document.getElementById('btFill'),p=document.getElementById('btPct'),d=document.getElementById('btDashPct'),s=document.getElementById('btStars');if(fill)fill.style.width=progress+'%';if(p)p.textContent=progress+'%';if(d)d.textContent=progress+'%';if(s)s.textContent=stars}
 function addProgress(n=4,bonus=1){progress=Math.min(100,progress+n);stars+=bonus;localStorage.setItem(progressKey,progress);localStorage.setItem(starsKey,stars);render()}
@@ -23,6 +120,11 @@ function homeUpgrade(){
  markMoreTopics();
 }
 function shell(){
+ if(file!=='index.html'){
+  document.body.classList.add('bt-subpage');
+  const saved=sessionStorage.getItem('btFocusTitle');
+  if(saved)ensureFocusBar(saved);
+ }
  if(document.querySelector('.bt-shell'))return;
  const header=document.createElement('header');header.className='bt-shell';
  header.innerHTML='<div class="bt-head"><a class="bt-logo" href="index.html">🧸 Baby Tutor</a><nav class="bt-nav" aria-label="প্রধান নেভিগেশন">'+pages.map(p=>'<a href="'+p[0]+'" class="'+(file===p[0]?'bt-active':'')+'">'+p[1]+' '+p[2]+'</a>').join('')+'</nav><div class="bt-progress"><small><span>শেখার অগ্রগতি</span><span id="btPct">'+progress+'%</span></small><div class="bt-track"><div class="bt-fill" id="btFill"></div></div></div></div>';
@@ -35,6 +137,6 @@ function shell(){
  document.addEventListener('click',function(e){const target=e.target.closest('[data-progress]');if(target){addProgress(Number(target.dataset.progress||5),Number(target.dataset.stars||1));return}const learn=e.target.closest('.learn, .quiz-card, .option, .activity, [data-learn]');if(learn&&!e.target.closest('a'))addProgress(3,1)});
  window.addEventListener('storage',function(e){if(e.key===progressKey)progress=Math.min(100,Math.max(0,Number(e.newValue)||0));if(e.key===starsKey)stars=Math.max(0,Number(e.newValue)||0);render()});
 }
-function boot(){homeUpgrade();shell()}
+function boot(){homeUpgrade();shell();bindFocusNavigation();focusModal();if(location.hash)focusAnchor(location.hash)}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();
