@@ -6,6 +6,41 @@ function loadPremiumButtons(){
  (document.head||document.documentElement).appendChild(link);
 }
 loadPremiumButtons();
+function homeUpgrade(){
+ if(file!=='index.html')return;
+ document.body.classList.add('bt-home');
+ const replaceText=(from,to)=>{
+   const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+   const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
+   nodes.forEach(n=>{if(n.nodeValue && n.nodeValue.trim()===from)n.nodeValue=to;});
+ };
+ replaceText('🎓Baby Tutor⭐','🎓 Baby Tutor ⭐');
+ replaceText('আজও একটু একটু করে শিখি!','আজও একটু একটু করে শিখি!');
+ replaceText('শিখি • খেলি • বড় হই','শিখি • খেলি • বড় হই');
+ replaceText('⭐ ০','⭐ ০');
+ replaceText('🌈 আজ কী শিখবে?','🌈 আজ কী শিখবে?');
+ replaceText('শিখি আজ, গড়ব আগামীর ❤️','শিখি আজ, গড়ব আগামীর ❤️');
+ const old=document.querySelector('.hero');
+ if(old && !document.querySelector('.bt-home-visual')){
+   const v=document.createElement('section');
+   v.className='bt-home-visual';
+   v.innerHTML=`
+    <div class="bt-home-copy">
+      <div class="bt-home-brand">🎓 <span>Baby Tutor</span> ⭐</div>
+      <h1>আজও একটু একটু করে শিখি!</h1>
+      <p>শিখি • খেলি • বড় হই</p>
+      <div class="bt-home-stars">⭐ ০ <span>আজকের শেখার যাত্রা</span></div>
+    </div>
+    <div class="bt-home-babies" aria-label="বই নিয়ে পড়ছে এমন কিউট শিশুদের ছবি">
+      <div class="bt-baby b1"><img src="https://images.unsplash.com/photo-1651862959539-9df2a6a34805?auto=format&fit=crop&fm=jpg&q=82&w=1000" alt="বই দেখছে কিউট শিশু"></div>
+      <div class="bt-baby b2"><img src="https://images.unsplash.com/photo-1622260614153-03223fb72052?auto=format&fit=crop&fm=jpg&q=82&w=900" alt="হাসোজ্জ্বল শিশু"></div>
+      <div class="bt-book">📚</div>
+    </div>`;
+   old.parentNode.insertBefore(v,old);
+   old.style.display='none';
+ }
+}
+\nhomeUpgrade();
 
 const pages=[['index.html','🏠','হোম'],['learning.html','📚','লার্নিং'],['kids-learning.html','🤖','AI'],['quiz.html','🧩','কুইজ'],['voice.html','🔊','ভয়েস'],['draw.html','🎨','ড্রইং'],['stories.html','📖','গল্প'],['rhymes.html','🎵','ছড়া']];
 const file=(location.pathname.split('/').pop()||'index.html').toLowerCase();
