@@ -108,3 +108,8 @@ html body #quick .pgrid{
   grid-template-columns:repeat(2,minmax(0,1fr))!important;
   gap:12px!important;
 }
+
+/* Homepage: force the actual first-page button grid to 2 per row on every screen */
+#m .quick-grid.pgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+@media(min-width:600px){#m .quick-grid.pgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(min-width:1000px){#m .quick-grid.pgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
