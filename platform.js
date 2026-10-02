@@ -124,7 +124,7 @@ function shell(){
  if(file!=='index.html'){
   document.body.classList.add('bt-subpage');
   const saved=sessionStorage.getItem('btFocusTitle');
-  if(saved)ensureFocusBar(saved);
+  if(saved){document.body.classList.add('bt-focus-active');ensureFocusBar(saved);}
  }
  if(document.querySelector('.bt-shell'))return;
  const header=document.createElement('header');header.className='bt-shell';
