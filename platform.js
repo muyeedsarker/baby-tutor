@@ -1,4 +1,12 @@
 (function(){
+function loadPremiumButtons(){
+ const id='bt-premium-buttons-css';
+ if(document.getElementById(id))return;
+ const link=document.createElement('link');link.id=id;link.rel='stylesheet';link.href='premium-buttons.css';
+ (document.head||document.documentElement).appendChild(link);
+}
+loadPremiumButtons();
+
 const pages=[['index.html','🏠','হোম'],['learning.html','📚','লার্নিং'],['kids-learning.html','🤖','AI'],['quiz.html','🧩','কুইজ'],['voice.html','🔊','ভয়েস'],['draw.html','🎨','ড্রইং'],['stories.html','📖','গল্প'],['rhymes.html','🎵','ছড়া']];
 const file=(location.pathname.split('/').pop()||'index.html').toLowerCase();
 const progressKey='babyTutorProgress',starsKey='btStars';
