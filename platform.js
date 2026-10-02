@@ -33,7 +33,7 @@ function homeUpgrade(){
     </div>
     <div class="bt-home-babies" aria-label="বই নিয়ে পড়ছে এমন কিউট শিশুদের ছবি">
       <div class="bt-baby b1"><img src="https://images.unsplash.com/photo-1651862959539-9df2a6a34805?auto=format&fit=crop&fm=jpg&q=82&w=1000" alt="বই দেখছে কিউট শিশু"></div>
-      <div class="bt-baby b2"><img src="https://images.unsplash.com/photo-1622260614153-03223fb72052?auto=format&fit=crop&fm=jpg&q=82&w=900" alt="হাসোজ্জ্বল শিশু"></div>
+      <div class="bt-baby b2"><img src="https://images.unsplash.com/photo-1624161288546-916a24423dbf?auto=format&fit=crop&fm=jpg&q=82&w=900" alt="হাসোজ্জ্বল শিশু"></div>
       <div class="bt-book">📚</div>
     </div>`;
    old.parentNode.insertBefore(v,old);
