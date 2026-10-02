@@ -1,0 +1,93 @@
+/* Baby Tutor — Premium HD 3D Button System v1 */
+:root{
+  --bt3d-purple-1:#9b8cff;--bt3d-purple-2:#624de8;--bt3d-purple-3:#3827a7;
+  --bt3d-pink-1:#ff9dc4;--bt3d-pink-2:#e85b9a;--bt3d-pink-3:#b62d68;
+  --bt3d-cyan-1:#77e7ef;--bt3d-cyan-2:#19b7c9;--bt3d-cyan-3:#087d91;
+  --bt3d-green-1:#78e7b0;--bt3d-green-2:#21b573;--bt3d-green-3:#087a4a;
+  --bt3d-orange-1:#ffd27a;--bt3d-orange-2:#ff9d4d;--bt3d-orange-3:#c65b16;
+}
+.back,.btn,.quiz-btn,.action,.stop,.listen,.see,.close,
+.heroBtns a,.heroBtns button,.featureMain button,.featureSide a,
+.answers button,.item,.bt-welcome-card a{
+  position:relative!important;
+  isolation:isolate;
+  border:1px solid rgba(255,255,255,.72)!important;
+  border-radius:17px!important;
+  font-weight:950!important;
+  letter-spacing:.1px;
+  text-decoration:none;
+  cursor:pointer;
+  overflow:hidden;
+  transform:translateY(0);
+  transition:transform .16s ease,filter .16s ease,box-shadow .16s ease!important;
+  box-shadow:
+    inset 0 2px 1px rgba(255,255,255,.42),
+    inset 0 -4px 0 rgba(0,0,0,.16),
+    0 8px 0 rgba(39,28,111,.22),
+    0 14px 24px rgba(39,28,111,.16)!important;
+}
+.back:before,.btn:before,.quiz-btn:before,.action:before,.stop:before,.listen:before,
+.see:before,.close:before,.heroBtns a:before,.heroBtns button:before,
+.featureMain button:before,.featureSide a:before,.answers button:before,.item:before,
+.bt-welcome-card a:before{
+  content:"";
+  position:absolute;
+  left:8%;right:8%;top:5px;height:34%;
+  border-radius:999px;
+  background:linear-gradient(180deg,rgba(255,255,255,.48),rgba(255,255,255,0));
+  pointer-events:none;
+  z-index:-1;
+}
+.back:hover,.btn:hover,.quiz-btn:hover,.action:hover,.stop:hover,.listen:hover,
+.see:hover,.close:hover,.heroBtns a:hover,.heroBtns button:hover,
+.featureMain button:hover,.featureSide a:hover,.answers button:hover,.item:hover,
+.bt-welcome-card a:hover{
+  transform:translateY(-3px)!important;
+  filter:saturate(1.08) brightness(1.04);
+}
+.back:active,.btn:active,.quiz-btn:active,.action:active,.stop:active,.listen:active,
+.see:active,.close:active,.heroBtns a:active,.heroBtns button:active,
+.featureMain button:active,.featureSide a:active,.answers button:active,.item:active,
+.bt-welcome-card a:active{
+  transform:translateY(3px)!important;
+  box-shadow:inset 0 2px 1px rgba(255,255,255,.25),inset 0 -2px 0 rgba(0,0,0,.14),0 3px 0 rgba(39,28,111,.2),0 7px 12px rgba(39,28,111,.12)!important;
+}
+.back,.btn,.quiz-btn,.action,.stop,.listen,.heroBtns a,.heroBtns button{
+  background:linear-gradient(145deg,var(--bt3d-purple-1) 0%,var(--bt3d-purple-2) 48%,var(--bt3d-purple-3) 100%)!important;
+  color:#fff!important;
+}
+.soft,.action.alt{
+  background:linear-gradient(145deg,var(--bt3d-orange-1),var(--bt3d-orange-2) 52%,var(--bt3d-orange-3))!important;
+  color:#fff!important;
+  box-shadow:inset 0 2px 1px rgba(255,255,255,.42),inset 0 -4px 0 rgba(0,0,0,.15),0 8px 0 rgba(126,66,18,.22),0 14px 24px rgba(126,66,18,.15)!important;
+}
+.alt,.bt-cyan,.bt-nav .bt-active{
+  background:linear-gradient(145deg,var(--bt3d-cyan-1),var(--bt3d-cyan-2) 52%,var(--bt3d-cyan-3))!important;
+  color:#fff!important;
+}
+.topic,.quick a,.mini{
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.7)!important;
+  box-shadow:inset 0 2px 1px rgba(255,255,255,.35),inset 0 -6px 0 rgba(0,0,0,.12),0 8px 0 rgba(35,43,90,.15),0 16px 28px rgba(35,43,90,.12)!important;
+  transform:translateY(0);
+  transition:transform .18s ease,filter .18s ease,box-shadow .18s ease!important;
+}
+.topic:hover,.quick a:hover,.mini:hover{transform:translateY(-5px)!important;filter:saturate(1.06);box-shadow:inset 0 2px 1px rgba(255,255,255,.4),inset 0 -6px 0 rgba(0,0,0,.12),0 11px 0 rgba(35,43,90,.14),0 20px 32px rgba(35,43,90,.16)!important}
+.topic:before,.quick a:before,.mini:before{
+  content:"";position:absolute;left:8%;right:8%;top:7px;height:30%;border-radius:999px;
+  background:linear-gradient(180deg,rgba(255,255,255,.38),transparent);pointer-events:none
+}
+.topic:after{filter:drop-shadow(0 2px 0 rgba(0,0,0,.18))}
+.grid .card{
+  position:relative;overflow:hidden;
+  box-shadow:inset 0 2px 1px rgba(255,255,255,.35),inset 0 -6px 0 rgba(0,0,0,.12),0 8px 0 rgba(35,43,90,.13),0 18px 34px rgba(35,43,90,.12)!important;
+}
+.grid .card:before{
+  content:"";position:absolute;left:10%;right:10%;top:6px;height:22%;border-radius:999px;
+  background:linear-gradient(180deg,rgba(255,255,255,.24),transparent);pointer-events:none
+}
+@media(max-width:700px){
+  .back,.btn,.quiz-btn,.action,.stop,.listen,.see,.close,.heroBtns a,.heroBtns button,
+  .featureMain button,.featureSide a,.answers button,.item{border-radius:15px!important}
+}
