@@ -100,3 +100,11 @@ body:after{content:"";position:fixed;width:180px;height:180px;border-radius:50%;
 
 /* Homepage: force exactly 2 learning buttons per row at every screen width */
 #m .quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+
+/* FINAL FIX: homepage learning buttons exactly 2 per row */
+html body #quick .quick-grid,
+html body #quick .pgrid{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:12px!important;
+}
