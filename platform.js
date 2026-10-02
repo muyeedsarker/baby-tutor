@@ -63,15 +63,16 @@ function focusModal(){
  if(target)setTimeout(()=>focusTarget(target,(target.querySelector('h2,h3')||target).textContent,false),20);
 }
 function focusBack(){
- const previous=sessionStorage.getItem('btFocusParent')||'';
- clearFocus();
- if(previous&&previous!==location.href){
-  location.href=previous;
- }else if(file!=='index.html'&&document.referrer&&document.referrer.indexOf(location.origin)===0){
-  history.back();
- }else{
-  location.href='index.html';
+ if(document.body.classList.contains('bt-focus-active')){
+  const hadHash=!!location.hash;
+  clearFocus();
+  if(hadHash)history.back();
+  return;
  }
+ const previous=sessionStorage.getItem('btFocusParent')||'';
+ if(previous&&previous!==location.href){location.href=previous;return}
+ if(file!=='index.html'&&document.referrer&&document.referrer.indexOf(location.origin)===0){history.back();return}
+ location.href='index.html';
 }
 function bindFocusNavigation(){
  document.addEventListener('click',function(e){
