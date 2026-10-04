@@ -151,6 +151,15 @@ function polishContent(){
      if(img&&img.alt)el.setAttribute('aria-label',img.alt);
    }
  });
+ // Keep Smart Learning's dashboard numbers tied to the same local progress store.
+ if(file==='kids-learning.html'){
+   const p=Math.min(100,Math.max(0,Number(localStorage.getItem(progressKey)||0)));
+   const s=Math.max(0,Number(localStorage.getItem(starsKey)||0));
+   const stars=document.getElementById('stars'); if(stars)stars.textContent=s;
+   const fill=document.querySelector('.profile .progress span'); if(fill)fill.style.width=p+'%';
+   const pct=document.querySelector('.profile .progress')?.parentElement?.querySelector('div[style*="justify-content"] span:last-child');
+   if(pct)pct.textContent=p+'%';
+ }
  // Keep the Islamic learning labels consistent without changing the Master visual system.
  const replacements=[
   ['আল্লাহর নাম','আল্লাহর সুন্দর নাম'],
