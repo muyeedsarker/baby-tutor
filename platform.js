@@ -138,6 +138,28 @@ function shell(){
  document.addEventListener('click',function(e){const target=e.target.closest('[data-progress]');if(target){addProgress(Number(target.dataset.progress||5),Number(target.dataset.stars||1));return}const learn=e.target.closest('.learn, .quiz-card, .option, .activity, [data-learn]');if(learn&&!e.target.closest('a'))addProgress(3,1)});
  window.addEventListener('storage',function(e){if(e.key===progressKey)progress=Math.min(100,Math.max(0,Number(e.newValue)||0));if(e.key===starsKey)stars=Math.max(0,Number(e.newValue)||0);render()});
 }
-function boot(){homeUpgrade();shell();bindFocusNavigation();focusModal();if(location.hash)focusAnchor(location.hash)}
+function polishContent(){
+ document.documentElement.lang='bn';
+ document.querySelectorAll('img').forEach((img,i)=>{
+   if(!img.hasAttribute('loading'))img.loading=i<4?'eager':'lazy';
+   if(!img.hasAttribute('decoding'))img.decoding='async';
+   img.addEventListener('error',function(){this.classList.add('bt-image-failed');this.setAttribute('aria-hidden','true')},{once:true});
+ });
+ document.querySelectorAll('a[href],button').forEach(el=>{
+   if(!el.getAttribute('aria-label') && !el.textContent.trim()){
+     const img=el.querySelector('img[alt]');
+     if(img&&img.alt)el.setAttribute('aria-label',img.alt);
+   }
+ });
+ // Keep the Islamic learning labels consistent without changing the Master visual system.
+ const replacements=[
+  ['আল্লাহর নাম','আল্লাহর সুন্দর নাম'],
+  ['🎯 কুইজ','🎯 ইসলামিক কুইজ']
+ ];
+ const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+ const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
+ nodes.forEach(n=>replacements.forEach(([a,b])=>{if(n.nodeValue&&n.nodeValue.trim()===a)n.nodeValue=b}));
+}
+function boot(){homeUpgrade();shell();bindFocusNavigation();focusModal();polishContent();if(location.hash)focusAnchor(location.hash)}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();
