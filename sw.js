@@ -1,5 +1,5 @@
-const CACHE="baby-tutor-v6-20261002";
-const ASSETS=["./","./index.html","./kids-learning.html","./learning.html","./vowels.html","./consonants.html","./word-builder/","./word-builder/index.html","./arabic.html","./numbers.html","./words.html","./quiz.html","./rhymes.html","./stories.html","./voice.html","./draw.html","./creator.html","./style.css","./premium-pages.css","./manifest.json"];
+const CACHE="baby-tutor-v7-20261004";
+const ASSETS=["./","./index.html","./kids-learning.html","./learning.html","./vowels.html","./consonants.html","./word-builder/","./word-builder/index.html","./arabic.html","./numbers.html","./words.html","./quiz.html","./rhymes.html","./stories.html","./voice.html","./draw.html","./creator.html","./style.css","./premium-pages.css","./premium-buttons.css","./more-topics.css","./platform.css","./platform.js","./islamic.html","./manifest.json"];
 
 self.addEventListener("install",e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
 
