@@ -129,3 +129,73 @@
     width:64px!important;height:64px!important;min-width:64px!important;
   }
 }
+
+
+/* MASTER BUTTON MATCH — keep More Learning Topics identical to the homepage button language */
+.bt-home .bt-more-topics .fld,
+.bt-home .bt-more-topics .hxk{
+  border:1px solid rgba(255,255,255,.78)!important;
+  background:linear-gradient(145deg,#8f82ff 0%,#624de8 48%,#3827a7 100%)!important;
+  box-shadow:
+    inset 0 2px 1px rgba(255,255,255,.42),
+    inset 0 -6px 0 rgba(0,0,0,.14),
+    0 8px 0 rgba(39,28,111,.22),
+    0 16px 28px rgba(39,28,111,.15)!important;
+}
+.bt-home .bt-more-topics .fld:nth-child(4n+2),
+.bt-home .bt-more-topics .hxk:nth-child(4n+2){
+  background:linear-gradient(145deg,#77e7ef 0%,#19b7c9 52%,#087d91 100%)!important;
+}
+.bt-home .bt-more-topics .fld:nth-child(4n+3),
+.bt-home .bt-more-topics .hxk:nth-child(4n+3){
+  background:linear-gradient(145deg,#78e7b0 0%,#21b573 52%,#087a4a 100%)!important;
+}
+.bt-home .bt-more-topics .fld:nth-child(4n),
+.bt-home .bt-more-topics .hxk:nth-child(4n){
+  background:linear-gradient(145deg,#ffd27a 0%,#ff9d4d 52%,#c65b16 100%)!important;
+}
+.bt-home .bt-more-topics .fld:after,
+.bt-home .bt-more-topics .hxk:after{
+  content:"";
+  position:absolute;left:8%;right:8%;top:6px;height:30%;
+  border-radius:999px;
+  background:linear-gradient(180deg,rgba(255,255,255,.38),transparent);
+  pointer-events:none;
+  z-index:1;
+}
+.bt-home .bt-more-topics .fld img,
+.bt-home .bt-more-topics .hxk img,
+.bt-home .bt-more-topics .quick-grid img,
+.bt-home .bt-more-topics .hxg img{
+  background:transparent!important;
+  mix-blend-mode:multiply!important;
+  isolation:auto!important;
+  border:0!important;
+  box-shadow:none!important;
+  filter:contrast(1.04) saturate(1.12) drop-shadow(0 7px 9px rgba(20,30,80,.20))!important;
+}
+.bt-home .bt-more-topics .fld .title,
+.bt-home .bt-more-topics .hxk .title,
+.bt-home .bt-more-topics .fld strong,
+.bt-home .bt-more-topics .hxk strong{
+  color:#fff!important;
+  text-shadow:0 2px 0 rgba(39,28,111,.20)!important;
+}
+.bt-home .bt-more-topics .fld:hover,
+.bt-home .bt-more-topics .hxk:hover{
+  transform:translateY(-4px)!important;
+  filter:saturate(1.08) brightness(1.04)!important;
+}
+@media(max-width:760px){
+  .bt-home .bt-more-topics .fld img,
+  .bt-home .bt-more-topics .hxk img{
+    width:64px!important;height:64px!important;min-width:64px!important;
+  }
+}
+
+/* MASTER-SAFE image cleanup for topic tiles */
+.bt-home .bt-more-topics img{
+  background:transparent!important;
+  mix-blend-mode:multiply!important;
+  border-radius:16px!important;
+}
