@@ -1,5 +1,5 @@
-const CACHE="baby-tutor-v12-20261004";
-const ASSETS=["./","./index.html","./kids-learning.html","./learning.html","./vowels.html","./consonants.html","./word-builder/","./word-builder/index.html","./arabic.html","./numbers.html","./words.html","./quiz.html","./rhymes.html","./stories.html","./voice.html","./draw.html","./creator.html","./style.css","./premium-pages.css","./premium-buttons.css","./more-topics.css","./platform.css","./platform.js","./islamic.html","./manifest.json"];
+const CACHE="baby-tutor-v13-20261004";
+const ASSETS=["./","./index.html","./kids-learning.html","./learning.html","./vowels.html","./consonants.html","./word-builder/","./word-builder/index.html","./arabic.html","./numbers.html","./words.html","./quiz.html","./rhymes.html","./stories.html","./voice.html","./draw.html","./creator.html","./style.css","./premium-pages.css","./premium-buttons.css","./assets/ui/sound.svg","./assets/ui/erase.svg","./assets/ui/brush.svg","./assets/ui/record.svg","./assets/ui/next.svg","./assets/ui/learn.svg","./assets/ui/quiz.svg","./assets/ui/clean.svg","./more-topics.css","./platform.css","./platform.js","./islamic.html","./manifest.json"];
 
 self.addEventListener("install",e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
 
