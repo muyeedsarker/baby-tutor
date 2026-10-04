@@ -101,6 +101,7 @@ function bindFocusNavigation(){
  window.addEventListener('popstate',()=>clearFocus());
 }
 
+loadCss('bt-site-repair-css','site-repair.css');
 loadCss('bt-premium-buttons-css','premium-buttons.css');
 loadCss('bt-more-topics-css','more-topics.css');focusCss();
 let progress=Math.min(100,Math.max(0,Number(localStorage.getItem(progressKey)||0))),stars=Math.max(0,Number(localStorage.getItem(starsKey)||0));
