@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#5b4ae8">
+<meta name="description" content="Baby Tutor — শিশুদের জন্য সহজ, আনন্দময় ইসলামিক শিক্ষা">
+<title>Baby Tutor — ইসলামিক শিক্ষা</title>
+<link rel="stylesheet" href="platform.css">
+<link rel="stylesheet" href="premium-pages.css">
+<script src="platform.js" defer></script>
+<style>
+.islamic-wrap{max-width:1280px;margin:auto;padding:16px}
+.islamic-hero{border-radius:30px;padding:28px;background:linear-gradient(135deg,#176b58,#21a67d 52%,#5b4ae8);color:#fff;box-shadow:0 20px 50px rgba(32,80,70,.18);position:relative;overflow:hidden}
+.islamic-hero:after{content:"☪︎  ✨  🌙  🕌";position:absolute;right:22px;top:18px;font-size:30px;opacity:.72}
+.islamic-hero h1{margin:0 0 8px;font-size:clamp(28px,5vw,46px)}
+.islamic-hero p{margin:0;line-height:1.75;max-width:720px;opacity:.94}
+.islamic-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.islamic-meta span{padding:7px 11px;border-radius:999px;background:#ffffff20;border:1px solid #ffffff30;font-weight:850;font-size:12px}
+.islamic-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:20px}
+.islamic-card{border:1px solid #fff;border-radius:24px;padding:18px;text-align:left;cursor:pointer;min-height:170px;color:#fff;box-shadow:0 12px 28px rgba(32,39,90,.12),inset 0 1px 0 #ffffff66;transition:.18s;position:relative;overflow:hidden}
+.islamic-card:hover{transform:translateY(-4px);filter:saturate(1.06)}
+.islamic-card:active{transform:translateY(1px)}
+.islamic-card .ico{font-size:38px;display:block}
+.islamic-card h2{font-size:19px;margin:10px 0 5px}
+.islamic-card p{margin:0;line-height:1.5;font-size:13px;opacity:.94}
+.i1{background:linear-gradient(145deg,#5b4ae8,#8c7cff)}.i2{background:linear-gradient(145deg,#176b58,#2bb88c)}
+.i3{background:linear-gradient(145deg,#1487a0,#55cddd)}.i4{background:linear-gradient(145deg,#2377c9,#6bb8ff)}
+.i5{background:linear-gradient(145deg,#e07a2b,#ffc05e)}.i6{background:linear-gradient(145deg,#d34c7e,#f48eb0)}
+.i7{background:linear-gradient(145deg,#6c52c4,#a88ef4)}.i8{background:linear-gradient(145deg,#167b72,#5bd2c0)}
+.i9{background:linear-gradient(145deg,#6c8b25,#a9ca52)}.i10{background:linear-gradient(145deg,#8b5b2d,#d79a57)}
+.i11{background:linear-gradient(145deg,#b04b87,#e78ec0)}.i12{background:linear-gradient(145deg,#4058a9,#7d91e8)}
+.islamic-note{margin-top:20px;padding:17px 18px;border-radius:22px;background:#ffffffc9;border:1px solid #fff;box-shadow:0 14px 35px rgba(32,39,90,.08);line-height:1.7}
+.islamic-panel{display:none;margin-top:16px;padding:20px;border-radius:24px;background:#fff;border:1px solid #fff;box-shadow:0 18px 45px rgba(32,39,90,.12)}
+.islamic-panel.show{display:block;animation:btIslamicPop .2s ease}
+@keyframes btIslamicPop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.lesson-list{display:grid;gap:9px;margin-top:14px}
+.lesson-row{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:16px;background:#f6f8ff;border:1px solid #edf0fb}
+.lesson-row b{color:#5b4ae8}.lesson-row small{display:block;color:#667085;margin-top:2px;line-height:1.45}
+.islamic-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px}
+@media(max-width:900px){.islamic-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:650px){.islamic-wrap{padding:10px}.islamic-hero{padding:22px;border-radius:24px}.islamic-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.islamic-card{min-height:150px;padding:14px;border-radius:20px}.islamic-card .ico{font-size:31px}.islamic-card h2{font-size:16px}.islamic-card p{font-size:12px}.islamic-hero:after{font-size:22px}}
+</style>
+</head>
+<body>
+<main class="islamic-wrap">
+<section class="islamic-hero">
+<div style="font-weight:900;letter-spacing:.4px;opacity:.9">BABY TUTOR • ISLAMIC LEARNING</div>
+<h1>🌙 ইসলামিক শিক্ষা</h1>
+<p>ভালোবাসা, আদব ও সহজ অনুশীলনের মাধ্যমে ইসলাম সম্পর্কে প্রাথমিক জ্ঞান শিখি। প্রতিটি বিষয় ছোট ছোট ধাপে সাজানো, যাতে শিশু দেখে, শুনে ও অনুশীলন করে শিখতে পারে।</p>
+<div class="islamic-meta"><span>🔊 শুনি</span><span>📖 শিখি</span><span>🎯 অনুশীলন করি</span><span>⭐ অগ্রগতি</span></div>
+</section>
+<section class="islamic-grid" aria-label="ইসলামিক শিক্ষার বিষয়সমূহ">
+<button class="islamic-card i1" onclick="openIslamic(0)"><span class="ico">🌟</span><h2>ঈমান</h2><p>ঈমানের ৬টি বিষয় সহজভাবে</p></button><button class="islamic-card i2" onclick="openIslamic(1)"><span class="ico">🕋</span><h2>ইসলামের ৫ স্তম্ভ</h2><p>কালিমা, নামাজ, রোজা, যাকাত ও হজ</p></button><button class="islamic-card i3" onclick="openIslamic(2)"><span class="ico">💧</span><h2>ওযু</h2><p>ওযুর ধাপগুলো ক্রমানুসারে শিখি</p></button><button class="islamic-card i4" onclick="openIslamic(3)"><span class="ico">🕌</span><h2>নামাজ</h2><p>৫ ওয়াক্ত নামাজের প্রাথমিক পরিচয়</p></button><button class="islamic-card i5" onclick="openIslamic(4)"><span class="ico">🧎</span><h2>নামাজের ধাপ</h2><p>নামাজের কাজ ও পড়ার বিষয় ধাপে ধাপে</p></button><button class="islamic-card i6" onclick="openIslamic(5)"><span class="ico">🤲</span><h2>দোয়া</h2><p>দৈনন্দিন প্রয়োজনীয় ছোট দোয়া</p></button><button class="islamic-card i7" onclick="openIslamic(6)"><span class="ico">🌙</span><h2>রোজা ও ঈদ</h2><p>রমজান, রোজা, সেহরি, ইফতার ও ঈদ</p></button><button class="islamic-card i8" onclick="openIslamic(7)"><span class="ico">💚</span><h2>প্রিয় নবী ﷺ</h2><p>রাসূলুল্লাহ ﷺ-এর জীবন থেকে সহজ শিক্ষা</p></button><button class="islamic-card i9" onclick="openIslamic(8)"><span class="ico">📜</span><h2>নবী-রাসূল</h2><p>নবীদের পরিচয় ও শিক্ষণীয় গল্প</p></button><button class="islamic-card i10" onclick="openIslamic(9)"><span class="ico">✨</span><h2>আল্লাহর সুন্দর নাম</h2><p>নাম ও সহজ অর্থ মনে রাখি</p></button><button class="islamic-card i11" onclick="openIslamic(10)"><span class="ico">🤝</span><h2>আদব ও আখলাক</h2><p>সত্যবাদিতা, সম্মান ও সুন্দর আচরণ</p></button><button class="islamic-card i12" onclick="openIslamic(11)"><span class="ico">🎯</span><h2>ইসলামিক কুইজ</h2><p>শেখা বিষয় দিয়ে নিজেকে যাচাই করি</p></button>
+</section>
+<section id="islamicPanel" class="islamic-panel" aria-live="polite">
+<button class="close" onclick="closeIslamic()" aria-label="বন্ধ করুন">✕</button>
+<div id="islamicContent"></div>
+</section>
+<section class="islamic-note">
+<b>💡 শেখার নিয়ম:</b> একটি বিষয় বেছে নাও → সহজ ব্যাখ্যা পড়ো → 🔊 শুনো → ছোট অনুশীলন করো → তারপর ⭐ অগ্রগতি বাড়াও।
+<br><small>ইসলামিক জ্ঞান শেখার সময় পরিবার/শিক্ষকের কাছ থেকে সঠিকভাবে শেখা সবচেয়ে ভালো।</small>
+</section>
+</main>
+<script>
+const lessons=[
+["🌟 ঈমান","ঈমানের ৬টি বিষয়","আল্লাহ, ফেরেশতা, আসমানি কিতাব, রাসূলগণ, আখিরাত এবং তাকদিরের প্রতি ঈমান—এগুলো সম্পর্কে বয়স-উপযোগীভাবে শেখা।"],
+["🕋 ইসলামের ৫ স্তম্ভ","ইসলামের পাঁচটি মৌলিক স্তম্ভ","শাহাদাহ, সালাত, যাকাত, সাওম ও হজ—প্রতিটির সহজ পরিচয় ও গুরুত্ব।"],
+["💧 ওযু","ওযুর ধাপ","পরিষ্কার-পরিচ্ছন্নতার গুরুত্ব এবং ওযুর সাধারণ ধাপগুলো ক্রমানুসারে শেখা।"],
+["🕌 নামাজ","৫ ওয়াক্ত নামাজ","ফজর, যোহর, আসর, মাগরিব ও এশার নাম এবং নামাজ শেখার প্রাথমিক ধারণা।"],
+["🧎 নামাজের ধাপ","ধাপে ধাপে সালাত","নিয়ত, কিয়াম, রুকু, সিজদা, বৈঠকসহ নামাজের অবস্থান ও প্রয়োজনীয় পাঠ সম্পর্কে শেখা।"],
+["🤲 দোয়া","দৈনন্দিন দোয়া","খাবার, ঘুম, ঘর থেকে বের হওয়া ও অন্যান্য দৈনন্দিন অবস্থার ছোট দোয়া শেখার জায়গা।"],
+["🌙 রোজা ও ঈদ","রমজান ও ঈদ","রোজার অর্থ, সেহরি, ইফতার এবং ঈদের আনন্দ ও শিষ্টাচার সম্পর্কে প্রাথমিক শিক্ষা।"],
+["💚 প্রিয় নবী ﷺ","রাসূলুল্লাহ ﷺ","রাসূলুল্লাহ ﷺ-এর জীবন থেকে সত্যবাদিতা, দয়া, আমানতদারি ও সুন্দর আচরণের শিক্ষা।"],
+["📜 নবী-রাসূল","নবীদের শিক্ষা","নবী-রাসূলদের পরিচয় ও তাঁদের জীবন থেকে নেওয়ার মতো সহজ নৈতিক শিক্ষা।"],
+["✨ আল্লাহর সুন্দর নাম","আসমাউল হুসনা","আল্লাহর সুন্দর নামগুলোর নাম ও সহজ অর্থ মনে রাখার অনুশীলন।"],
+["🤝 আদব ও আখলাক","সুন্দর চরিত্র","বাবা-মাকে সম্মান, সত্য বলা, সালাম দেওয়া, পরিচ্ছন্ন থাকা ও অন্যকে সাহায্য করার শিক্ষা।"],
+["🎯 ইসলামিক কুইজ","জেনে দেখি","আগের পাঠ থেকে বয়স-উপযোগী প্রশ্নের মাধ্যমে শেখা যাচাই।"]
+];
+function openIslamic(i){
+ const [icon,title,desc]=lessons[i];
+ const extra=i===2?["১. ওযুর আগে প্রস্তুতি","২. হাত ধোয়া","৩. মুখ ও নাক পরিষ্কার করা","৪. মুখ ধোয়া","৫. হাত ধোয়া","৬. মাথা মাসেহ করা","৭. পা ধোয়া"]:
+ i===4?["১. দাঁড়ানো ও প্রস্তুতি","২. কিরাআত","৩. রুকু","৪. সিজদা","৫. বৈঠক","৬. সালাম"]:
+ i===1?["শাহাদাহ","সালাত","যাকাত","সাওম","হজ"]:null;
+ document.getElementById("islamicContent").innerHTML='<h2 style="margin-top:0">'+icon+' '+title+'</h2><p style="line-height:1.75">'+desc+'</p>'+
+ (extra?'<div class="lesson-list">'+extra.map((x,n)=>'<div class="lesson-row"><b>'+(n+1)+'.</b><div>'+x+'<small>ধীরে ধীরে শিখি ও মনে রাখি।</small></div></div>').join('')+'</div>':'')+
+ '<div class="islamic-actions"><button class="action" onclick="sayIslamic('+i+')">🔊 শুনি</button><button class="action" onclick="markIslamic('+i+')">⭐ শিখেছি</button></div>';
+ const p=document.getElementById("islamicPanel");p.classList.add("show");p.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+function closeIslamic(){document.getElementById("islamicPanel").classList.remove("show")}
+function sayIslamic(i){if("speechSynthesis"in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(lessons[i][1]+". "+lessons[i][2]);u.lang="bn-BD";u.rate=.8;speechSynthesis.speak(u)}}
+function markIslamic(i){let p=Math.min(100,Number(localStorage.getItem("babyTutorProgress")||0)+3),s=Number(localStorage.getItem("btStars")||0)+1;localStorage.setItem("babyTutorProgress",p);localStorage.setItem("btStars",s);alert("⭐ দারুণ! শেখার অগ্রগতি "+p+"%");}
+</script>
+</body>
+</html>
