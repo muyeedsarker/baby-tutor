@@ -113,3 +113,85 @@ html body #quick .pgrid{
 #m .quick-grid.pgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
 @media(min-width:600px){#m .quick-grid.pgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media(min-width:1000px){#m .quick-grid.pgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+
+
+/* HOMEPAGE BUTTON COMPACT MASTER POLISH — preserve 3D style, remove excess vertical space */
+html body #m .quick-grid,
+html body #quick .quick-grid,
+html body .bt-home .quick-grid,
+html body .bt-home .pgrid{
+  align-items:stretch!important;
+  gap:10px!important;
+  grid-auto-rows:minmax(0,1fr)!important;
+}
+
+html body #m .quick-grid > *,
+html body #quick .quick-grid > *,
+html body .bt-home .quick-grid > *,
+html body .bt-home .pgrid > *{
+  min-height:0!important;
+  height:92px!important;
+  max-height:92px!important;
+  padding:8px 10px!important;
+  margin:0!important;
+  border-radius:18px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:8px!important;
+  overflow:hidden!important;
+}
+
+html body #m .quick-grid > * img,
+html body #quick .quick-grid > * img,
+html body .bt-home .quick-grid > * img,
+html body .bt-home .pgrid > * img{
+  width:56px!important;
+  height:56px!important;
+  min-width:56px!important;
+  max-width:56px!important;
+  object-fit:contain!important;
+  margin:0!important;
+}
+
+html body #m .quick-grid > * .title,
+html body #m .quick-grid > * strong,
+html body #quick .quick-grid > * .title,
+html body #quick .quick-grid > * strong,
+html body .bt-home .quick-grid > * .title,
+html body .bt-home .quick-grid > * strong,
+html body .bt-home .pgrid > * .title,
+html body .bt-home .pgrid > * strong{
+  margin:0!important;
+  line-height:1.15!important;
+  font-size:clamp(12px,2.7vw,16px)!important;
+  text-align:center!important;
+}
+
+@media(max-width:520px){
+  html body #m .quick-grid,
+  html body #quick .quick-grid,
+  html body .bt-home .quick-grid,
+  html body .bt-home .pgrid{
+    gap:8px!important;
+  }
+  html body #m .quick-grid > *,
+  html body #quick .quick-grid > *,
+  html body .bt-home .quick-grid > *,
+  html body .bt-home .pgrid > *{
+    height:82px!important;
+    max-height:82px!important;
+    padding:6px 7px!important;
+    border-radius:16px!important;
+    gap:5px!important;
+  }
+  html body #m .quick-grid > * img,
+  html body #quick .quick-grid > * img,
+  html body .bt-home .quick-grid > * img,
+  html body .bt-home .pgrid > * img{
+    width:46px!important;
+    height:46px!important;
+    min-width:46px!important;
+    max-width:46px!important;
+  }
+}
