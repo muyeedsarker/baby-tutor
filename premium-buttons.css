@@ -339,3 +339,145 @@ html body .quiz-btn{
     width:50px!important;height:50px!important;min-width:50px!important;max-width:50px!important;
   }
 }
+
+
+/* =========================================================
+   BABY TUTOR — WHOLE WEBSITE REFERENCE DESIGN
+   Match the approved 3D toy-button sample everywhere.
+   ========================================================= */
+:root{
+  --bt-ref-purple:linear-gradient(145deg,#a96cff 0%,#7937e8 50%,#4b18b6 100%);
+  --bt-ref-blue:linear-gradient(145deg,#35d8ff 0%,#079ee8 50%,#075fc2 100%);
+  --bt-ref-green:linear-gradient(145deg,#35e85c 0%,#11c936 50%,#07852c 100%);
+  --bt-ref-pink:linear-gradient(145deg,#ff55c8 0%,#ed1596 50%,#a90062 100%);
+  --bt-ref-orange:linear-gradient(145deg,#ffd84a 0%,#ff9c08 50%,#d65a00 100%);
+  --bt-ref-cyan:linear-gradient(145deg,#36d9ff 0%,#078ed8 50%,#0759b5 100%);
+}
+
+/* All major interactive controls share the same toy-like 3D construction */
+html body .back,
+html body .btn,
+html body .quiz-btn,
+html body .action,
+html body .stop,
+html body .listen,
+html body .see,
+html body .close,
+html body .heroBtns a,
+html body .heroBtns button,
+html body .featureMain button,
+html body .featureSide a,
+html body .answers button,
+html body .item,
+html body .bt-welcome-card a{
+  border:2px solid rgba(255,255,255,.72)!important;
+  border-radius:22px!important;
+  min-height:50px;
+  padding:10px 18px!important;
+  box-shadow:
+    inset 0 3px 0 rgba(255,255,255,.50),
+    inset 0 -7px 0 rgba(0,0,0,.14),
+    0 7px 0 rgba(35,22,100,.24),
+    0 15px 25px rgba(35,22,100,.18)!important;
+  text-shadow:0 2px 0 rgba(45,20,90,.20);
+}
+
+/* Color rotation keeps the website colorful without changing function */
+html body .back,
+html body .btn,
+html body .quiz-btn,
+html body .heroBtns a,
+html body .heroBtns button{
+  background:var(--bt-ref-purple)!important;
+  color:#fff!important;
+}
+html body .action,
+html body .listen{
+  background:var(--bt-ref-blue)!important;
+  color:#fff!important;
+}
+html body .stop,
+html body .close{
+  background:var(--bt-ref-pink)!important;
+  color:#fff!important;
+}
+html body .see,
+html body .featureSide a{
+  background:var(--bt-ref-green)!important;
+  color:#fff!important;
+}
+html body .soft,
+html body .action.alt{
+  background:var(--bt-ref-orange)!important;
+  color:#fff!important;
+}
+
+/* Gloss strip */
+html body .back:before,
+html body .btn:before,
+html body .quiz-btn:before,
+html body .action:before,
+html body .stop:before,
+html body .listen:before,
+html body .see:before,
+html body .close:before,
+html body .heroBtns a:before,
+html body .heroBtns button:before,
+html body .featureMain button:before,
+html body .featureSide a:before,
+html body .answers button:before,
+html body .item:before,
+html body .bt-welcome-card a:before{
+  left:7%!important;right:7%!important;top:6px!important;height:28%!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.48),transparent)!important;
+}
+
+/* Large content cards become polished 3D learning panels */
+html body .grid .card,
+html body .card,
+html body .lesson,
+html body .activity,
+html body .poem-card,
+html body .quiz-card,
+html body .panel,
+html body .lessonPanel{
+  border:2px solid rgba(255,255,255,.78)!important;
+  border-radius:26px!important;
+  box-shadow:
+    inset 0 3px 0 rgba(255,255,255,.52),
+    inset 0 -7px 0 rgba(0,0,0,.06),
+    0 7px 0 rgba(45,32,110,.10),
+    0 18px 34px rgba(45,32,110,.13)!important;
+}
+
+/* Colored learning cards */
+html body .grid .card:nth-child(6n+1){background:var(--bt-ref-purple)!important}
+html body .grid .card:nth-child(6n+2){background:var(--bt-ref-blue)!important}
+html body .grid .card:nth-child(6n+3){background:var(--bt-ref-green)!important}
+html body .grid .card:nth-child(6n+4){background:var(--bt-ref-pink)!important}
+html body .grid .card:nth-child(6n+5){background:var(--bt-ref-orange)!important}
+html body .grid .card:nth-child(6n){background:var(--bt-ref-cyan)!important}
+html body .grid .card h1,
+html body .grid .card h2,
+html body .grid .card h3,
+html body .grid .card h4,
+html body .grid .card p,
+html body .grid .card .small{color:#fff!important;text-shadow:0 2px 0 rgba(45,20,90,.18)!important}
+
+/* Unified glossy section headers */
+html body .sectionHead,
+html body .section-head,
+html body .section-title-box{
+  border-radius:24px!important;
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.7),0 10px 0 rgba(45,32,110,.07),0 18px 30px rgba(45,32,110,.10)!important;
+}
+
+/* Mobile keeps the same visual language */
+@media(max-width:700px){
+  html body .back,html body .btn,html body .quiz-btn,html body .action,html body .stop,
+  html body .listen,html body .see,html body .close,html body .heroBtns a,
+  html body .heroBtns button,html body .featureMain button,html body .featureSide a,
+  html body .answers button,html body .item,html body .bt-welcome-card a{
+    min-height:46px!important;border-radius:18px!important;padding:9px 13px!important;
+  }
+}
