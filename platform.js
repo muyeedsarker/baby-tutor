@@ -179,7 +179,7 @@ function install3DButtonIcons(){
   '🌙':'learn.svg','💚':'learn.svg','📜':'learn.svg','✨':'learn.svg','🤝':'learn.svg'
  };
  const emojiRe=/^(🔊|🧹|🖌️|🎙️|➡️|🔄|🔤|🔠|🕌|🔢|🧮|✖️|🌍|🎨|🎯|📖|🤖|🌱|🌟|🕋|💧|🧎|🤲|🌙|💚|📜|✨|🤝)\s*/;
- document.querySelectorAll('button').forEach(btn=>{
+ document.querySelectorAll('button, a.quick, a.topic, a.fld, a.hxk, .quick a, .topic').forEach(btn=>{
   if(btn.dataset.bt3dIcon||btn.querySelector('.bt3d-icon'))return;
   const first=Array.from(btn.childNodes).find(n=>n.nodeType===Node.TEXT_NODE&&n.nodeValue.trim());
   if(!first)return;
@@ -226,8 +226,8 @@ function cleanTopicImageWhiteBg(img){
  if(img.complete)run();else img.addEventListener('load',run,{once:true});
 }
 function cleanTopicImages(){
- if(file!=='index.html')return;
- document.querySelectorAll('.bt-more-topics img').forEach(cleanTopicImageWhiteBg);
+ const selector='.bt-more-topics img, .quick a img, .topic img, .fld img, .hxk img';
+ document.querySelectorAll(selector).forEach(cleanTopicImageWhiteBg);
 }
 
 cleanTopicImages();
