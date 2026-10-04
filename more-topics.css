@@ -556,3 +556,32 @@ html body.bt-home .bt-more-topics > header{
     font-size:16px!important;
   }
 }
+
+
+/* Added 14 requested learning topics */
+html body.bt-home .bt-more-topics .bt-more-topic-added{
+  position:relative!important;
+  z-index:2!important;
+}
+html body.bt-home .bt-more-topics .bt-more-topic-icon{
+  position:relative!important;
+  z-index:4!important;
+  flex:0 0 78px!important;
+  width:78px!important;
+  height:78px!important;
+  display:grid!important;
+  place-items:center!important;
+  font-size:52px!important;
+  line-height:1!important;
+  filter:drop-shadow(0 6px 5px rgba(0,0,0,.22))!important;
+}
+@media(max-width:760px){
+  html body.bt-home .bt-more-topics .bt-more-topic-icon{
+    flex-basis:60px!important;width:60px!important;height:60px!important;font-size:40px!important;
+  }
+}
+@media(max-width:420px){
+  html body.bt-home .bt-more-topics .bt-more-topic-icon{
+    flex-basis:52px!important;width:52px!important;height:52px!important;font-size:34px!important;
+  }
+}
