@@ -169,7 +169,37 @@ function polishContent(){
  const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
  nodes.forEach(n=>replacements.forEach(([a,b])=>{if(n.nodeValue&&n.nodeValue.trim()===a)n.nodeValue=b}));
 }
-function boot(){homeUpgrade();shell();bindFocusNavigation();focusModal();polishContent();if(location.hash)focusAnchor(location.hash)}
+function install3DButtonIcons(){
+ const iconMap={
+  '🔊':'sound.svg','🧹':'clean.svg','🖌️':'brush.svg','🎙️':'record.svg',
+  '➡️':'next.svg','🔄':'next.svg','🔤':'learn.svg','🔠':'learn.svg','🕌':'learn.svg',
+  '🔢':'learn.svg','🧮':'learn.svg','✖️':'learn.svg','🌍':'learn.svg','🎨':'brush.svg',
+  '🎯':'quiz.svg','📖':'learn.svg','🤖':'learn.svg','🌱':'learn.svg',
+  '🌟':'learn.svg','🕋':'learn.svg','💧':'learn.svg','🧎':'learn.svg','🤲':'learn.svg',
+  '🌙':'learn.svg','💚':'learn.svg','📜':'learn.svg','✨':'learn.svg','🤝':'learn.svg'
+ };
+ const emojiRe=/^(🔊|🧹|🖌️|🎙️|➡️|🔄|🔤|🔠|🕌|🔢|🧮|✖️|🌍|🎨|🎯|📖|🤖|🌱|🌟|🕋|💧|🧎|🤲|🌙|💚|📜|✨|🤝)\s*/;
+ document.querySelectorAll('button').forEach(btn=>{
+  if(btn.dataset.bt3dIcon||btn.querySelector('.bt3d-icon'))return;
+  const first=Array.from(btn.childNodes).find(n=>n.nodeType===Node.TEXT_NODE&&n.nodeValue.trim());
+  if(!first)return;
+  const raw=first.nodeValue.trim(),m=raw.match(emojiRe); if(!m)return;
+  const fileName=iconMap[m[1]]; if(!fileName)return;
+  first.nodeValue=raw.replace(emojiRe,'');
+  const img=document.createElement('img');
+  img.className='bt3d-icon';img.alt='';img.setAttribute('aria-hidden','true');
+  img.src='assets/ui/'+fileName;img.loading='lazy';img.decoding='async';
+  btn.insertBefore(img,btn.firstChild);
+  btn.dataset.bt3dIcon='1';
+ });
+}
+function install3DButtonIconStyles(){
+ if(document.getElementById('bt3d-icon-styles'))return;
+ const s=document.createElement('style');s.id='bt3d-icon-styles';
+ s.textContent='.bt3d-icon{width:30px;height:30px;object-fit:contain;display:inline-block;vertical-align:middle;margin-right:7px;filter:drop-shadow(0 3px 3px rgba(35,39,90,.18))}.bt3d-icon+*{vertical-align:middle}@media(max-width:520px){.bt3d-icon{width:26px;height:26px;margin-right:5px}}';
+ document.head.appendChild(s);
+}
+function boot(){homeUpgrade();shell();bindFocusNavigation();focusModal();polishContent();install3DButtonIconStyles();install3DButtonIcons();if(location.hash)focusAnchor(location.hash)}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 
 function cleanTopicImageWhiteBg(img){
