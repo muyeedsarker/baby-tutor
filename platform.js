@@ -111,33 +111,41 @@ function markMoreTopics(){if(file!=='index.html')return;const nodes=[...document
 function addMoreLearningButtons(){
  if(file!=='index.html')return;
  if(document.querySelector('.bt-more-topic-added'))return;
- const headings=[...document.querySelectorAll('h1,h2,h3,h4,h5,.section-title,.sectionTitle,.title,.heading')];
- const heading=headings.find(el=>/আরও\s*শেখার\s*বিষয়|আরও\s*শেখার\s*বিষয়/.test((el.textContent||'').trim()));
- if(!heading)return;
- const section=heading.closest('section')||heading.parentElement;
- if(!section)return;
  const topics=[
-  ['🔍','খুঁজুন','index.html'],
-  ['❤️','প্রিয় তালিকা','index.html'],
-  ['📝','পরীক্ষা দিই','quiz.html'],
-  ['🕌','ইসলামিক শিক্ষা','islamic.html'],
-  ['🔡','English Letters & Words','learning.html'],
-  ['🔢','সংখ্যার খেলা','numbers.html'],
-  ['⏰','সময় শিখি','learning.html'],
-  ['👨‍👩‍👧','পরিবারের সদস্য','learning.html'],
-  ['👕','পোশাকের নাম','learning.html'],
-  ['🍚','খাবারের নাম','learning.html'],
-  ['🛋️','ঘরের জিনিস','learning.html'],
-  ['🎒','স্কুলের জিনিস','learning.html'],
-  ['🐞','কীটপতঙ্গের নাম','learning.html'],
-  ['🌳','গাছের নাম','learning.html']
+  ['🔍','খুঁজুন','index.html'],['❤️','প্রিয় তালিকা','index.html'],['📝','পরীক্ষা দিই','quiz.html'],
+  ['🕌','ইসলামিক শিক্ষা','islamic.html'],['🔡','English Letters & Words','learning.html'],['🔢','সংখ্যার খেলা','numbers.html'],
+  ['⏰','সময় শিখি','learning.html'],['👨‍👩‍👧','পরিবারের সদস্য','learning.html'],['👕','পোশাকের নাম','learning.html'],
+  ['🍚','খাবারের নাম','learning.html'],['🛋️','ঘরের জিনিস','learning.html'],['🎒','স্কুলের জিনিস','learning.html'],
+  ['🐞','কীটপতঙ্গের নাম','learning.html'],['🌳','গাছের নাম','learning.html']
  ];
+ let section=document.querySelector('.bt-more-topics,[data-section="more-topics"],[data-section="more-topics"]');
+ if(!section){
+   const nodes=[...document.querySelectorAll('h1,h2,h3,h4,h5,.section-title,.sectionTitle,.title,.heading')];
+   const heading=nodes.find(el=>/আরও\s*শেখার\s*বিষয়|আরও\s*শেখার\s*বিষয়|more\s*topics|more\s*learning/i.test((el.textContent||'').trim()));
+   if(heading) section=heading.closest('section')||heading.parentElement;
+ }
+ if(!section){
+   section=document.createElement('section');
+   section.className='bt-more-topics';
+   section.innerHTML='<h2 class="section-title">আরও শেখার বিষয়</h2><div class="bt-more-topic-grid"></div>';
+   const footer=document.querySelector('footer');
+   if(footer&&footer.parentNode) footer.parentNode.insertBefore(section,footer);
+   else document.body.appendChild(section);
+ }
+ section.classList.add('bt-more-topics');
+ let grid=section.querySelector('.bt-more-topic-grid');
+ if(!grid){
+   grid=document.createElement('div'); grid.className='bt-more-topic-grid';
+   while(section.querySelector('a.fld')) grid.appendChild(section.querySelector('a.fld'));
+   section.appendChild(grid);
+ }
  topics.forEach(([icon,label,href])=>{
    const a=document.createElement('a');
    a.className='fld bt-more-topic-added';
    a.href=href;
-   a.innerHTML='<span class="bt-more-topic-icon" aria-hidden="true">'+icon+'</span><span class="title">'+label+'</span>';
-   section.appendChild(a);
+   a.setAttribute('aria-label',label);
+   a.innerHTML='<span class="bt-more-topic-icon" aria-hidden="true">'+icon+'</span><span class="title">'+label+'</span><span class="bt-more-topic-play" aria-hidden="true">▶</span>';
+   grid.appendChild(a);
  });
 }
 function homeUpgrade(){
