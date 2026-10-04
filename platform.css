@@ -1,6 +1,5 @@
 @import url('premium-buttons.css');
 @import url('compact-home.css');
-@import url('premium-buttons.css');
 /* Baby Tutor — Premium Kids Learning Design System */
 :root{--bt-purple:#5b4ae8;--bt-cyan:#19b7c9;--bt-green:#21b573;--bt-ink:#25304a;--bt-soft:#f5f7ff}
 html{scroll-behavior:smooth}
@@ -35,4 +34,40 @@ body{background:radial-gradient(circle at 10% 0%,#eeeaff 0,transparent 28%),radi
  .bt-bottom::-webkit-scrollbar{display:none}
  .bt-bottom a{flex:0 0 58px;color:#667085;text-decoration:none;text-align:center;font-size:9px;font-weight:850}.bt-bottom a b{display:block;font-size:19px;line-height:22px}.bt-bottom a.bt-active{color:var(--bt-purple)}
  body{padding-bottom:82px!important}
+}
+
+/* MASTER-SAFE GLOBAL POLISH — consistency, mobile UX, accessibility, and touch */
+*,*::before,*::after{box-sizing:border-box}
+img{max-width:100%;height:auto}
+button,a,input,select,textarea{touch-action:manipulation}
+button,a{ -webkit-tap-highlight-color:transparent }
+:focus-visible{outline:3px solid rgba(25,183,201,.55)!important;outline-offset:3px!important}
+[aria-hidden="true"]{pointer-events:none}
+.bt-shell,.bt-welcome,.bt-footer{width:100%}
+.bt-head{width:100%}
+.bt-nav a,.bt-bottom a{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+.bt-bottom a{flex-direction:column}
+.bt-progress{flex:0 1 230px}
+.bt-welcome-card{min-height:64px}
+.bt-welcome-card small{line-height:1.45}
+.bt-dash{max-width:calc(100vw - 28px);white-space:nowrap}
+.bt-footer-links a{min-height:40px;display:inline-flex;align-items:center}
+@media(max-width:760px){
+ .bt-head{width:100%;max-width:none}
+ .bt-progress{min-width:0;width:min(42vw,170px)}
+ .bt-dash{white-space:normal;text-align:center;line-height:1.35}
+ .bt-welcome-card{align-items:stretch}
+ .bt-welcome-card a{display:inline-flex;align-items:center;justify-content:center;min-height:40px}
+}
+@media(max-width:420px){
+ .bt-logo{font-size:16px}
+ .bt-progress{width:38vw}
+ .bt-progress small{font-size:9px}
+ .bt-welcome-card{gap:9px}
+ .bt-welcome-card strong{font-size:13px}
+ .bt-welcome-card a{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto!important}
+ *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
