@@ -55,4 +55,4 @@ function prevConsonant(){let i=items.findIndex(x=>x[0]===document.getElementById
 const lettersBar=document.createElement('section');lettersBar.className='letters';lettersBar.innerHTML=items.map((x,i)=>`<span onclick="selectConsonant(${i})">${x[0]}</span>`).join('');document.querySelector('.hero').after(lettersBar);
 const nav=document.createElement('div');nav.className='gridNav';nav.innerHTML='<button class="navBtn" onclick="prevConsonant()">← আগের</button><button class="navBtn" onclick="nextConsonant()">পরের →</button>';document.getElementById('grid').after(nav);
 document.querySelector('.letters span').classList.add('selected');
-</script></body></html>
+</script><script src="platform.js" defer></script></body></html>
