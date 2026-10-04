@@ -108,6 +108,38 @@ let progress=Math.min(100,Math.max(0,Number(localStorage.getItem(progressKey)||0
 function render(){const fill=document.getElementById('btFill'),p=document.getElementById('btPct'),d=document.getElementById('btDashPct'),s=document.getElementById('btStars');if(fill)fill.style.width=progress+'%';if(p)p.textContent=progress+'%';if(d)d.textContent=progress+'%';if(s)s.textContent=stars}
 function addProgress(n=4,bonus=1){progress=Math.min(100,progress+n);stars+=bonus;localStorage.setItem(progressKey,progress);localStorage.setItem(starsKey,stars);render()}
 function markMoreTopics(){if(file!=='index.html')return;const nodes=[...document.querySelectorAll('h1,h2,h3,h4,h5,.section-title,.sectionTitle,.title,.heading')];const heading=nodes.find(el=>/আরও\s*শেখার\s*বিষয়|আরও\s*শেখার\s*বিষয়/.test((el.textContent||'').trim()));if(!heading)return;let section=heading.closest('section')||heading.parentElement;if(section)section.classList.add('bt-more-topics')}
+function addMoreLearningButtons(){
+ if(file!=='index.html')return;
+ if(document.querySelector('.bt-more-topic-added'))return;
+ const headings=[...document.querySelectorAll('h1,h2,h3,h4,h5,.section-title,.sectionTitle,.title,.heading')];
+ const heading=headings.find(el=>/আরও\s*শেখার\s*বিষয়|আরও\s*শেখার\s*বিষয়/.test((el.textContent||'').trim()));
+ if(!heading)return;
+ const section=heading.closest('section')||heading.parentElement;
+ if(!section)return;
+ const topics=[
+  ['🔍','খুঁজুন','index.html'],
+  ['❤️','প্রিয় তালিকা','index.html'],
+  ['📝','পরীক্ষা দিই','quiz.html'],
+  ['🕌','ইসলামিক শিক্ষা','islamic.html'],
+  ['🔡','English Letters & Words','learning.html'],
+  ['🔢','সংখ্যার খেলা','numbers.html'],
+  ['⏰','সময় শিখি','learning.html'],
+  ['👨‍👩‍👧','পরিবারের সদস্য','learning.html'],
+  ['👕','পোশাকের নাম','learning.html'],
+  ['🍚','খাবারের নাম','learning.html'],
+  ['🛋️','ঘরের জিনিস','learning.html'],
+  ['🎒','স্কুলের জিনিস','learning.html'],
+  ['🐞','কীটপতঙ্গের নাম','learning.html'],
+  ['🌳','গাছের নাম','learning.html']
+ ];
+ topics.forEach(([icon,label,href])=>{
+   const a=document.createElement('a');
+   a.className='fld bt-more-topic-added';
+   a.href=href;
+   a.innerHTML='<span class="bt-more-topic-icon" aria-hidden="true">'+icon+'</span><span class="title">'+label+'</span>';
+   section.appendChild(a);
+ });
+}
 function homeUpgrade(){
  if(file!=='index.html')return;
  document.body.classList.add('bt-home');
@@ -120,6 +152,7 @@ function homeUpgrade(){
   old.parentNode.insertBefore(v,old);old.style.display='none';
  }
  markMoreTopics();
+ addMoreLearningButtons();
 }
 function shell(){
  if(file!=='index.html'){
