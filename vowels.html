@@ -21,4 +21,4 @@ function prevLetter(){let i=DATA.findIndex(d=>d[0]===document.getElementById('sc
 document.querySelectorAll('.letters span').forEach((el,i)=>el.setAttribute('onclick',`selectLetter(${i})`));
 const nav=document.createElement('div');nav.className='gridNav';nav.innerHTML='<button class="navBtn" onclick="prevLetter()">← আগের</button><button class="navBtn" onclick="nextLetter()">পরের →</button>';document.getElementById('grid').after(nav);
 document.querySelector('.letters span').classList.add('selected');
-</script></body></html>
+</script><script src="platform.js" defer></script></body></html>
