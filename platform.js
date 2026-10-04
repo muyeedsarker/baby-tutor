@@ -101,9 +101,9 @@ function bindFocusNavigation(){
  window.addEventListener('popstate',()=>clearFocus());
 }
 
-loadCss('bt-site-repair-css','site-repair.css');
 loadCss('bt-premium-buttons-css','premium-buttons.css');
 loadCss('bt-more-topics-css','more-topics.css');focusCss();
+loadCss('bt-site-repair-css','site-repair.css');
 let progress=Math.min(100,Math.max(0,Number(localStorage.getItem(progressKey)||0))),stars=Math.max(0,Number(localStorage.getItem(starsKey)||0));
 function render(){const fill=document.getElementById('btFill'),p=document.getElementById('btPct'),d=document.getElementById('btDashPct'),s=document.getElementById('btStars');if(fill)fill.style.width=progress+'%';if(p)p.textContent=progress+'%';if(d)d.textContent=progress+'%';if(s)s.textContent=stars}
 function addProgress(n=4,bonus=1){progress=Math.min(100,progress+n);stars+=bonus;localStorage.setItem(progressKey,progress);localStorage.setItem(starsKey,stars);render()}
