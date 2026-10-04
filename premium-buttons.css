@@ -122,3 +122,220 @@
  .bt-baby.b2{width:155px;height:155px;right:0;bottom:0}
  .bt-book{left:0;bottom:10px;width:68px;height:68px;font-size:34px}
 }
+
+
+/* =========================================================
+   BABY TUTOR — MASTER 3D TILE REFRESH
+   Clean white icon panels, glossy toy depth, child-friendly
+   professional tiles. Keeps the existing color language.
+   ========================================================= */
+
+:root{
+  --bt-master-purple:linear-gradient(145deg,#9b8cff 0%,#624de8 48%,#3827a7 100%);
+  --bt-master-cyan:linear-gradient(145deg,#77e7ef 0%,#19b7c9 52%,#087d91 100%);
+  --bt-master-green:linear-gradient(145deg,#78e7b0 0%,#21b573 52%,#087a4a 100%);
+  --bt-master-orange:linear-gradient(145deg,#ffd27a 0%,#ff9d4d 52%,#c65b16 100%);
+  --bt-master-pink:linear-gradient(145deg,#ff9dc4 0%,#e85b9a 52%,#b62d68 100%);
+}
+
+/* Main learning tiles: horizontal 3D app-button language */
+html body .quick a,
+html body .topic,
+html body .fld,
+html body .hxk{
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:12px!important;
+  min-height:132px!important;
+  padding:12px 14px!important;
+  border-radius:26px!important;
+  border:2px solid rgba(255,255,255,.78)!important;
+  color:#fff!important;
+  text-decoration:none!important;
+  font-weight:950!important;
+  text-shadow:0 2px 0 rgba(39,28,111,.22),0 4px 10px rgba(20,20,60,.14)!important;
+  box-shadow:
+    inset 0 3px 1px rgba(255,255,255,.48),
+    inset 0 -8px 0 rgba(0,0,0,.14),
+    0 8px 0 rgba(35,30,95,.24),
+    0 18px 30px rgba(35,30,95,.18)!important;
+  transform:translateY(0);
+  transition:transform .18s ease,filter .18s ease,box-shadow .18s ease!important;
+}
+
+html body .quick a:nth-child(5n+1),
+html body .topic:nth-child(5n+1),
+html body .fld:nth-child(5n+1),
+html body .hxk:nth-child(5n+1){background:var(--bt-master-purple)!important}
+html body .quick a:nth-child(5n+2),
+html body .topic:nth-child(5n+2),
+html body .fld:nth-child(5n+2),
+html body .hxk:nth-child(5n+2){background:var(--bt-master-cyan)!important}
+html body .quick a:nth-child(5n+3),
+html body .topic:nth-child(5n+3),
+html body .fld:nth-child(5n+3),
+html body .hxk:nth-child(5n+3){background:var(--bt-master-green)!important}
+html body .quick a:nth-child(5n+4),
+html body .topic:nth-child(5n+4),
+html body .fld:nth-child(5n+4),
+html body .hxk:nth-child(5n+4){background:var(--bt-master-pink)!important}
+html body .quick a:nth-child(5n),
+html body .topic:nth-child(5n),
+html body .fld:nth-child(5n),
+html body .hxk:nth-child(5n){background:var(--bt-master-orange)!important}
+
+html body .quick a:before,
+html body .topic:before,
+html body .fld:before,
+html body .hxk:before{
+  content:""!important;
+  position:absolute!important;
+  left:8%!important;right:8%!important;top:6px!important;height:28%!important;
+  border-radius:999px!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.46),rgba(255,255,255,0))!important;
+  pointer-events:none!important;
+  z-index:0!important;
+}
+
+html body .quick a:hover,
+html body .topic:hover,
+html body .fld:hover,
+html body .hxk:hover{
+  transform:translateY(-5px) scale(1.01)!important;
+  filter:saturate(1.08) brightness(1.04)!important;
+  box-shadow:
+    inset 0 3px 1px rgba(255,255,255,.52),
+    inset 0 -8px 0 rgba(0,0,0,.14),
+    0 11px 0 rgba(35,30,95,.22),
+    0 24px 38px rgba(35,30,95,.22)!important;
+}
+
+html body .quick a:active,
+html body .topic:active,
+html body .fld:active,
+html body .hxk:active{
+  transform:translateY(3px)!important;
+}
+
+html body .quick a img,
+html body .topic img,
+html body .fld img,
+html body .hxk img{
+  position:relative!important;
+  z-index:2!important;
+  flex:0 0 auto!important;
+  width:78px!important;
+  height:78px!important;
+  min-width:78px!important;
+  max-width:78px!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:18px!important;
+  mix-blend-mode:multiply!important;
+  filter:contrast(1.05) saturate(1.12) drop-shadow(0 8px 8px rgba(18,24,70,.22))!important;
+  box-shadow:none!important;
+  margin:0!important;
+}
+
+html body .quick a .title,
+html body .quick a strong,
+html body .topic .title,
+html body .topic strong,
+html body .fld .title,
+html body .fld strong,
+html body .hxk .title,
+html body .hxk strong{
+  position:relative!important;
+  z-index:3!important;
+  margin:0!important;
+  color:#fff!important;
+  line-height:1.15!important;
+  text-align:center!important;
+  font-size:clamp(13px,2.5vw,19px)!important;
+  font-weight:1000!important;
+}
+
+/* Image-only icon panels become clean, floating 3D objects */
+html body .quick a img[alt],
+html body .topic img[alt],
+html body .fld img[alt],
+html body .hxk img[alt]{
+  outline:none!important;
+}
+
+/* Cards across learning pages */
+html body .card,
+html body .lesson,
+html body .activity,
+html body .poem-card,
+html body .quiz-card{
+  border-radius:24px!important;
+  border:1px solid rgba(255,255,255,.9)!important;
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,.7),
+    0 10px 0 rgba(39,28,111,.08),
+    0 20px 40px rgba(35,30,95,.12)!important;
+}
+
+/* Buttons remain compact and tactile */
+html body button,
+html body .btn,
+html body .back,
+html body .listen,
+html body .action,
+html body .stop,
+html body .quiz-btn{
+  min-height:46px;
+}
+
+/* Mobile: preserve two-column learning grid but make tiles readable */
+@media(max-width:760px){
+  html body .quick a,
+  html body .topic,
+  html body .fld,
+  html body .hxk{
+    min-height:112px!important;
+    padding:9px 7px!important;
+    border-radius:21px!important;
+    gap:7px!important;
+  }
+  html body .quick a img,
+  html body .topic img,
+  html body .fld img,
+  html body .hxk img{
+    width:58px!important;height:58px!important;min-width:58px!important;max-width:58px!important;
+  }
+  html body .quick a .title,
+  html body .quick a strong,
+  html body .topic .title,
+  html body .topic strong,
+  html body .fld .title,
+  html body .fld strong,
+  html body .hxk .title,
+  html body .hxk strong{
+    font-size:clamp(11px,3vw,16px)!important;
+  }
+}
+@media(max-width:420px){
+  html body .quick a,
+  html body .topic,
+  html body .fld,
+  html body .hxk{
+    min-height:102px!important;
+    border-radius:18px!important;
+    gap:5px!important;
+    padding:7px 5px!important;
+  }
+  html body .quick a img,
+  html body .topic img,
+  html body .fld img,
+  html body .hxk img{
+    width:50px!important;height:50px!important;min-width:50px!important;max-width:50px!important;
+  }
+}
