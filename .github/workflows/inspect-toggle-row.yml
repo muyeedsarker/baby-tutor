@@ -1,0 +1,21 @@
+name: Inspect All Buttons Toggle Row
+
+on:
+  workflow_dispatch:
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect matching text and nearby markup
+        run: |
+          python - <<'PY'
+          import zipfile,re
+          z=zipfile.ZipFile("baby-tutor-v50-icon.zip")
+          s=z.read(next(n for n in z.namelist() if n.endswith("index.html"))).decode("utf-8","replace")
+          for term in ["সব বাটন এক জায়গায়","সব বাটন এক জায়গায়","টগল","toggle","এক জায়গায়"]:
+              ps=[m.start() for m in re.finditer(re.escape(term),s,re.I)]
+              print("\\nTERM",repr(term),"COUNT",len(ps))
+              for p in ps[:8]: print("POS",p,repr(s[max(0,p-800):p+1200]))
+          PY
