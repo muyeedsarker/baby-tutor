@@ -27,14 +27,16 @@ jobs:
           from pathlib import Path
           p = Path("/tmp/baby-tutor-master/index.html")
           s = p.read_text(encoding="utf-8")
-          marker = 'id="bt-hide-duplicate-header-controls"'
-          if marker not in s:
-              css = '<style id="bt-hide-duplicate-header-controls">header.hero>.hd-b{display:none!important}</style>'
-              if "</head>" not in s:
-                  raise SystemExit("Could not safely locate </head>; stopping without changing Master.")
+          import re
+          css = '<style id="bt-hide-duplicate-header-controls">header.hero .hd-b{display:none!important}</style>'
+          if "</head>" not in s:
+              raise SystemExit("Could not safely locate </head>; stopping without changing Master.")
+          if 'id="bt-hide-duplicate-header-controls"' in s:
+              s = re.sub(r'<style id="bt-hide-duplicate-header-controls">.*?</style>', css, s, count=1, flags=re.S)
+          else:
               s = s.replace("</head>", css + "</head>", 1)
-              p.write_text(s, encoding="utf-8")
-          print("Duplicate hero controls hidden; lower-row buttons preserved.")
+          p.write_text(s, encoding="utf-8")
+          print("All hero-overlay controls hidden; lower-row toolbar preserved.")
           PY
           cd /tmp/baby-tutor-master
           zip -q -FS "$GITHUB_WORKSPACE/baby-tutor-v50-icon.zip" README.txt apple-touch-icon.png favicon.png icon-192.png icon-512.png icon-maskable-512.png index.html manifest.webmanifest
