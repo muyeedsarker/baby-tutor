@@ -1,0 +1,32 @@
+name: Inspect Baby Tutor Lesson Hooks
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect relevant Master HTML text
+        run: |
+          python - <<'PY'
+          import zipfile, re
+          z = zipfile.ZipFile("baby-tutor-v50-icon.zip")
+          print("ZIP FILES:", z.namelist())
+          name = next(n for n in z.namelist() if n.endswith("index.html"))
+          s = z.read(name).decode("utf-8", "replace")
+          print("HTML LENGTH:", len(s), "LINES:", s.count("\\n")+1)
+          for term in ["শব্দ ও পড়া", "শব্দ ও পড়া", "শব্দ", "কার চিহ্ন", "ফলা", "রেফ"]:
+              print("\\nTERM:", term, "COUNT:", s.count(term))
+              start = 0
+              for i in range(min(4, s.count(term))):
+                  p = s.find(term, start)
+                  if p < 0: break
+                  print("POS:", p, "SNIP:", repr(s[max(0,p-500):p+900]))
+                  start = p + len(term)
+          PY
