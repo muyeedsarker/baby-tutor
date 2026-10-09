@@ -28,7 +28,7 @@ jobs:
           p = Path("/tmp/baby-tutor-master/index.html")
           s = p.read_text(encoding="utf-8")
           import re
-          css = '<style id="bt-hide-duplicate-header-controls">header.hero .hd-b,header.hero .hd-m,header.hero .hd-s,header.hero #hs,header.hero .hd-search,header.hero .hd-sound{display:none!important;visibility:hidden!important;pointer-events:none!important}</style>'
+          css = '<style id="bt-hide-duplicate-header-controls">html,body{max-width:100%;overflow-x:hidden!important}header.hero,.hero{max-width:100%;overflow-x:hidden!important}header.hero img,.hero img{max-width:100%!important;height:auto;object-fit:contain;display:block}header.hero .hd-b,.hd-m,.hd-s,#hs,.hd-search,.hd-sound{display:none!important;visibility:hidden!important;pointer-events:none!important}</style>'
           if "</head>" not in s:
               raise SystemExit("Could not safely locate </head>; stopping without changing Master.")
           if 'id="bt-hide-duplicate-header-controls"' in s:
