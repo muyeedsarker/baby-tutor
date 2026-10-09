@@ -1,0 +1,26 @@
+name: Inspect Baby Tutor Header Controls
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Find top control markup and styles
+        run: |
+          python - <<'PY'
+          import zipfile,re
+          z=zipfile.ZipFile("baby-tutor-v50-icon.zip")
+          s=z.read(next(n for n in z.namelist() if n.endswith("index.html"))).decode("utf-8","replace")
+          for term in ['☰','🔍','🔊','id="menu"','id="search"','id="sound"','class="menu"','class="search"','class="sound"']:
+              positions=[m.start() for m in re.finditer(re.escape(term),s)]
+              print("\\nTERM",repr(term),"COUNT",len(positions))
+              for p in positions[:5]:
+                  print("POS",p,"SNIP",repr(s[max(0,p-350):p+500]))
+          PY
