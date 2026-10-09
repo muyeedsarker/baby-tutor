@@ -1,0 +1,25 @@
+name: Inspect Header Button Selectors
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Print header selectors
+        run: |
+          python - <<'PY'
+          import zipfile,re
+          z=zipfile.ZipFile("baby-tutor-v50-icon.zip")
+          s=z.read(next(n for n in z.namelist() if n.endswith("index.html"))).decode("utf-8","replace")
+          for term in ["hd-m","hd-s","hd-b","hd-q","hd-search","function mk(","function init(){var h=document.querySelector('.hero')","class=\"hero\"","hero-art"]:
+              ps=[m.start() for m in re.finditer(re.escape(term),s)]
+              print("\\nTERM",repr(term),"COUNT",len(ps))
+              for p in ps[:4]: print("POS",p,repr(s[max(0,p-500):p+700]))
+          PY
