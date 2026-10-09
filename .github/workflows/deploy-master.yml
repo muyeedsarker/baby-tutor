@@ -21,6 +21,26 @@ jobs:
           mkdir -p /tmp/baby-tutor-master
           unzip -o baby-tutor-v50-icon.zip -d /tmp/baby-tutor-master
 
+      - name: Remove duplicate top header controls
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path("/tmp/baby-tutor-master/index.html")
+          s = p.read_text(encoding="utf-8")
+          marker = 'id="bt-hide-duplicate-header-controls"'
+          if marker not in s:
+              css = '<style id="bt-hide-duplicate-header-controls">header.hero>.hd-b{display:none!important}</style>'
+              if "</head>" not in s:
+                  raise SystemExit("Could not safely locate </head>; stopping without changing Master.")
+              s = s.replace("</head>", css + "</head>", 1)
+              p.write_text(s, encoding="utf-8")
+          print("Duplicate hero controls hidden; lower-row buttons preserved.")
+          PY
+          cd /tmp/baby-tutor-master
+          zip -q -FS "$GITHUB_WORKSPACE/baby-tutor-v50-icon.zip" README.txt apple-touch-icon.png favicon.png icon-192.png icon-512.png icon-maskable-512.png index.html manifest.webmanifest
+
+      - name: Copy Master files to Pages root
+        run: |
           cp /tmp/baby-tutor-master/index.html .
           cp /tmp/baby-tutor-master/manifest.webmanifest .
           cp /tmp/baby-tutor-master/icon-192.png .
@@ -34,7 +54,7 @@ jobs:
         run: |
           git config user.name "Baby Tutor Master Deploy"
           git config user.email "actions@users.noreply.github.com"
-          git add index.html manifest.webmanifest icon-192.png icon-512.png icon-maskable-512.png apple-touch-icon.png favicon.png README.txt
+          git add baby-tutor-v50-icon.zip index.html manifest.webmanifest icon-192.png icon-512.png icon-maskable-512.png apple-touch-icon.png favicon.png README.txt
           if git diff --cached --quiet; then
             echo "No Master file changes."
             exit 0
